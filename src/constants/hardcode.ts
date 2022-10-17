@@ -152,12 +152,12 @@ export const sorts: Sort[] = [
   },
   {
     name: "Сначала популярные",
-    value: "1",
+    value: "ratings",
     ordered: true,
   },
   {
     name: "Новинки",
-    value: "1",
+    value: "time_published",
     ordered: true,
   },
 ];
