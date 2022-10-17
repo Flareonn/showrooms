@@ -32,7 +32,11 @@ type FlatCategories = Record<
 interface Filter {
   placeholder: string;
   field: string;
-  items: string[];
+  id: number;
+  items: {
+    name: string;
+    value: string | number;
+  }[];
 }
 
 interface Sort {
