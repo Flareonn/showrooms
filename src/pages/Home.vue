@@ -1,28 +1,29 @@
 <script setup lang="ts">
 import "swiper/css";
 import { ref, reactive } from "vue";
+import { useRoute } from "vue-router";
 import { useStoreCategories } from "@/store/categories";
 import { slides } from "@/constants/hardcode";
+import { appendQuery } from "@/mixins/router";
 
 import { SwiperOptions, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { useRoute, useRouter } from "vue-router";
 
+import type { BasePopup } from "@/components/globals";
 import InputSearch from "@/components/controls/InputSearch.vue";
 import AccordionFilter from "@/components/controls/AccordionFilter.vue";
-import type { BasePopup } from "@/components/globals";
 import DropdownSort from "@/components/controls/DropdownSort.vue";
 import ProductsList from "@/components/product/ProductsList.vue";
 
-const controls = reactive({
-  search: "",
-});
+const route = useRoute();
+const { categories } = useStoreCategories();
 
 type Slider = {
   settings: SwiperOptions;
   slides: Slide[];
 };
 
+const searchControl = ref(route.query.search?.toString() || "");
 const popup = ref<typeof BasePopup | null>(null);
 const slider = reactive<Slider>({
   settings: {
@@ -49,16 +50,6 @@ const slider = reactive<Slider>({
   },
   slides,
 });
-
-const { categories } = useStoreCategories();
-
-const router = useRouter();
-const route = useRoute();
-const appendQuery = (params: Record<string, string | number>) => {
-  router.push({
-    query: Object.assign({}, route.query, params),
-  });
-};
 </script>
 
 <template>
@@ -112,7 +103,7 @@ const appendQuery = (params: Record<string, string | number>) => {
           <h3>Explore our Products</h3>
           <input-search
             placeholder="Поиск"
-            :initial-input="controls.search"
+            :initial-input="searchControl"
             @change="(search) => appendQuery({ search })"
           />
         </div>
@@ -121,8 +112,7 @@ const appendQuery = (params: Record<string, string | number>) => {
             <accordion-filter id="accordion-filter-1" />
             <category-list
               :categories="categories"
-              @click="(categories__id: number) => appendQuery({ categories__id })"
-              type="filter"
+              type="link"
               class="list-unstyled d-none d-md-block"
             />
           </div>

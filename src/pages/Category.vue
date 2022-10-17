@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import { reactive, ref, watchEffect, computed, inject } from "vue";
+import { ref, watchEffect, computed, inject } from "vue";
 
 import { useStoreCategories } from "@/store/categories";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { AxiosStatic } from "axios";
 
 import AccordionFilter from "@/components/controls/AccordionFilter.vue";
 import InputSearch from "@/components/controls/InputSearch.vue";
-import ProductCard from "@/components/product/ProductCard.vue";
 import DropdownSort from "@/components/controls/DropdownSort.vue";
+import ProductsList from "@/components/product/ProductsList.vue";
+import { appendQuery } from "@/mixins/router";
 
 const route = useRoute();
 const storeCategories = useStoreCategories();
@@ -35,20 +36,19 @@ const products = ref<ResponseProducts>({
   count_pages: 0,
   results: [],
 });
-const controls = reactive({
-  search: "",
-});
+const searchControl = ref(route.query.search?.toString() || "");
 
-const categories = computed(() => {
+const categoryId = computed(() => {
   const id = route.params.id.at(-1);
-  if (id && storeCategories.map[+id]) {
-    return storeCategories.map[+id].category_children;
+  if (id) {
+    return +id;
   }
-  return [];
+  useRouter().back();
+  return 0;
 });
 watchEffect(async () => {
   currentCategory.value = (
-    await axios.get(`/categories/${route.params.id.at(-1)}/`)
+    await axios.get(`/categories/${categoryId.value}/`)
   ).data;
 });
 </script>
@@ -86,12 +86,13 @@ watchEffect(async () => {
           <input-search
             class="d-flex d-md-none mb-3"
             placeholder="Поиск"
-            :initial-input="controls.search"
+            :initial-input="searchControl"
+            @change="(search) => appendQuery({ search })"
           />
           <accordion-filter id="accordion-filter-1" />
           <category-list
-            :categories="categories"
-            type="filter"
+            :categories="storeCategories.map[categoryId].category_children"
+            type="link"
             class="list-unstyled d-none d-md-block"
           />
         </div>
@@ -104,7 +105,8 @@ watchEffect(async () => {
             >
               <input-search
                 placeholder="Поиск"
-                :initial-input="controls.search"
+                :initial-input="searchControl"
+                @change="(search) => appendQuery({ search })"
               />
             </div>
             <div
@@ -115,15 +117,7 @@ watchEffect(async () => {
             <!-- Content Action End //-->
           </div>
           <!-- Product List Start //-->
-          <div class="product-list row">
-            <div
-              v-for="product in products.results"
-              :key="product.id"
-              class="col-6 col-lg-4"
-            >
-              <product-card v-bind="product" />
-            </div>
-          </div>
+          <products-list />
           <!-- Product List End //-->
 
           <!-- Pagination Start //-->
