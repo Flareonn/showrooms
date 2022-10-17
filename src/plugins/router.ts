@@ -19,6 +19,10 @@ export const routes: Readonly<RouteRecordRaw[]> = [
   },
 ];
 
+export const routeNames: Record<string, string> = Object.fromEntries(
+  routes.map((route) => [route.name?.toString().toLowerCase(), route.name])
+);
+
 const Router = createRouter({
   history: createWebHistory(),
   routes,
