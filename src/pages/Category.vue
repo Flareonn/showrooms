@@ -46,6 +46,9 @@ const categoryId = computed(() => {
   useRouter().back();
   return 0;
 });
+const categories = computed(
+  () => storeCategories.map[categoryId.value].category_children
+);
 watchEffect(async () => {
   currentCategory.value = (
     await axios.get(`/categories/${categoryId.value}/`)
@@ -89,9 +92,12 @@ watchEffect(async () => {
             :initial-input="searchControl"
             @change="(search) => appendQuery({ search })"
           />
-          <accordion-filter id="accordion-filter-1" />
+          <accordion-filter
+            id="accordion-filter-1"
+            :open="!categories.length"
+          />
           <category-list
-            :categories="storeCategories.map[categoryId].category_children"
+            :categories="categories"
             type="link"
             class="list-unstyled d-none d-md-block"
           />
