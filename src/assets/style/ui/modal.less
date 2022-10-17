@@ -1,0 +1,345 @@
+.auth-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1041;
+  background-color: #ffffff;
+  min-width: 792px;
+  box-sizing: border-box;
+  padding-left: 350px;
+  height: 544px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #c4c4c4;
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    min-width: 600px;
+    max-width: 600px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-left: 0;
+
+    .modal-close {
+      color: #ffffff;
+    }
+  }
+
+  @media (min-width: 320px) and (max-width: 540px) {
+    min-width: auto;
+    left: 20px;
+    right: 20px;
+    transform: translateY(-50%);
+    padding-left: 0;
+  }
+
+  .auth-modal-body {
+    background-color: #ffffff;
+    padding: 32px;
+
+    @media (min-width: 320px) and (max-width: 1024px) {
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: 0;
+    }
+
+    label {
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 19px;
+      color: #c4c4c4;
+      display: flex;
+      align-items: center;
+
+      a {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 19px;
+        color: #c4c4c4;
+        text-decoration: underline;
+
+        @media (min-width: 320px) and (max-width: 540px) {
+          font-size: 12px;
+          line-height: 16px;
+        }
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      input {
+        margin-right: 8px;
+      }
+
+      @media (min-width: 320px) and (max-width: 540px) {
+        font-size: 12px;
+        line-height: 16px;
+      }
+    }
+
+    .auth-modal-head {
+      margin-bottom: 72px;
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      position: relative;
+
+      @media (min-width: 768px) and (max-width: 1024px) {
+        margin-bottom: 42px;
+      }
+
+      &.nav {
+        flex-direction: row;
+        margin-left: 30px;
+      }
+
+      a {
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 37px;
+        text-decoration: none;
+        color: #525252;
+        order: 1;
+        margin-right: 30px;
+      }
+
+      a:not(.active) {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 22px;
+        text-decoration-line: underline;
+        color: #a4a4a4;
+        order: 2;
+      }
+    }
+
+    .auth-modal-content {
+      a {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 19px;
+        color: #909090;
+
+        @media (min-width: 320px) and (max-width: 540px) {
+          font-size: 12px;
+          line-height: 16px;
+        }
+      }
+
+      input:not([type="checkbox"]) {
+        width: 100%;
+        background-color: #ffffff;
+        border: 1px solid #c4c4c4;
+        box-sizing: border-box;
+        padding: 11px 24px 10px;
+
+        &::placeholder {
+          font-family: "Roboto";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 24px;
+          color: #c4c4c4;
+        }
+      }
+
+      @media (min-width: 320px) and (max-width: 540px) {
+        margin-top: 60px;
+      }
+
+      @media (min-width: 768px) and (max-width: 1024px) {
+        margin-top: 40px;
+      }
+    }
+
+    &::before {
+      z-index: 13;
+      content: "";
+      background-image: url("@/static/img/02.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 350px;
+      height: 544px;
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      @media (min-width: 320px) and (max-width: 1024px) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-size: cover;
+        background-position: top right;
+      }
+
+      @media (min-width: 320px) and (max-width: 540px) {
+        background-image: url("@/static/img/02_mobile.jpg");
+        height: 158px;
+      }
+
+      @media (min-width: 768px) and (max-width: 1024px) {
+        background-image: url("@/static/img/02_tablet.jpg");
+        height: 110px;
+      }
+    }
+
+    .tab-list {
+      position: relative;
+      display: flex;
+      justify-content: center;
+
+      .tab-pane {
+        content-visibility: hidden;
+        &.active {
+          content-visibility: visible;
+          width: 100%;
+
+          @media (min-width: 320px) and (max-width: 540px) {
+            padding-left: 32px;
+            padding-right: 32px;
+          }
+
+          @media (min-width: 768px) and (max-width: 1024px) {
+            max-width: 375px;
+            padding-left: 0;
+            padding-right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .auth-modal-footer {
+    margin-top: 79px;
+    i {
+      color: #c4c4c4;
+    }
+  }
+}
+
+.modal-open {
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    z-index: 1040;
+    background-color: #00000060;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .modal-close {
+    display: flex;
+  }
+}
+
+.modal-close {
+  background-color: transparent;
+  border-width: 0;
+  font-size: 32px;
+  position: absolute;
+  left: 35px;
+  top: 16px;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 14;
+  color: #909090;
+  font-weight: lighter;
+  cursor: pointer;
+
+  @media (min-width: 320px) and (max-width: 540px) {
+    left: 24px;
+  }
+}
+
+.map-modal {
+  position: fixed;
+  top: 50%;
+  left: 40px;
+  right: 40px;
+  transform: translateY(-50%);
+  z-index: 1041;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  height: 640px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #c4c4c4;
+
+  @media (min-width: 320px) and (max-width: 540px) {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: none;
+    height: auto;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    left: 20px;
+    right: 20px;
+  }
+
+  .product-filter {
+    margin-top: 54px;
+
+    @media (min-width: 320px) and (max-width: 540px) {
+      margin-top: 0;
+      margin-bottom: 17px;
+      position: absolute;
+      left: 0;
+      top: calc(100% - 70px);
+      z-index: 10;
+      background-color: #ffffff;
+      width: 100%;
+      border-radius: 15px 15px 0px 0px;
+
+      .filter-touch {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+
+.comment-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 70vw;
+  z-index: 5000;
+  transform: translate(-50%, -50%);
+  .modal-close {
+    color: white;
+    text-shadow: 1px 1px 4px black;
+    left: -35px;
+    top: -35px;
+  }
+}

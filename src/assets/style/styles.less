@@ -1,0 +1,156 @@
+@import "icons";
+@import "layout";
+@import "pages";
+@import "components";
+@import "ui";
+// Sticky footer
+html,
+body {
+  height: 100%;
+}
+
+body,
+#__nuxt {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.page-wrapper {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex-shrink: 0;
+}
+
+.container-fluid {
+  padding-left: 40px;
+  padding-right: 40px;
+
+  @media (min-width: 320px) and (max-width: 767px) {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+.bg-none {
+  background-color: transparent !important;
+}
+
+// Links
+a:focus,
+a:focus-within {
+  outline: none;
+  box-shadow: none;
+}
+button:focus,
+button:focus-within {
+  outline: none;
+  box-shadow: none;
+}
+.btn:focus,
+.btn:focus-within {
+  outline: none;
+  box-shadow: none;
+}
+
+a {
+  transition: color 0.25s ease-in-out;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #7b7b7b;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #525252;
+}
+
+// Images
+// Responsive images (ensure images don't scale beyond their parents)
+img,
+figure {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+svg {
+  max-width: 100%;
+}
+
+// Responsive iframes
+iframe {
+  width: 100%;
+}
+
+// Heading & Typography
+h1 {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 62px;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    font-size: 40px;
+    line-height: 44px;
+  }
+
+  @media (min-width: 320px) and (max-width: 767px) {
+    font-size: 28px;
+    line-height: 38px;
+  }
+}
+
+h2 {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+  color: #000000;
+
+  @media (min-width: 320px) and (max-width: 1024px) {
+    font-size: 24px;
+    line-height: 29px;
+  }
+}
+
+h3 {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+
+  @media (min-width: 320px) and (max-width: 767px) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+p {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  color: #000000;
+
+  @media (min-width: 320px) and (max-width: 540px) {
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

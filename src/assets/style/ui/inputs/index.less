@@ -1,0 +1,52 @@
+@import 'search.less';
+@import 'checkbox.less';
+@import 'password.less';
+
+input:active,
+input:focus-visible,
+input:focus {
+  outline: none;
+}
+
+.editable-field {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #a4a4a4;
+  max-width: 306px;
+  padding-left: 24px;
+  padding-bottom: 4px;
+
+  @media (min-width: 320px) and (max-width: 767px) {
+    max-width: 100%;
+  }
+
+  & + .editable-field {
+    margin-top: 32px;
+  }
+
+  input {
+    border-width: 0;
+    width: 100%;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000000;
+
+    &::placeholder {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 22px;
+      color: #595959;
+    }
+  }
+
+  button {
+    background-color: transparent;
+    border-width: 0;
+    padding: 0;
+  }
+}

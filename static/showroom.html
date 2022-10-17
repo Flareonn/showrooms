@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showroom page</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+    <link rel="stylesheet/less" type="text/css" href="less/styles.less" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/4.1.2/less.min.js"></script>
+</head>
+<body>
+    <!-- Page Wrapper Start \\-->
+    <main class="page-wrapper">
+        <!-- Header Start \\-->
+        <header class="py-2">
+            <div id="navbarNav" class="offcanvas offcanvas-start" aria-hidden="true">
+                <div class="offcanvas-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="list-unstyled">
+                        <li><a href="#">Обо мне</a></li>
+                        <li><a href="#">Блог</a></li>
+                    </ul>
+                    <hr>
+                    <ul class="list-unstyled category-list" id="category-list">
+                        <li class="has-subcategory">
+                            <a href="#category01" data-bs-toggle="collapse" aria-expanded="false" class="collapsed">Категория</a>
+                            <ul class="collapse" data-bs-parent="#category-list" id="category01" class="collapse">
+                                <li><a href="#">Подкатегория</a></li>
+                                <li><a href="#">Подкатегория</a></li>
+                                <li><a href="#">Подкатегория</a></li>
+                                <li><a href="#">Подкатегория</a></li>
+                                <li><a href="#">Подкатегория</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-subcategory">
+                            <a href="#category02" data-bs-toggle="collapse" aria-expanded="false" class="collapsed">Категория</a>
+                            <ul class="collapse" data-bs-parent="#category-list" id="category02" class="collapse">
+                                <li><a href="#">Подкатегория</a></li>
+                                <li><a href="#">Подкатегория</a></li>
+                                <li><a href="#">Подкатегория</a></li>
+                                <li><a href="#">Подкатегория</a></li>
+                                <li><a href="#">Подкатегория</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Категория</a></li>
+                        <li><a href="#">Категория</a></li>
+                        <li><a href="#">Категория</a></li>
+                        <li><a href="#">Категория</a></li>
+                    </ul>
+                    <hr>
+                    <div class="d-flex align-items-center mt-4">
+                        <a href="#" class="text-dark text-decoration-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 11.3701C16.1234 12.2023 15.9812 13.0523 15.5937 13.7991C15.2062 14.5459 14.5931 15.1515 13.8416 15.5297C13.0901 15.908 12.2384 16.0397 11.4077 15.906C10.5771 15.7723 9.80971 15.3801 9.21479 14.7852C8.61987 14.1903 8.22768 13.4229 8.09402 12.5923C7.96035 11.7616 8.09202 10.91 8.47028 10.1584C8.84854 9.40691 9.45414 8.7938 10.2009 8.4063C10.9477 8.0188 11.7977 7.87665 12.63 8.00006C13.4789 8.12594 14.2648 8.52152 14.8716 9.12836C15.4785 9.73521 15.8741 10.5211 16 11.3701Z" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M17.5 6.5H17.5095" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="ms-3 text-dark text-decoration-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M1.59268 10.4533C7.81178 7.68218 11.9588 5.85527 14.0338 4.9726C19.9583 2.4524 21.1894 2.01461 21.9917 2.00015C22.1682 1.99697 22.5628 2.0417 22.8184 2.25382C23.0342 2.43292 23.0936 2.67487 23.122 2.84468C23.1504 3.01449 23.1858 3.40133 23.1577 3.70359C22.8367 7.15356 21.4475 15.5257 20.7407 19.3897C20.4417 21.0247 19.8529 21.573 19.2828 21.6266C18.0439 21.7432 17.1032 20.7893 15.9033 19.9848C14.0257 18.7261 12.965 17.9425 11.1424 16.7142C9.03614 15.2946 10.4015 14.5144 11.6019 13.2393C11.916 12.9056 17.3745 7.82791 17.4802 7.36728C17.4934 7.30967 17.5056 7.09493 17.3809 6.98154C17.2562 6.86815 17.0721 6.90692 16.9392 6.93776C16.7509 6.98147 13.7514 9.00909 7.94068 13.0206C7.08928 13.6185 6.3181 13.9099 5.62716 13.8946C4.86545 13.8778 3.40022 13.4541 2.31098 13.092C0.974979 12.6479 -0.0868487 12.413 0.00561267 11.6587C0.0537722 11.2658 0.582794 10.864 1.59268 10.4533Z" fill="#050505"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>      
+            </div>
+            <div class="d-flex flex-wrap align-items-center justify-content-between container">
+                <button type="button" class="navbar-toggler d-flex d-md-none" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="1" y1="1" x2="19" y2="1" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="1" y1="7" x2="19" y2="7" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="1" y1="13" x2="19" y2="13" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                    </svg>                        
+                </button>
+
+                <div class="d-none d-md-flex align-items-center col-auto mb-2 mb-md-0">
+                    <a href="#" class="text-dark text-decoration-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 11.3701C16.1234 12.2023 15.9812 13.0523 15.5937 13.7991C15.2062 14.5459 14.5931 15.1515 13.8416 15.5297C13.0901 15.908 12.2384 16.0397 11.4077 15.906C10.5771 15.7723 9.80971 15.3801 9.21479 14.7852C8.61987 14.1903 8.22768 13.4229 8.09402 12.5923C7.96035 11.7616 8.09202 10.91 8.47028 10.1584C8.84854 9.40691 9.45414 8.7938 10.2009 8.4063C10.9477 8.0188 11.7977 7.87665 12.63 8.00006C13.4789 8.12594 14.2648 8.52152 14.8716 9.12836C15.4785 9.73521 15.8741 10.5211 16 11.3701Z" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M17.5 6.5H17.5095" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="ms-3 text-dark text-decoration-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.59268 10.4533C7.81178 7.68218 11.9588 5.85527 14.0338 4.9726C19.9583 2.4524 21.1894 2.01461 21.9917 2.00015C22.1682 1.99697 22.5628 2.0417 22.8184 2.25382C23.0342 2.43292 23.0936 2.67487 23.122 2.84468C23.1504 3.01449 23.1858 3.40133 23.1577 3.70359C22.8367 7.15356 21.4475 15.5257 20.7407 19.3897C20.4417 21.0247 19.8529 21.573 19.2828 21.6266C18.0439 21.7432 17.1032 20.7893 15.9033 19.9848C14.0257 18.7261 12.965 17.9425 11.1424 16.7142C9.03614 15.2946 10.4015 14.5144 11.6019 13.2393C11.916 12.9056 17.3745 7.82791 17.4802 7.36728C17.4934 7.30967 17.5056 7.09493 17.3809 6.98154C17.2562 6.86815 17.0721 6.90692 16.9392 6.93776C16.7509 6.98147 13.7514 9.00909 7.94068 13.0206C7.08928 13.6185 6.3181 13.9099 5.62716 13.8946C4.86545 13.8778 3.40022 13.4541 2.31098 13.092C0.974979 12.6479 -0.0868487 12.413 0.00561267 11.6587C0.0537722 11.2658 0.582794 10.864 1.59268 10.4533Z" fill="#050505"/>
+                        </svg>
+                    </a>
+                </div>
+          
+                <ul class="nav col-12 col-md-auto mb-2 mb-md-0 d-none d-md-flex">
+                  <li><a href="#" class="nav-link px-2 link-secondary">Главная</a></li>
+                  <li><a href="#" class="nav-link px-2 link-dark">Обо мне</a></li>
+                  <li><a href="#" class="nav-link px-2 link-dark">Блог</a></li>
+                </ul>
+
+                <div class="d-block d-md-none current-page">
+                    Главная
+                </div>
+          
+                <div class="col-auto">
+                  <a data-toggle="modal" class="btn btn-link p-0" href="#authModal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 22V19.6667C22 18.429 21.4732 17.242 20.5355 16.3668C19.5979 15.4917 18.3261 15 17 15H7C5.67392 15 4.40215 15.4917 3.46447 16.3668C2.52678 17.242 2 18.429 2 19.6667V22" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 11C14.7614 11 17 8.98528 17 6.5C17 4.01472 14.7614 2 12 2C9.23858 2 7 4.01472 7 6.5C7 8.98528 9.23858 11 12 11Z" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <!-- Header End \\-->
+        
+        <!-- Breadcrumbs Start \\-->
+        <div class="breadcrumbs">
+            <div class="container">
+                <ul>
+                    <li><a href="#">Главная</a></li>
+                    <li><span>Подборка</span></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Breadcrumbs End \\-->
+        
+        <!-- Showroom Content Start \\-->
+        <div class="showroom-wrapper">
+            <div class="container">
+                <div class="grid">
+                    <div class="one">
+                        <div class="showroom-image">
+                            <div class="slider product-detail-img-nav position-relative">
+                                <div class="product-detail-mini-img overflow-hidden">
+                                    <img class="img-fluid w-100" src="https://html.cwsthemes.com/liami/assets/images/resources/product-detail-mini-img1-1.jpg" alt="">
+                                </div>
+                                <div class="product-detail-mini-img overflow-hidden">
+                                    <img class="img-fluid w-100" src="https://html.cwsthemes.com/liami/assets/images/resources/product-detail-mini-img1-2.jpg" alt="">
+                                </div>
+                                <div class="product-detail-mini-img overflow-hidden">
+                                    <img class="img-fluid w-100" src="https://html.cwsthemes.com/liami/assets/images/resources/product-detail-mini-img1-3.jpg" alt="">
+                                </div>
+                                <div class="product-detail-mini-img overflow-hidden">
+                                    <img class="img-fluid w-100" src="https://html.cwsthemes.com/liami/assets/images/resources/product-detail-mini-img1-4.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="slider product-detail-big-imgs position-relative">
+                                <div class="product-detail-big-img overflow-hidden">
+                                    <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-detail-big-img1-1.jpg" alt="">
+                                </div>
+                                <div class="product-detail-big-img overflow-hidden">
+                                    <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-detail-big-img1-2.jpg" alt="">
+                                </div>
+                                <div class="product-detail-big-img overflow-hidden">
+                                    <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-detail-big-img1-3.jpg" alt="">
+                                </div>
+                                <div class="product-detail-big-img overflow-hidden">
+                                    <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-detail-big-img1-4.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="showroom-stats d-flex align-items-center justify-content-between">
+                            <div class="showroom-rating">
+                                <div class="rate">
+                                    <span></span>
+                                    <span></span>
+                                    <span class="fill"></span>
+                                    <span class="fill"></span>
+                                    <span class="fill"></span>
+                                </div>
+                                <div class="rating">5</div>
+                            </div>
+                            <div class="showroom-comments align-items-center">
+                                <div class="comment-label">Комментарии</div>
+                                <div class="comment-count">13</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="two">
+                        <div class="showroom-title"><h2>Denim Jacket</h2></div>
+                        <div class="showroom-categories">
+                            <ul>
+                                <li><a href="#">Категория</a></li>
+                                <li><a href="#">Категория</a></li>
+                                <li><a href="#">Категория</a></li>
+                                <li><a href="#">Категория</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="three">
+                        <div class="showroom-description">
+                            <p>Habitasse per feugiat aliquam luctus accumsan curae, suspendisse aliquam taciti eros neque, aenean sit iaculis risus commodo ut sociosqu rhoncus potenti tristique placerat sit tempus, duis erat feugiat cras sociosqu porta ut praesent, fermentum donec convallis tellus vulputate duis nibh rhoncus phasellus dui massa nisl.</p>
+                        </div>
+                        <div class="showroom-favorite">
+                            <button>Добавить в избранное</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Showroom Content  End \\-->
+        
+        <!-- Content Start \\-->
+        <div class="container">
+            <div class="content">
+                <h3 class="mb-5">Product List</h3>
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Showroom Product List Start //-->
+                        <div class="showroom-product-list row">
+                            <div class="col-6 col-md-4 col-lg-3">
+                                <div class="product-item">
+                                    <div class="product-image">
+                                        <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-9.jpg" alt="">
+                                        <div class="product-info">
+                                            <div class="product-subtitle">Night Summer Dresses</div>
+                                            <div class="product-except">
+                                                Trying something new is never pretty. But it is pretty awesome. Because no matter how many times.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-title">Cotton Baseball Cap</div>
+                                    <a href="#" class="stretched-link"></a>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-3">
+                                <div class="product-item">
+                                    <div class="product-image">
+                                        <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-11.jpg" alt="">
+                                        <div class="product-info">
+                                            <div class="product-subtitle">Night Summer Dresses</div>
+                                            <div class="product-except">
+                                                Trying something new is never pretty. But it is pretty awesome. Because no matter how many times.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-title">Grown cotton T-shirt</div>
+                                    <a href="#" class="stretched-link"></a>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-3">
+                                <div class="product-item">
+                                    <div class="product-image">
+                                        <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-13.jpg" alt="">
+                                        <div class="product-info">
+                                            <div class="product-subtitle">Night Summer Dresses</div>
+                                            <div class="product-except">
+                                                Trying something new is never pretty. But it is pretty awesome. Because no matter how many times.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-title">Long strappy dress</div>
+                                    <a href="#" class="stretched-link"></a>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-3">
+                                <div class="product-item">
+                                    <div class="product-image">
+                                        <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-15.jpg" alt="">
+                                        <div class="product-info">
+                                            <div class="product-subtitle">Night Summer Dresses</div>
+                                            <div class="product-except">
+                                                Trying something new is never pretty. But it is pretty awesome. Because no matter how many times.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-title">Jacket with pouch pockett</div>
+                                    <a href="#" class="stretched-link"></a>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-3">
+                                <div class="product-item">
+                                    <div class="product-image">
+                                        <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-16.jpg" alt="">
+                                        <div class="product-info">
+                                            <div class="product-subtitle">Night Summer Dresses</div>
+                                            <div class="product-except">
+                                                Trying something new is never pretty. But it is pretty awesome. Because no matter how many times.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-title">Long Fit T-shirt</div>
+                                    <a href="#" class="stretched-link"></a>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-3">
+                                <div class="product-item">
+                                    <div class="product-image">
+                                        <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-10.jpg" alt="">
+                                        <div class="product-info">
+                                            <div class="product-subtitle">Night Summer Dresses</div>
+                                            <div class="product-except">
+                                                Trying something new is never pretty. But it is pretty awesome. Because no matter how many times.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-title">Jersey Graphic Tee Dolce</div>
+                                    <a href="#" class="stretched-link"></a>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-3">
+                                <div class="product-item">
+                                    <div class="product-image">
+                                        <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-detail-big-img1-1.jpg" alt="">
+                                        <div class="product-info">
+                                            <div class="product-subtitle">Night Summer Dresses</div>
+                                            <div class="product-except">
+                                                Trying something new is never pretty. But it is pretty awesome. Because no matter how many times.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-title">New Summer Collection</div>
+                                    <a href="#" class="stretched-link"></a>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-3">
+                                <div class="product-item">
+                                    <div class="product-image">
+                                        <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-14.jpg" alt="">
+                                        <div class="product-info">
+                                            <div class="product-subtitle">Night Summer Dresses</div>
+                                            <div class="product-except">
+                                                Trying something new is never pretty. But it is pretty awesome. Because no matter how many times.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-title">Grown cotton T-shirt</div>
+                                    <a href="#" class="stretched-link"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Showroom Product List End //-->
+
+                        <!-- Pagination Start //-->
+                        <ul class="pagination">
+                            <!-- <li class="disabled"><span>Предыдущая</span></li> -->
+                            <li><span>1</span></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">Следующая</a></li>
+                        </ul>
+                        <!-- Pagination End //-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Showroom Contacts Start \\-->
+        <div class="showroom-contacts-wrapper">
+            <h3 class="container">Showroom contacts</h3>
+            <div class="showroom-contacts">
+                <div class="contacts-map">
+                    <iframe src="https://yandex.kz/map-widget/v1/-/CCUBRGVNwB" width="100%" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
+                </div>
+                <div class="contacts-info">
+                    <div class="showroom-title">online store</div>
+                    <div class="showroom-description">
+                        <p>Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Suspendisse potenti. Sed egestas, ante et vulputate volutpat, uctus metus libero eu augue.</p>
+                    </div>
+                    <div class="showroom-links">
+                        <ul class="list-unstyled mb-0">
+                            <li><a href="tel:+">+ 7 (123) 456 78 90</a></li>
+                        </ul>
+                    </div>
+                    <div class="showroom-social">
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="#">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M16 11.3701C16.1234 12.2023 15.9812 13.0523 15.5937 13.7991C15.2062 14.5459 14.5931 15.1515 13.8416 15.5297C13.0901 15.908 12.2384 16.0397 11.4077 15.906C10.5771 15.7723 9.80971 15.3801 9.21479 14.7852C8.61987 14.1903 8.22768 13.4229 8.09402 12.5923C7.96035 11.7616 8.09202 10.91 8.47028 10.1584C8.84854 9.40691 9.45414 8.7938 10.2009 8.4063C10.9477 8.0188 11.7977 7.87665 12.63 8.00006C13.4789 8.12594 14.2648 8.52152 14.8716 9.12836C15.4785 9.73521 15.8741 10.5211 16 11.3701Z" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M17.5 6.5H17.5095" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M18.6923 1H15.2308C13.7007 1 12.2332 1.57467 11.1513 2.5976C10.0694 3.62053 9.46154 5.00791 9.46154 6.45455V9.72727H6V14.0909H9.46154V22.8182H14.0769V14.0909H17.5385L18.6923 9.72727H14.0769V6.45455C14.0769 6.16522 14.1985 5.88774 14.4149 5.68316C14.6313 5.47857 14.9248 5.36364 15.2308 5.36364H18.6923V1Z" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.59268 10.4533C7.81178 7.68218 11.9588 5.85527 14.0338 4.9726C19.9583 2.4524 21.1894 2.01461 21.9917 2.00015C22.1682 1.99697 22.5628 2.0417 22.8184 2.25382C23.0342 2.43292 23.0936 2.67487 23.122 2.84468C23.1504 3.01449 23.1858 3.40133 23.1577 3.70359C22.8367 7.15356 21.4475 15.5257 20.7407 19.3897C20.4417 21.0247 19.8529 21.573 19.2828 21.6266C18.0439 21.7432 17.1032 20.7893 15.9033 19.9848C14.0257 18.7261 12.965 17.9425 11.1424 16.7142C9.03614 15.2946 10.4015 14.5144 11.6019 13.2393C11.916 12.9056 17.3745 7.82791 17.4802 7.36728C17.4934 7.30967 17.5056 7.09493 17.3809 6.98154C17.2562 6.86815 17.0721 6.90692 16.9392 6.93776C16.7509 6.98147 13.7514 9.00909 7.94068 13.0206C7.08928 13.6185 6.3181 13.9099 5.62716 13.8946C4.86545 13.8778 3.40022 13.4541 2.31098 13.092C0.974979 12.6479 -0.0868487 12.413 0.00561267 11.6587C0.0537722 11.2658 0.582794 10.864 1.59268 10.4533Z" fill="#050505"/>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                        <a href="#" class="showroom-page">Перейти на официальную страницу</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Showroom Contacts End \\-->
+
+        <div class="container">
+            <!-- Related Start \\-->
+            <div class="related-content">
+                <h3 class="mb-4">Related Products</h3>
+                <div class="related-list">
+                    <div class="related-item">
+                        <div class="related-image">
+                            <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-16.jpg" alt="">
+                        </div>
+                        <div class="related-title">Long Fit T-shirt</div>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                    <div class="related-item">
+                        <div class="related-image">
+                            <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-14.jpg" alt="">
+                        </div>
+                        <div class="related-title">Grown cotton T-shirt</div>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                    <div class="related-item">
+                        <div class="related-image">
+                            <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-detail-big-img1-1.jpg" alt="">
+                        </div>
+                        <div class="related-title">New Summer Collection</div>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                    <div class="related-item">
+                        <div class="related-image">
+                            <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-15.jpg" alt="">
+                        </div>
+                        <div class="related-title">Jacket with pouch pockett</div>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                    <div class="related-item">
+                        <div class="related-image">
+                            <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-10.jpg" alt="">
+                        </div>
+                        <div class="related-title">Jersey Graphic Tee Dolce</div>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                    <div class="related-item">
+                        <div class="related-image">
+                            <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-9.jpg" alt="">
+                        </div>
+                        <div class="related-title">Cotton Baseball Cap</div>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                    <div class="related-item">
+                        <div class="related-image">
+                            <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-13.jpg" alt="">
+                        </div>
+                        <div class="related-title">Название подборки</div>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                    <div class="related-item">
+                        <div class="related-image">
+                            <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-11.jpg" alt="">
+                        </div>
+                        <div class="related-title">Название подборки</div>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Related End \\-->
+        </div>
+        <!-- Content End \\-->
+
+        <!-- Comments Start \\-->
+        <div class="comment-wrapper">
+            <div class="container">
+                <div class="comment-header">
+                    <h3>Comments</h3>
+                    <button class="comment-anchor">Оставить комментарий</button>
+                </div>
+                <!-- Comments Start //-->
+                <div class="comment-list">
+                    <ul>
+                        <!-- comment item -->
+                        <li class="comment-row">
+                            <div class="comment-item">
+                                <div class="comment-avatar"></div>
+                                <div class="comment-info">
+                                    <div class="comment-header">
+                                        <div class="d-flex flex-column flex-md-row">
+                                            <div class="comment-author">Логин пользователя</div>
+                                            <div class="comment-date">10:20 6 июля 2021</div>
+                                        </div>
+                                        <ul class="comment-option">
+                                            <li><button class="option-edit"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.8603 4.71026C17.0855 4.48508 17.3528 4.30646 17.647 4.18459C17.9413 4.06272 18.2566 4 18.575 4C18.8935 4 19.2088 4.06272 19.503 4.18459C19.7972 4.30646 20.0646 4.48508 20.2897 4.71026C20.5149 4.93543 20.6935 5.20276 20.8154 5.49697C20.9373 5.79118 21 6.10651 21 6.42497C21 6.74342 20.9373 7.05875 20.8154 7.35296C20.6935 7.64717 20.5149 7.9145 20.2897 8.13968L8.71545 19.714L4 21L5.28603 16.2845L11.0732 10.4974L16.8603 4.71026Z" stroke="#A4A4A4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+                                            <li><button class="option-delete"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6.63623H5H21" stroke="#A4A4A4" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 6.6V4.8C8 4.32261 8.21071 3.86477 8.58579 3.52721C8.96086 3.18964 9.46957 3 10 3H14C14.5304 3 15.0391 3.18964 15.4142 3.52721C15.7893 3.86477 16 4.32261 16 4.8V6.6M19 6.6V19.2C19 19.6774 18.7893 20.1352 18.4142 20.4728C18.0391 20.8104 17.5304 21 17 21H7C6.46957 21 5.96086 20.8104 5.58579 20.4728C5.21071 20.1352 5 19.6774 5 19.2V6.6H19Z" stroke="#A4A4A4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+                                        </ul>
+                                    </div>
+                                    <div class="comment-body">
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ullam laboriosam consequatur perspiciatis? Ratione molestias excepturi libero sed tempore culpa iste quis modi, perferendis natus maiores. Expedita incidunt doloremque laboriosam?</p>
+                                    </div>
+                                    <div class="comment-footer">
+                                        <button class="option-reply">Ответить</button>
+                                        <ul class="option-rate">
+                                            <li><button class="option-like" aria-label="like">0</button></li>
+                                            <li><button class="option-dislike" aria-label="dislike">0</button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul>
+                                <!-- comment item -->
+                                <li class="comment-row">
+                                    <div class="comment-item">
+                                        <div class="comment-avatar"></div>
+                                        <div class="comment-info">
+                                            <div class="comment-header">
+                                                <div class="d-flex flex-column flex-md-row">
+                                                    <div class="comment-author">Логин пользователя</div>
+                                                    <div class="comment-date">10:20 6 июля 2021</div>
+                                                </div>
+                                                <ul class="comment-option">
+                                                    <li><button class="option-edit"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.8603 4.71026C17.0855 4.48508 17.3528 4.30646 17.647 4.18459C17.9413 4.06272 18.2566 4 18.575 4C18.8935 4 19.2088 4.06272 19.503 4.18459C19.7972 4.30646 20.0646 4.48508 20.2897 4.71026C20.5149 4.93543 20.6935 5.20276 20.8154 5.49697C20.9373 5.79118 21 6.10651 21 6.42497C21 6.74342 20.9373 7.05875 20.8154 7.35296C20.6935 7.64717 20.5149 7.9145 20.2897 8.13968L8.71545 19.714L4 21L5.28603 16.2845L11.0732 10.4974L16.8603 4.71026Z" stroke="#A4A4A4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+                                                    <li><button class="option-delete"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6.63623H5H21" stroke="#A4A4A4" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 6.6V4.8C8 4.32261 8.21071 3.86477 8.58579 3.52721C8.96086 3.18964 9.46957 3 10 3H14C14.5304 3 15.0391 3.18964 15.4142 3.52721C15.7893 3.86477 16 4.32261 16 4.8V6.6M19 6.6V19.2C19 19.6774 18.7893 20.1352 18.4142 20.4728C18.0391 20.8104 17.5304 21 17 21H7C6.46957 21 5.96086 20.8104 5.58579 20.4728C5.21071 20.1352 5 19.6774 5 19.2V6.6H19Z" stroke="#A4A4A4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+                                                </ul>
+                                            </div>
+                                            <div class="comment-body">
+                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ullam laboriosam consequatur perspiciatis? Ratione molestias excepturi libero sed tempore culpa iste quis modi, perferendis natus maiores. Expedita incidunt doloremque laboriosam?</p>
+                                            </div>
+                                            <div class="comment-footer">
+                                                <button class="option-reply">Ответить</button>
+                                                <ul class="option-rate">
+                                                    <li><button class="option-like" aria-label="like">0</button></li>
+                                                    <li><button class="option-dislike" aria-label="dislike">0</button></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- comment item -->
+                                <li class="comment-row">
+                                    <div class="comment-item">
+                                        <div class="comment-avatar"></div>
+                                        <div class="comment-info">
+                                            <div class="comment-header">
+                                                <div class="d-flex flex-column flex-md-row">
+                                                    <div class="comment-author">Логин пользователя</div>
+                                                    <div class="comment-date">10:20 6 июля 2021</div>
+                                                </div>
+                                                <ul class="comment-option">
+                                                    <li><button class="option-edit"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.8603 4.71026C17.0855 4.48508 17.3528 4.30646 17.647 4.18459C17.9413 4.06272 18.2566 4 18.575 4C18.8935 4 19.2088 4.06272 19.503 4.18459C19.7972 4.30646 20.0646 4.48508 20.2897 4.71026C20.5149 4.93543 20.6935 5.20276 20.8154 5.49697C20.9373 5.79118 21 6.10651 21 6.42497C21 6.74342 20.9373 7.05875 20.8154 7.35296C20.6935 7.64717 20.5149 7.9145 20.2897 8.13968L8.71545 19.714L4 21L5.28603 16.2845L11.0732 10.4974L16.8603 4.71026Z" stroke="#A4A4A4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+                                                    <li><button class="option-delete"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6.63623H5H21" stroke="#A4A4A4" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 6.6V4.8C8 4.32261 8.21071 3.86477 8.58579 3.52721C8.96086 3.18964 9.46957 3 10 3H14C14.5304 3 15.0391 3.18964 15.4142 3.52721C15.7893 3.86477 16 4.32261 16 4.8V6.6M19 6.6V19.2C19 19.6774 18.7893 20.1352 18.4142 20.4728C18.0391 20.8104 17.5304 21 17 21H7C6.46957 21 5.96086 20.8104 5.58579 20.4728C5.21071 20.1352 5 19.6774 5 19.2V6.6H19Z" stroke="#A4A4A4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+                                                </ul>
+                                            </div>
+                                            <div class="comment-body">
+                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ullam laboriosam consequatur perspiciatis? Ratione molestias excepturi libero sed tempore culpa iste quis modi, perferendis natus maiores. Expedita incidunt doloremque laboriosam?</p>
+                                            </div>
+                                            <div class="comment-footer">
+                                                <button class="option-reply">Ответить</button>
+                                                <ul class="option-rate">
+                                                    <li><button class="option-like" aria-label="like">0</button></li>
+                                                    <li><button class="option-dislike" aria-label="dislike">0</button></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- comment item -->
+                        <li class="comment-row">
+                            <div class="comment-item">
+                                <div class="comment-avatar"></div>
+                                <div class="comment-info">
+                                    <div class="comment-header">
+                                        <div class="d-flex flex-column flex-md-row">
+                                            <div class="comment-author">Логин пользователя</div>
+                                            <div class="comment-date">10:20 6 июля 2021</div>
+                                        </div>
+                                        <ul class="comment-option">
+                                            <li><button class="option-edit"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.8603 4.71026C17.0855 4.48508 17.3528 4.30646 17.647 4.18459C17.9413 4.06272 18.2566 4 18.575 4C18.8935 4 19.2088 4.06272 19.503 4.18459C19.7972 4.30646 20.0646 4.48508 20.2897 4.71026C20.5149 4.93543 20.6935 5.20276 20.8154 5.49697C20.9373 5.79118 21 6.10651 21 6.42497C21 6.74342 20.9373 7.05875 20.8154 7.35296C20.6935 7.64717 20.5149 7.9145 20.2897 8.13968L8.71545 19.714L4 21L5.28603 16.2845L11.0732 10.4974L16.8603 4.71026Z" stroke="#A4A4A4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+                                            <li><button class="option-delete"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6.63623H5H21" stroke="#A4A4A4" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 6.6V4.8C8 4.32261 8.21071 3.86477 8.58579 3.52721C8.96086 3.18964 9.46957 3 10 3H14C14.5304 3 15.0391 3.18964 15.4142 3.52721C15.7893 3.86477 16 4.32261 16 4.8V6.6M19 6.6V19.2C19 19.6774 18.7893 20.1352 18.4142 20.4728C18.0391 20.8104 17.5304 21 17 21H7C6.46957 21 5.96086 20.8104 5.58579 20.4728C5.21071 20.1352 5 19.6774 5 19.2V6.6H19Z" stroke="#A4A4A4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+                                        </ul>
+                                    </div>
+                                    <div class="comment-body">
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ullam laboriosam consequatur perspiciatis? Ratione molestias excepturi libero sed tempore culpa iste quis modi, perferendis natus maiores. Expedita incidunt doloremque laboriosam?</p>
+                                    </div>
+                                    <div class="comment-footer">
+                                        <button class="option-reply">Ответить</button>
+                                        <ul class="option-rate">
+                                            <li><button class="option-like" aria-label="like">0</button></li>
+                                            <li><button class="option-dislike" aria-label="dislike">0</button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Comments End //-->
+
+                <!-- Pagination Start //-->
+                <ul class="pagination">
+                    <!-- <li class="disabled"><span>Предыдущая</span></li> -->
+                    <li><span>1</span></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">Следующая</a></li>
+                </ul>
+                <!-- Pagination End //-->
+
+                <!-- Comment Form Start //-->
+                <div class="comment-form">
+                    <div class="comment-box">
+                        <div class="author-avatar">
+                            <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-14.jpg" alt="">
+                        </div>
+                        <div class="form-body">
+                            <div class="author-name">Логин пользователя</div>
+                            <form action="#" method="post" id="send-comment">
+                                <textarea name="comment" rows="3" placeholder="Написать текст..."></textarea>
+                            </form>
+                        </div>
+                    </div>
+                    <button type="submit" form="send-comment">Отправить комментарий</button>
+                </div>
+                <!-- Comment Form End //-->
+            </div>
+        </div>
+        <!-- Comments End \\-->
+    </main>
+    <!-- Page Wrapper End \\-->
+
+    <!-- Footer Start \\-->
+    <footer class="footer">
+        <div class="container footer-top">
+            <ul class="list-unstyled">
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">Обо мне</a></li>
+                <li><a href="#">Блог</a></li>
+            </ul>
+            <ul class="list-unstyled ms-auto me-auto me-md-0 mt-3 mt-md-0">
+                <li><a href="#">Связаться с владельцем</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <span class="footer-copyright">© Все права защищены</span>
+                <span class="footer-policy">
+                    <a href="#">Политика конфиденциальности</a>
+                </span>
+                <span class="footer-social d-none d-md-block">
+                    <a href="#">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 11.3701C16.1234 12.2023 15.9812 13.0523 15.5937 13.7991C15.2062 14.5459 14.5931 15.1515 13.8416 15.5297C13.0901 15.908 12.2384 16.0397 11.4077 15.906C10.5771 15.7723 9.80971 15.3801 9.21479 14.7852C8.61987 14.1903 8.22768 13.4229 8.09402 12.5923C7.96035 11.7616 8.09202 10.91 8.47028 10.1584C8.84854 9.40691 9.45414 8.7938 10.2009 8.4063C10.9477 8.0188 11.7977 7.87665 12.63 8.00006C13.4789 8.12594 14.2648 8.52152 14.8716 9.12836C15.4785 9.73521 15.8741 10.5211 16 11.3701Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M17.5 6.5H17.5095" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.59268 10.4533C7.81178 7.68218 11.9588 5.85527 14.0338 4.9726C19.9583 2.4524 21.1894 2.01461 21.9917 2.00015C22.1682 1.99697 22.5628 2.0417 22.8184 2.25382C23.0342 2.43292 23.0936 2.67487 23.122 2.84468C23.1504 3.01449 23.1858 3.40133 23.1577 3.70359C22.8367 7.15356 21.4475 15.5257 20.7407 19.3897C20.4417 21.0247 19.8529 21.573 19.2828 21.6266C18.0439 21.7432 17.1032 20.7893 15.9033 19.9848C14.0257 18.7261 12.965 17.9425 11.1424 16.7142C9.03614 15.2946 10.4015 14.5144 11.6019 13.2393C11.916 12.9056 17.3745 7.82791 17.4802 7.36728C17.4934 7.30967 17.5056 7.09493 17.3809 6.98154C17.2562 6.86815 17.0721 6.90692 16.9392 6.93776C16.7509 6.98147 13.7514 9.00909 7.94068 13.0206C7.08928 13.6185 6.3181 13.9099 5.62716 13.8946C4.86545 13.8778 3.40022 13.4541 2.31098 13.092C0.974979 12.6479 -0.0868487 12.413 0.00561267 11.6587C0.0537722 11.2658 0.582794 10.864 1.59268 10.4533Z" fill="white"/>
+                        </svg>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End \\-->
+
+    <!-- Modals-->
+    <div class="custom-modal auth-modal" id="authModal">
+        <button class="modal-close">&#10005;</button>
+        <div class="auth-modal-body" id="authForm">
+            <div class="nav auth-modal-head" id="list-tab" role="tablist">
+                <a href="#singInContent" data-bs-toggle="list" class="active">Вход</a>
+                <a href="#signUpContent" data-bs-toggle="list">Регистрация</a>
+            </div>
+            <div class="tab-list" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="singInContent" role="tabpanel" aria-labelledby="singInContent-list">
+                    <div class="auth-modal-content">
+                        <div class="mb-3">
+                            <input type="text" name="username" placeholder="Ваш логин">
+                        </div>
+                        <div class="mb-2">
+                            <div class="input-password">
+                                <input type="password" name="password" placeholder="Ваш пароль">
+                                <button class="show-password" aria-label="Показать пароль"></button>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <a href="#">Забыли пароль?</a>
+                        </div>
+                    </div>
+                    <div class="auth-modal-footer">
+                        <div class="mb-3">
+                            <label for="policy">
+                                <input type="checkbox" id="policy" name="agree" required>
+                                <span>Согласен с <a href="#">политикой конфиденциальности</a></span>
+                            </label>
+                        </div>
+                        <div class="mb-3">
+                            <button onclick="Swal.fire({text: 'Текст с подтверждением', customClass: {confirmButton:'btn btn-primary'}, buttonsStyling: false,})" class="btn btn-primary w-100 d-block">Войти</button>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span>Войти с помощью</span>
+                            <ul class="list-unstyled mb-0 d-flex">
+                                <li>
+                                    <a href="#">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.40589 3.40589C2 4.81177 2 7.0745 2 11.6V12.4C2 16.9255 2 19.1882 3.40589 20.5941C4.81177 22 7.0745 22 11.6 22H12.4C16.9255 22 19.1882 22 20.5941 20.5941C22 19.1882 22 16.9255 22 12.4V11.6C22 7.0745 22 4.81177 20.5941 3.40589C19.1882 2 16.9255 2 12.4 2H11.6C7.0745 2 4.81177 2 3.40589 3.40589ZM5.37505 8.08337C5.48338 13.2834 8.08337 16.4084 12.6417 16.4084H12.9001V13.4334C14.5751 13.6 15.8417 14.825 16.35 16.4084H18.7167C18.0667 14.0417 16.3583 12.7334 15.2916 12.2334C16.3583 11.6167 17.8583 10.1167 18.2166 8.08337H16.0666C15.5999 9.73337 14.2168 11.2334 12.9001 11.375V8.08337H10.75V13.85C9.41667 13.5167 7.73338 11.9 7.65837 8.08337H5.37505Z" fill="#C4C4C4"/>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="ms-2">
+                                    <a href="#">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.1149 7.72989C15.0615 6.69593 13.6559 6.13266 12.2015 6.15581C9.54006 6.15581 7.27973 8.00379 6.4738 10.4922C6.04648 11.7962 6.04648 13.2083 6.4738 14.5123H6.47754C7.28721 16.9969 9.54379 18.8449 12.2052 18.8449C13.579 18.8449 14.7585 18.4832 15.6726 17.8444V17.8418C16.7484 17.1088 17.4831 15.9553 17.7117 14.6512H12.2015V10.608H21.8238C21.9438 11.3102 22 12.0278 22 12.7415C22 15.935 20.8911 18.635 18.9617 20.4637L18.9637 20.4653C17.2731 22.0702 14.9528 23 12.2015 23C8.34428 23 4.81697 20.7623 3.08517 17.2168C1.63827 14.25 1.63828 10.7546 3.08518 7.78778C4.81698 4.23839 8.34428 2.00071 12.2015 2.00071C14.7354 1.96984 17.1832 2.94978 19.0274 4.7322L16.1149 7.72989Z" fill="#C4C4C4"/>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="signUpContent" role="tabpanel" aria-labelledby="signUpContent-list">
+                    <div class="auth-modal-content">
+                        <div class="mb-3">
+                            <input type="text" name="username" placeholder="Ваш логин">
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-password">
+                                <input type="password" name="password" placeholder="Ваш пароль">
+                                <button class="show-password" aria-label="Показать пароль"></button>
+                            </div>
+                        </div>
+                        <div class="mb-5">
+                            <div class="input-password">
+                                <input type="password" name="password" placeholder="Повторите пароль">
+                                <button class="show-password" aria-label="Показать пароль"></button>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="policy">
+                                <input type="checkbox" id="policy" name="agree" required>
+                                <span>Согласен с <a href="#">политикой конфиденциальности</a></span>
+                            </label>
+                        </div>
+                        <button class="btn btn-primary w-100 d-block">Зарегистрироваться</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="custom-modal map-modal" id="mapModal">
+        <button class="modal-close">&#10005;</button>
+        <div class="map-modal-content">
+            <div class="row">
+                <div class="col-md-4 col-lg-3">
+                    <div class="product-filter py-3 py-md-4 ps-4 pe-4 pe-md-0">
+                        <div class="filter-touch">
+                            <span>Фильтр</span>
+                        </div>
+                        <div class="filter-heading">
+                            <span class="filter-title" aria-expanded="true" data-bs-target="#filter-box">Фильтр</span>
+                            <button class="btn btn-link filter-reset">Очистить</button>
+                        </div>
+                        <div class="filter-box">
+                            <div class="accordion accordion-flush" id="mapFilterFlushModal">
+                                <div class="filter-item">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#map-flush-city" aria-expanded="false" aria-controls="flush-city">
+                                        Город
+                                    </button>
+                                    <div id="map-flush-city" class="collapse" data-bs-parent="#mapFilterFlushModal">
+                                        <div class="accordion-body">
+                                            <ul>
+                                                <li>
+                                                    <label for="city01" class="filter-name">Город</label>
+                                                    <input type="checkbox" name="city" id="city01">
+                                                </li>
+                                                <li>
+                                                    <label for="city02" class="filter-name">Город</label>
+                                                    <input type="checkbox" name="city" id="city02">
+                                                </li>
+                                                <li>
+                                                    <label for="city03" class="filter-name">Город</label>
+                                                    <input type="checkbox" name="city" id="city03">
+                                                </li>
+                                                <li>
+                                                    <label for="city04" class="filter-name">Город</label>
+                                                    <input type="checkbox" name="city" id="city04">
+                                                </li>
+                                                <li>
+                                                    <label for="city05" class="filter-name">Город</label>
+                                                    <input type="checkbox" name="city" id="city05">
+                                                </li>
+                                                <li>
+                                                    <label for="city05" class="filter-name">Город</label>
+                                                    <input type="checkbox" name="city" id="city05">
+                                                </li>
+                                                <li>
+                                                    <label for="city05" class="filter-name">Город</label>
+                                                    <input type="checkbox" name="city" id="city05">
+                                                </li>
+                                                <li>
+                                                    <label for="city05" class="filter-name">Город</label>
+                                                    <input type="checkbox" name="city" id="city05">
+                                                </li>
+                                                <li>
+                                                    <label for="city05" class="filter-name">Город</label>
+                                                    <input type="checkbox" name="city" id="city05">
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="filter-item">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#map-flush-type" aria-expanded="false" aria-controls="flush-type">
+                                        Новое/винтаж
+                                    </button>
+                                    <div id="map-flush-type" class="collapse" data-bs-parent="#mapFilterFlushModal">
+                                        <div class="accordion-body">
+                                            <ul>
+                                                <li>
+                                                    <label for="type01" class="filter-name">Новое</label>
+                                                    <input type="checkbox" name="type" id="type01">
+                                                </li>
+                                                <li>
+                                                    <label for="type02" class="filter-name">Винтаж</label>
+                                                    <input type="checkbox" name="type" id="type02">
+                                                </li>
+                                                <li>
+                                                    <label for="type03" class="filter-name">Не важно</label>
+                                                    <input type="checkbox" name="type" id="type03">
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary w-100 mt-4 d-block">Показать</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-lg-9">
+                    <div style="position:relative;overflow:hidden;"><a href="https://yandex.kz/maps/213/moscow/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Москва</a><a href="https://yandex.kz/maps/213/moscow/house/ulitsa_vavilova_19/Z04Ycw9gSEAPQFtvfXtxcX1rZg==/inside/?ll=37.578748%2C55.701073&tab=inside&utm_medium=mapframe&utm_source=maps&z=17.5" style="color:#eee;font-size:12px;position:absolute;top:14px;">Улица Вавилова, 19 — Яндекс Карты</a><iframe src="https://yandex.kz/map-widget/v1/-/CCUBJVxj-A" width="100%" height="640" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Javascripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.4/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/jquery.touchSwipe.min.js"></script>
+    <script>
+        (function($) {
+            $(".product-detail-big-imgs").slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: false,
+                arrows: false,
+                fade: true,
+                asNavFor: ".product-detail-img-nav",
+            })
+
+            $(".product-detail-img-nav").slick({
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                vertical: true,
+                asNavFor: '.product-detail-big-imgs',
+                dots: false,
+                arrows: false,
+                focusOnSelect: true,
+                infinite: true,
+                verticalSwiping: true,
+                responsive: [
+                    {
+                        breakpoint: 1023,
+                        settings: {
+                            slidesToShow: 3,
+                            vertical: false,
+                        }
+                    },
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 3,
+                            vertical: false,
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 3,
+                            vertical: false,
+                        }
+                    },
+                    {
+                        breakpoint: 580,
+                        settings: {
+                            vertical: false,
+                            slidesToShow: 3,
+                        }
+                    },
+                    {
+                        breakpoint: 380,
+                        settings: {
+                            vertical: false,
+                            slidesToShow: 2,
+                        }
+                    }
+                ]
+            })
+            
+            $('.related-list').slick({
+                    speed: 300,
+                    slidesToShow: 6,
+                    slidesToScroll: 1,
+                    rows: 0,
+                    nextArrow: '<button class="slick-next slick-arrow" aria-label="Слайдер вперед" type="button"></button>',
+                    prevArrow: '<button class="slick-prev slick-arrow" aria-label="Слайдер назад" type="button"></button>',
+                    responsive: [
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 4,
+                            }
+                        },
+                        {
+                            breakpoint: 600,
+                            settings: {
+                                slidesToShow: 2,
+                            }
+                        },
+                        {
+                            breakpoint: 400,
+                            settings: {
+                                slidesToShow: 2,
+                            }
+                        }
+                    ]
+                })
+        })(jQuery)
+
+        document.querySelectorAll('.input-password').forEach((input) => {
+            input.querySelector('.show-password').addEventListener('click', (e) => {
+                if (input.querySelector('input').type == 'password') input.querySelector('input').setAttribute('type', 'text')
+                else input.querySelector('input').setAttribute('type', 'password')
+            })
+        })
+
+        document.querySelectorAll('[data-toggle="modal"]').forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                
+                let id, tagName = btn.tagName
+
+                if (tagName == 'A') id = btn.getAttribute('href').replace('#', '')
+                if (tagName == 'BUTTON') id = btn.getAttribute('id').replace('#', '')
+
+                if (id != undefined) {
+                    document.body.classList.add('modal-open')
+                    console.log(document.getElementById(id))
+                    document.getElementById(id).style.display = 'block'
+                }
+            })
+        })
+
+        document.querySelectorAll('.custom-modal .modal-close').forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault()
+                e.stopPropagation()
+
+                document.body.classList.remove('modal-open')
+                document.querySelectorAll('.custom-modal').forEach((modal) => {
+                    modal.style.display = ''
+                })
+            })
+        })
+    </script>
+</body>
+</html>

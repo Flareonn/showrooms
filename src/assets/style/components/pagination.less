@@ -1,0 +1,40 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  li {
+    padding: 8px;
+
+    span {
+      font-family: 'Playfair Display';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 24px;
+      color: #7b7b7b;
+    }
+
+    a {
+      font-family: 'Playfair Display';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 24px;
+      color: #c4c4c4;
+
+      &:hover {
+        color: #909090;
+      }
+    }
+
+    &.disabled span {
+      font-family: 'Playfair Display';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 24px;
+      color: #dedede;
+    }
+  }
+}

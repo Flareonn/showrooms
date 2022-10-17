@@ -1,0 +1,199 @@
+@import "showroom.less";
+@import "category.less";
+@import "cabinet.less";
+
+.page-wrapper {
+  .hero {
+    position: relative;
+    margin-bottom: 148px;
+    background-image: url("@/static/img/01.jpg");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 764px;
+
+    @media (min-width: 320px) and (max-width: 540px) {
+      height: 646px;
+      background-position-x: -250px;
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      height: 542px;
+    }
+
+    .hero-content {
+      position: absolute;
+      top: 140px;
+      right: 40px;
+      max-width: 545px;
+
+      @media (min-width: 768px) and (max-width: 1024px) {
+        top: 100px;
+        max-width: 420px;
+        right: 0;
+      }
+
+      @media (min-width: 320px) and (max-width: 540px) {
+        top: 75px;
+        max-width: 220px;
+      }
+
+      h1 {
+        margin-bottom: 32px;
+      }
+
+      p {
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 27px;
+        color: #ffffff;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        @media (min-width: 320px) and (max-width: 540px) {
+          font-size: 16px;
+          line-height: 23px;
+        }
+      }
+    }
+
+    .hero-slider {
+      position: absolute;
+      bottom: -36px;
+      right: 2px;
+      width: 854px;
+      display: flex;
+      align-items: center;
+      padding: 4px 0px 4px 4px;
+      background-color: #fff;
+
+      @media (min-width: 768px) and (max-width: 1024px) {
+        width: 484px;
+        bottom: -86px;
+      }
+
+      @media (min-width: 320px) and (max-width: 767px) {
+        width: 264px;
+      }
+
+      .swiper-wrapper {
+        height: 248px;
+      }
+
+      .slick-arrow {
+        position: absolute;
+        top: -68px;
+        margin-top: 0;
+        width: 78px;
+        height: 38px;
+        background-color: transparent;
+        border-radius: 0;
+        box-shadow: none;
+        i {
+          color: #fff;
+        }
+
+        &.slick-next {
+          right: 40px;
+          margin-left: 0;
+          transform: scale(-1, -1);
+
+          &::before {
+            display: none;
+          }
+
+          @media (min-width: 320px) and (max-width: 540px) {
+            right: 15px;
+          }
+        }
+
+        &.slick-prev {
+          left: auto;
+          right: 132px;
+          margin-left: 0;
+          transform: scale(-1, -1);
+
+          &::before {
+            display: none;
+          }
+
+          @media (min-width: 320px) and (max-width: 540px) {
+            right: 105px;
+          }
+        }
+      }
+
+      .slider-item {
+        min-width: 240px;
+        max-width: 240px;
+        position: relative;
+        transition: all 0.5s ease-in-out;
+        pointer-events: initial;
+
+        .slider-title {
+          opacity: 0;
+          position: absolute;
+          bottom: 0;
+          font-family: "Playfair Display";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 24px;
+          color: #000000;
+          padding: 14px 24px;
+          text-align: center;
+          width: 100%;
+        }
+
+        &:hover {
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(196, 196, 196, 0.5);
+          }
+
+          .slider-title {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  .content {
+    .heading-wrapper {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-direction: row;
+      margin-bottom: 72px;
+
+      @media (min-width: 320px) and (max-width: 540px) {
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+    }
+
+    .content-action {
+      margin-bottom: 72px;
+
+      @media (min-width: 320px) and (max-width: 540px) {
+        a {
+          font-family: "Roboto";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 16px;
+          color: #7b7b7b;
+        }
+      }
+    }
+  }
+}

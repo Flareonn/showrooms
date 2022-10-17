@@ -1,0 +1,115 @@
+.product-item {
+  margin-bottom: 52px;
+  position: relative;
+
+  @media (min-width: 320px) and (max-width: 540px) {
+    margin-bottom: 32px;
+  }
+
+  .product-image {
+    margin-bottom: 16px;
+    position: relative;
+
+    .product-fav {
+      position: absolute;
+      top: 24px;
+      right: 16px;
+      border-width: 0;
+      background-color: transparent;
+      z-index: 3;
+      padding: 0;
+      display: flex;
+
+      @media (min-width: 320px) and (max-width: 540px) {
+        top: 18px;
+        right: 12px;
+      }
+
+      &:hover i::after {
+        height: 20px;
+        background-image: url("@/static/icons/like/hover.svg");
+      }
+    }
+  }
+
+  .product-title {
+    .text-overflow();
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    color: #000000;
+
+    @media (min-width: 320px) and (max-width: 540px) {
+      font-size: 12px;
+      line-height: 16px;
+    }
+  }
+
+  .product-rating {
+    display: flex;
+    align-items: flex-start;
+    font-family: Playfair Display;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    color: #c4c4c4;
+
+    i {
+      margin-right: 4px;
+      color: #ffb800;
+    }
+
+    @media (min-width: 320px) and (max-width: 540px) {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #ffffff90;
+      border-radius: 15px;
+      padding: 4px 8px 4px 3px;
+    }
+  }
+
+  .product-except {
+    .text-overflow();
+    margin-top: 4px;
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    color: #c4c4c4;
+
+    @media (min-width: 320px) and (max-width: 540px) {
+      font-size: 12px;
+      line-height: 16px;
+    }
+  }
+
+  .product-info {
+    position: relative;
+    z-index: 3;
+  }
+
+  .product-rate {
+    display: flex;
+    align-items: center;
+  }
+
+  .product-comment-count {
+    display: flex;
+    align-items: flex-start;
+    font-family: Playfair Display;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    color: #c4c4c4;
+    line-height: 1;
+
+    i.icon-comment {
+      margin-right: 4px;
+    }
+  }
+}

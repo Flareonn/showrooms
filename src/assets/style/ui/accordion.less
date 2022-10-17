@@ -1,0 +1,31 @@
+.accordion {
+  &-body,
+  &-button {
+    padding: 0;
+  }
+  &-heading {
+    cursor: pointer;
+    &[aria-expanded='true'] .accordion-button {
+      i {
+        transform: rotate(180deg);
+      }
+    }
+    .accordion-button {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2;
+      &::after {
+        display: none;
+      }
+      &:not(.collapsed) {
+        color: initial;
+        background-color: initial;
+        box-shadow: none;
+      }
+      i {
+        transition: transform 0.2s ease-in-out;
+      }
+    }
+  }
+}

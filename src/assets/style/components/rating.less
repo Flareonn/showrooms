@@ -1,0 +1,36 @@
+.rating {
+  &-fully {
+    margin: 0;
+    padding: 0;
+    &.editable {
+      transform: scale(-1, 1);
+      > input[type="radio"] {
+        width: 24px;
+        height: 24px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-image: data-uri("@/static/icons/stars/empty.svg");
+        appearance: none;
+        cursor: pointer;
+        &.empty,
+        &.empty ~ * {
+          background-image: data-uri("@/static/icons/stars/empty.svg");
+        }
+        &:hover,
+        &:hover ~ * {
+          background-image: data-uri("@/static/icons/stars/hover.svg");
+        }
+        &:checked,
+        &:checked ~ *,
+        &[checked],
+        &[checked] ~ * {
+          background-image: data-uri("@/static/icons/stars/full.svg");
+        }
+      }
+    }
+    &.empty::before {
+      display: none;
+    }
+  }
+}

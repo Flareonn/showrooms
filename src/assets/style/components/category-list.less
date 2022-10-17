@@ -1,0 +1,49 @@
+.category-list {
+  a,
+  span {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: #a4a4a4;
+    display: flex;
+    cursor: pointer;
+
+    &:hover {
+      color: #909090;
+    }
+
+    &[aria-expanded='true'] {
+      color: #595959;
+    }
+  }
+
+  li {
+    overflow: hidden;
+  }
+
+  li + li {
+    margin-top: 32px;
+  }
+
+  ul {
+    padding-top: 24px;
+    list-style: none;
+
+    li + li {
+      margin-top: 16px;
+    }
+
+    a,
+    span {
+      font-family: 'Roboto';
+      cursor: pointer;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 24px;
+      color: #a4a4a4;
+    }
+  }
+}

@@ -1,0 +1,125 @@
+.icon-size(@size-w, @size-h: -1px) {
+  width: @size-w;
+  height: if(@size-h > -1px, @size-h, @size-w);
+  &::after {
+    width: @size-w;
+    height: if(@size-h > -1px, @size-h, @size-w);
+  }
+}
+
+.build-mask(@size-w, @size-h, @path) {
+  .icon-size(@size-w, @size-h);
+  -webkit-mask: data-uri("@/static/icons/@{path}.svg") no-repeat center;
+}
+
+i.icon {
+  &-user {
+    .build-mask(24px, 24px, "user");
+  }
+  &-comment {
+    .build-mask(24px, 24px, "comment");
+  }
+  &-star {
+    &_full {
+      color: #ffb800;
+      .build-mask(24px, 24px, "stars/full");
+    }
+    &_empty {
+      color: #ffb800;
+      .build-mask(24px, 24px, "stars/empty");
+    }
+    &_hover {
+      .build-mask(24px, 24px, "stars/hover");
+    }
+  }
+  &-like::after {
+    width: 24px;
+    height: 24px;
+    background-image: url("@/static/icons/like/default.svg");
+    background-color: transparent;
+    background-repeat: no-repeat;
+  }
+  &-thumb {
+    &_up {
+      .build-mask(24px, 24px, "like/thumb");
+    }
+    &_down {
+      .build-mask(24px, 24px, "like/thumb");
+      transform: scale(-1, -1);
+    }
+  }
+  &-socials {
+    &-google {
+      .build-mask(24px, 24px, "socials/google");
+    }
+    &-vk {
+      .build-mask(24px, 24px, "socials/vk");
+    }
+    &-instagram {
+      .build-mask(24px, 24px, "socials/instagram");
+    }
+    &-telegram {
+      .build-mask(24px, 24px, "socials/telegram");
+    }
+    &-facebook {
+      .build-mask(24px, 24px, "socials/facebook");
+    }
+  }
+  &-burger {
+    .build-mask(20px, 14px, "burger");
+  }
+  &-search {
+    .build-mask(24px, 24px, "search");
+    color: #a4a4a4;
+  }
+  &-order {
+    .build-mask(24px, 24px, "order");
+    color: #7b7b7b;
+  }
+  &-sort {
+    .build-mask(24px, 24px, "sort");
+  }
+  &-filter {
+    .build-mask(24px, 24px, "filter");
+  }
+  &-arrow {
+    &_long {
+      .build-mask(22px, 8px, "arrows/long");
+    }
+    &-accordion {
+      .build-mask(20px, 20px, "arrows/accordion");
+    }
+    &-slider {
+      .build-mask(78px, 38px, "arrows/slider");
+      &_min {
+        .build-mask(6px, 10px, "arrows/slider_min");
+        color: #9e9eb0;
+      }
+    }
+  }
+  &-edit {
+    .build-mask(24px, 24px, "edit");
+    color: #a4a4a4;
+  }
+  &-trash {
+    .build-mask(24px, 24px, "trash");
+    color: #a4a4a4;
+  }
+  &-eye {
+    .build-mask(24px, 24px, "eye");
+    color: #c4c4c4;
+  }
+}
+
+i {
+  display: inline-block;
+  vertical-align: middle;
+  color: currentColor;
+  background-size: contain;
+  &::after {
+    display: block;
+    content: "";
+    background-color: currentColor;
+    -webkit-mask-size: contain;
+  }
+}

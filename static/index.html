@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main page</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+    <link rel="stylesheet/less" type="text/css" href="less/styles.less" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/4.1.2/less.min.js"></script>
+</head>
+<body>
+    <!-- Page Wrapper Start \\-->
+    <div class="page-wrapper">
+        <!-- Header Start \\-->
+        <header class="py-2">
+            <div id="navbarNav" class="offcanvas offcanvas-start" aria-hidden="true">
+                <div class="offcanvas-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="list-unstyled">
+                        <li><a href="#">Обо мне</a></li>
+                        <li><a href="#">Блог</a></li>
+                    </ul>
+                    <hr>
+                    <ul class="list-unstyled category-list" id="category-list">
+                        <li class="has-subcategory">
+                            <a href="#category01" data-bs-toggle="collapse" aria-expanded="false" class="collapsed">Категория</a>
+                            <ul class="collapse" data-bs-parent="#category-list" id="category01" class="collapse">
+                                <li><a href="#">Подкатегория</a></li>
+                                <li><a href="#">Подкатегория</a></li>
+                                <li><a href="#">Подкатегория</a></li>
+                                <li><a href="#">Подкатегория</a></li>
+                                <li><a href="#">Подкатегория</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-subcategory">
+                            <a href="#category02" data-bs-toggle="collapse" aria-expanded="false" class="collapsed">Категория</a>
+                            <ul class="collapse" data-bs-parent="#category-list" id="category02" class="collapse">
+                                <li><a href="#">Подкатегория</a></li>
+                                <li><a href="#">Подкатегория</a></li>
+                                <li><a href="#">Подкатегория</a></li>
+                                <li><a href="#">Подкатегория</a></li>
+                                <li><a href="#">Подкатегория</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Категория</a></li>
+                        <li><a href="#">Категория</a></li>
+                        <li><a href="#">Категория</a></li>
+                        <li><a href="#">Категория</a></li>
+                    </ul>
+                    <hr>
+                    <div class="d-flex align-items-center mt-4">
+                        <a href="#" class="text-dark text-decoration-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 11.3701C16.1234 12.2023 15.9812 13.0523 15.5937 13.7991C15.2062 14.5459 14.5931 15.1515 13.8416 15.5297C13.0901 15.908 12.2384 16.0397 11.4077 15.906C10.5771 15.7723 9.80971 15.3801 9.21479 14.7852C8.61987 14.1903 8.22768 13.4229 8.09402 12.5923C7.96035 11.7616 8.09202 10.91 8.47028 10.1584C8.84854 9.40691 9.45414 8.7938 10.2009 8.4063C10.9477 8.0188 11.7977 7.87665 12.63 8.00006C13.4789 8.12594 14.2648 8.52152 14.8716 9.12836C15.4785 9.73521 15.8741 10.5211 16 11.3701Z" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M17.5 6.5H17.5095" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="ms-3 text-dark text-decoration-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M1.59268 10.4533C7.81178 7.68218 11.9588 5.85527 14.0338 4.9726C19.9583 2.4524 21.1894 2.01461 21.9917 2.00015C22.1682 1.99697 22.5628 2.0417 22.8184 2.25382C23.0342 2.43292 23.0936 2.67487 23.122 2.84468C23.1504 3.01449 23.1858 3.40133 23.1577 3.70359C22.8367 7.15356 21.4475 15.5257 20.7407 19.3897C20.4417 21.0247 19.8529 21.573 19.2828 21.6266C18.0439 21.7432 17.1032 20.7893 15.9033 19.9848C14.0257 18.7261 12.965 17.9425 11.1424 16.7142C9.03614 15.2946 10.4015 14.5144 11.6019 13.2393C11.916 12.9056 17.3745 7.82791 17.4802 7.36728C17.4934 7.30967 17.5056 7.09493 17.3809 6.98154C17.2562 6.86815 17.0721 6.90692 16.9392 6.93776C16.7509 6.98147 13.7514 9.00909 7.94068 13.0206C7.08928 13.6185 6.3181 13.9099 5.62716 13.8946C4.86545 13.8778 3.40022 13.4541 2.31098 13.092C0.974979 12.6479 -0.0868487 12.413 0.00561267 11.6587C0.0537722 11.2658 0.582794 10.864 1.59268 10.4533Z" fill="#050505"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>      
+            </div>
+            <div class="d-flex flex-wrap align-items-center justify-content-between container">
+                <button type="button" class="navbar-toggler d-flex d-md-none" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="1" y1="1" x2="19" y2="1" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="1" y1="7" x2="19" y2="7" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="1" y1="13" x2="19" y2="13" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                    </svg>                        
+                </button>
+
+                <div class="d-none d-md-flex align-items-center col-auto mb-2 mb-md-0">
+                    <a href="#" class="text-dark text-decoration-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 11.3701C16.1234 12.2023 15.9812 13.0523 15.5937 13.7991C15.2062 14.5459 14.5931 15.1515 13.8416 15.5297C13.0901 15.908 12.2384 16.0397 11.4077 15.906C10.5771 15.7723 9.80971 15.3801 9.21479 14.7852C8.61987 14.1903 8.22768 13.4229 8.09402 12.5923C7.96035 11.7616 8.09202 10.91 8.47028 10.1584C8.84854 9.40691 9.45414 8.7938 10.2009 8.4063C10.9477 8.0188 11.7977 7.87665 12.63 8.00006C13.4789 8.12594 14.2648 8.52152 14.8716 9.12836C15.4785 9.73521 15.8741 10.5211 16 11.3701Z" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M17.5 6.5H17.5095" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="ms-3 text-dark text-decoration-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.59268 10.4533C7.81178 7.68218 11.9588 5.85527 14.0338 4.9726C19.9583 2.4524 21.1894 2.01461 21.9917 2.00015C22.1682 1.99697 22.5628 2.0417 22.8184 2.25382C23.0342 2.43292 23.0936 2.67487 23.122 2.84468C23.1504 3.01449 23.1858 3.40133 23.1577 3.70359C22.8367 7.15356 21.4475 15.5257 20.7407 19.3897C20.4417 21.0247 19.8529 21.573 19.2828 21.6266C18.0439 21.7432 17.1032 20.7893 15.9033 19.9848C14.0257 18.7261 12.965 17.9425 11.1424 16.7142C9.03614 15.2946 10.4015 14.5144 11.6019 13.2393C11.916 12.9056 17.3745 7.82791 17.4802 7.36728C17.4934 7.30967 17.5056 7.09493 17.3809 6.98154C17.2562 6.86815 17.0721 6.90692 16.9392 6.93776C16.7509 6.98147 13.7514 9.00909 7.94068 13.0206C7.08928 13.6185 6.3181 13.9099 5.62716 13.8946C4.86545 13.8778 3.40022 13.4541 2.31098 13.092C0.974979 12.6479 -0.0868487 12.413 0.00561267 11.6587C0.0537722 11.2658 0.582794 10.864 1.59268 10.4533Z" fill="#050505"/>
+                        </svg>
+                    </a>
+                </div>
+          
+                <ul class="nav col-12 col-md-auto mb-2 mb-md-0 d-none d-md-flex">
+                  <li><a href="#" class="nav-link px-2 link-secondary">Главная</a></li>
+                  <li><a href="#" class="nav-link px-2 link-dark">Обо мне</a></li>
+                  <li><a href="#" class="nav-link px-2 link-dark">Блог</a></li>
+                </ul>
+
+                <div class="d-block d-md-none current-page">
+                    Главная
+                </div>
+          
+                <div class="col-auto">
+                  <a data-toggle="modal" class="btn btn-link p-0" href="#authModal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 22V19.6667C22 18.429 21.4732 17.242 20.5355 16.3668C19.5979 15.4917 18.3261 15 17 15H7C5.67392 15 4.40215 15.4917 3.46447 16.3668C2.52678 17.242 2 18.429 2 19.6667V22" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 11C14.7614 11 17 8.98528 17 6.5C17 4.01472 14.7614 2 12 2C9.23858 2 7 4.01472 7 6.5C7 8.98528 9.23858 11 12 11Z" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <!-- Header End \\-->
+        
+        <!-- Hero Start \\-->
+        <div class="hero">
+            <div class="container position-relative">
+                <div class="hero-content">
+                    <h1>Women's Summer Collections</h1>
+                    <p>Compellingly fashion cutting-edge portals before exceptional meta-services. Completely maintain stand-alone.</p>
+                </div>
+            </div>
+            <div class="hero-slider">
+                <div class="slider-item">
+                    <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-3.jpg" alt="">
+                    <div class="slider-title">Long strappy dress</div>
+                    <a href="#" class="stretched-link"></a>
+                </div>
+                <div class="slider-item">
+                    <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-2.jpg" alt="">
+                    <div class="slider-title">Long Fit T-shirt</div>
+                    <a href="#" class="stretched-link"></a>
+                </div>
+                <div class="slider-item">
+                    <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-4.jpg" alt="">
+                    <div class="slider-title">Round neck sweater</div>
+                    <a href="#" class="stretched-link"></a>
+                </div>
+                <div class="slider-item">
+                    <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-1.jpg" alt="">
+                    <div class="slider-title">Jersey Graphic Tee</div>
+                    <a href="#" class="stretched-link"></a>
+                </div>
+                <div class="slider-item">
+                    <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-5.jpg" alt="">
+                    <div class="slider-title">Skinny mid-rise trousers</div>
+                    <a href="#" class="stretched-link"></a>
+                </div>
+            </div>
+        </div>
+        <!-- Hero End \\-->
+        
+        <!-- Content Start \\-->
+        <main class="container">
+            <div class="content">
+                <div class="heading-wrapper">
+                    <h3>Explore our Products</h3>
+                    <div class="search-box">
+                        <input type="text" name="s" placeholder="Поиск">
+                        <ul class="search-autocomplite">
+                            <li>Популярное</li>
+                            <li><a href="#">Название подборки</a></li>
+                            <li><a href="#">Название подборки</a></li>
+                            <li><a href="#">Название подборки</a></li>
+                            <li><a href="#">Название подборки</a></li>
+                            <li><a href="#">Название подборки</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-lg-3">
+                        <div class="product-filter">
+                            <div class="filter-heading">
+                                <span class="filter-title" data-bs-toggle="collapse" aria-expanded="false" class="collapsed" data-bs-target="#filter-box">Фильтр</span>
+                                <button class="btn btn-link filter-reset">Очистить</button>
+                            </div>
+                            <div class="filter-box collapse" id="filter-box">
+                                <div class="accordion accordion-flush" id="filterFlush">
+                                    <div class="filter-item">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-city" aria-expanded="false" aria-controls="flush-city">
+                                            Город
+                                        </button>
+                                        <div id="flush-city" class="collapse" data-bs-parent="#filterFlush">
+                                            <div class="accordion-body">
+                                                <ul>
+                                                    <li>
+                                                        <label for="city01" class="filter-name">Город</label>
+                                                        <input type="checkbox" name="city" id="city01">
+                                                    </li>
+                                                    <li>
+                                                        <label for="city02" class="filter-name">Город</label>
+                                                        <input type="checkbox" name="city" id="city02">
+                                                    </li>
+                                                    <li>
+                                                        <label for="city03" class="filter-name">Город</label>
+                                                        <input type="checkbox" name="city" id="city03">
+                                                    </li>
+                                                    <li>
+                                                        <label for="city04" class="filter-name">Город</label>
+                                                        <input type="checkbox" name="city" id="city04">
+                                                    </li>
+                                                    <li>
+                                                        <label for="city05" class="filter-name">Город</label>
+                                                        <input type="checkbox" name="city" id="city05">
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="filter-item">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-type" aria-expanded="false" aria-controls="flush-type">
+                                            Новое/винтаж
+                                        </button>
+                                        <div id="flush-type" class="collapse" data-bs-parent="#filterFlush">
+                                            <div class="accordion-body">
+                                                <ul>
+                                                    <li>
+                                                        <label for="type01" class="filter-name">Новое</label>
+                                                        <input type="checkbox" name="type" id="type01">
+                                                    </li>
+                                                    <li>
+                                                        <label for="type02" class="filter-name">Винтаж</label>
+                                                        <input type="checkbox" name="type" id="type02">
+                                                    </li>
+                                                    <li>
+                                                        <label for="type03" class="filter-name">Не важно</label>
+                                                        <input type="checkbox" name="type" id="type03">
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary w-100 mt-4 d-block">Показать</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="list-unstyled category-list d-none d-md-block" id="category-list">
+                            <li class="has-subcategory">
+                                <a href="#category01" data-bs-toggle="collapse" aria-expanded="false" class="collapsed">Denim Jacket</a>
+                                <ul class="collapse" data-bs-parent="#category-list" id="category01" class="collapse">
+                                    <li><a href="#">Jacket, Women</a></li>
+                                    <li><a href="#">Woolend Jacket</a></li>
+                                    <li><a href="#">Western denim</a></li>
+                                    <li><a href="#">Mini Dresss</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-subcategory">
+                                <a href="#category02" data-bs-toggle="collapse" aria-expanded="false" class="collapsed">Oversize Cotton</a>
+                                <ul class="collapse" data-bs-parent="#category-list" id="category02" class="collapse">
+                                    <li><a href="#">Подкатегория</a></li>
+                                    <li><a href="#">Подкатегория</a></li>
+                                    <li><a href="#">Подкатегория</a></li>
+                                    <li><a href="#">Подкатегория</a></li>
+                                    <li><a href="#">Подкатегория</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Dairy & chesse</a></li>
+                            <li><a href="#">Shoulder Bag</a></li>
+                            <li><a href="#">Denim Jacket</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8 col-lg-9">
+                        <!-- Content Action Start //-->
+                        <div class="content-action d-flex align-items-center justify-content-between">
+                            <div class="btn-group">
+                                <button class="btn-primary-link btn-order dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                    Сортировка
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
+                                  <li><a class="dropdown-item" href="#">По умолчанию</a></li>
+                                  <li><a class="dropdown-item icon-order" href="#">По алфавиту</a></li>
+                                  <li><a class="dropdown-item icon-order" href="#">Сначала популярные</a></li>
+                                  <li><a class="dropdown-item icon-order" href="#">Новинки</a></li>
+                                </ul>
+                            </div>
+                            <a href="#mapModal" data-toggle="modal">Показать на карте</a>
+                        </div>
+                        <!-- Content Action End //-->
+
+                        <!-- Product List Start //-->
+                        <div class="product-list row">
+                            <div class="col-6 col-lg-4">
+                                <div class="product-item">
+                                    <div class="product-image">
+                                        <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-9.jpg" alt="">
+                                        <button class="product-fav" aria-label="Добавить в избранное"></button>
+                                    </div>
+                                    <div class="d-flex align-items-start justify-content-between">
+                                        <div class="product-title">Cotton Baseball Cap</div>
+                                        <div class="product-rating">5</div>
+                                    </div>
+                                    <div class="product-except">
+                                        Краткое описание
+                                    </div>
+                                    <div class="product-info d-flex align-items-center justify-content-between mt-3">
+                                        <div class="product-rate">
+                                            <span></span>
+                                            <span></span>
+                                            <span class="fill"></span>
+                                            <span class="fill"></span>
+                                            <span class="fill"></span>
+                                        </div>
+                                        <div class="product-comment-count">13</div>
+                                    </div>
+                                    <a href="#" class="stretched-link"></a>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-4">
+                                <div class="product-item">
+                                    <div class="product-image">
+                                        <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-11.jpg" alt="">
+                                        <button class="product-fav" aria-label="Добавить в избранное"></button>
+                                    </div>
+                                    <div class="d-flex align-items-start justify-content-between">
+                                        <div class="product-title">Grown cotton T-shirt</div>
+                                        <div class="product-rating">5</div>
+                                    </div>
+                                    <div class="product-except">
+                                        Краткое описание
+                                    </div>
+                                    <div class="product-info d-flex align-items-center justify-content-between mt-3">
+                                        <div class="product-rate">
+                                            <span></span>
+                                            <span></span>
+                                            <span class="fill"></span>
+                                            <span class="fill"></span>
+                                            <span class="fill"></span>
+                                        </div>
+                                        <div class="product-comment-count">13</div>
+                                    </div>
+                                    <a href="#" class="stretched-link"></a>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-4">
+                                <div class="product-item">
+                                    <div class="product-image">
+                                        <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-13.jpg" alt="">
+                                        <button class="product-fav" aria-label="Добавить в избранное"></button>
+                                    </div>
+                                    <div class="d-flex align-items-start justify-content-between">
+                                        <div class="product-title">Long strappy dress</div>
+                                        <div class="product-rating">5</div>
+                                    </div>
+                                    <div class="product-except">
+                                        Краткое описание
+                                    </div>
+                                    <div class="product-info d-flex align-items-center justify-content-between mt-3">
+                                        <div class="product-rate">
+                                            <span></span>
+                                            <span></span>
+                                            <span class="fill"></span>
+                                            <span class="fill"></span>
+                                            <span class="fill"></span>
+                                        </div>
+                                        <div class="product-comment-count">13</div>
+                                    </div>
+                                    <a href="#" class="stretched-link"></a>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-4">
+                                <div class="product-item">
+                                    <div class="product-image">
+                                        <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-15.jpg" alt="">
+                                        <button class="product-fav" aria-label="Добавить в избранное"></button>
+                                    </div>
+                                    <div class="d-flex align-items-start justify-content-between">
+                                        <div class="product-title">Jacket with pouch pockett</div>
+                                        <div class="product-rating">5</div>
+                                    </div>
+                                    <div class="product-except">
+                                        Краткое описание
+                                    </div>
+                                    <div class="product-info d-flex align-items-center justify-content-between mt-3">
+                                        <div class="product-rate">
+                                            <span></span>
+                                            <span></span>
+                                            <span class="fill"></span>
+                                            <span class="fill"></span>
+                                            <span class="fill"></span>
+                                        </div>
+                                        <div class="product-comment-count">13</div>
+                                    </div>
+                                    <a href="#" class="stretched-link"></a>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-4">
+                                <div class="product-item">
+                                    <div class="product-image">
+                                        <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-16.jpg" alt="">
+                                        <button class="product-fav" aria-label="Добавить в избранное"></button>
+                                    </div>
+                                    <div class="d-flex align-items-start justify-content-between">
+                                        <div class="product-title">Long Fit T-shirt</div>
+                                        <div class="product-rating">5</div>
+                                    </div>
+                                    <div class="product-except">
+                                        Краткое описание
+                                    </div>
+                                    <div class="product-info d-flex align-items-center justify-content-between mt-3">
+                                        <div class="product-rate">
+                                            <span></span>
+                                            <span></span>
+                                            <span class="fill"></span>
+                                            <span class="fill"></span>
+                                            <span class="fill"></span>
+                                        </div>
+                                        <div class="product-comment-count">13</div>
+                                    </div>
+                                    <a href="#" class="stretched-link"></a>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-4">
+                                <div class="product-item">
+                                    <div class="product-image">
+                                        <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-10.jpg" alt="">
+                                        <button class="product-fav" aria-label="Добавить в избранное"></button>
+                                    </div>
+                                    <div class="d-flex align-items-start justify-content-between">
+                                        <div class="product-title">Jersey Graphic Tee Dolce</div>
+                                        <div class="product-rating">5</div>
+                                    </div>
+                                    <div class="product-except">
+                                        Краткое описание
+                                    </div>
+                                    <div class="product-info d-flex align-items-center justify-content-between mt-3">
+                                        <div class="product-rate">
+                                            <span></span>
+                                            <span></span>
+                                            <span class="fill"></span>
+                                            <span class="fill"></span>
+                                            <span class="fill"></span>
+                                        </div>
+                                        <div class="product-comment-count">13</div>
+                                    </div>
+                                    <a href="#" class="stretched-link"></a>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-4">
+                                <div class="product-item">
+                                    <div class="product-image">
+                                        <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-detail-big-img1-1.jpg" alt="">
+                                        <button class="product-fav fill"></button>
+                                    </div>
+                                    <div class="d-flex align-items-start justify-content-between">
+                                        <div class="product-title">New Summer Collection</div>
+                                        <div class="product-rating">5</div>
+                                    </div>
+                                    <div class="product-except">
+                                        Краткое описание
+                                    </div>
+                                    <div class="product-info d-flex align-items-center justify-content-between mt-3">
+                                        <div class="product-rate">
+                                            <span></span>
+                                            <span></span>
+                                            <span class="fill"></span>
+                                            <span class="fill"></span>
+                                            <span class="fill"></span>
+                                        </div>
+                                        <div class="product-comment-count">13</div>
+                                    </div>
+                                    <a href="#" class="stretched-link"></a>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-4">
+                                <div class="product-item">
+                                    <div class="product-image">
+                                        <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-14.jpg" alt="">
+                                        <button class="product-fav" aria-label="Добавить в избранное"></button>
+                                    </div>
+                                    <div class="d-flex align-items-start justify-content-between">
+                                        <div class="product-title">Grown cotton T-shirt</div>
+                                        <div class="product-rating">5</div>
+                                    </div>
+                                    <div class="product-except">
+                                        Краткое описание
+                                    </div>
+                                    <div class="product-info d-flex align-items-center justify-content-between mt-3">
+                                        <div class="product-rate">
+                                            <span></span>
+                                            <span></span>
+                                            <span class="fill"></span>
+                                            <span class="fill"></span>
+                                            <span class="fill"></span>
+                                        </div>
+                                        <div class="product-comment-count">13</div>
+                                    </div>
+                                    <a href="#" class="stretched-link"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product List End //-->
+
+                        <!-- Pagination Start //-->
+                        <ul class="pagination">
+                            <!-- <li class="disabled"><span>Предыдущая</span></li> -->
+                            <li><span>1</span></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">Следующая</a></li>
+                        </ul>
+                        <!-- Pagination End //-->
+                    </div>
+                </div>
+            </div>
+            <div class="related-content">
+                <h3 class="mb-4">Related Products</h3>
+                <div class="related-list">
+                    <div class="related-item">
+                        <div class="related-image">
+                            <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-16.jpg" alt="">
+                        </div>
+                        <div class="related-title">Long Fit T-shirt</div>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                    <div class="related-item">
+                        <div class="related-image">
+                            <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-14.jpg" alt="">
+                        </div>
+                        <div class="related-title">Grown cotton T-shirt</div>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                    <div class="related-item">
+                        <div class="related-image">
+                            <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-detail-big-img1-1.jpg" alt="">
+                        </div>
+                        <div class="related-title">New Summer Collection</div>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                    <div class="related-item">
+                        <div class="related-image">
+                            <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-15.jpg" alt="">
+                        </div>
+                        <div class="related-title">Jacket with pouch pockett</div>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                    <div class="related-item">
+                        <div class="related-image">
+                            <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-10.jpg" alt="">
+                        </div>
+                        <div class="related-title">Jersey Graphic Tee Dolce</div>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                    <div class="related-item">
+                        <div class="related-image">
+                            <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-9.jpg" alt="">
+                        </div>
+                        <div class="related-title">Cotton Baseball Cap</div>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                    <div class="related-item">
+                        <div class="related-image">
+                            <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-13.jpg" alt="">
+                        </div>
+                        <div class="related-title">Название подборки</div>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                    <div class="related-item">
+                        <div class="related-image">
+                            <img src="https://html.cwsthemes.com/liami/assets/images/resources/product-img1-11.jpg" alt="">
+                        </div>
+                        <div class="related-title">Название подборки</div>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Content End \\-->
+    </div>
+    <!-- Page Wrapper End \\-->
+
+    <!-- Footer Start \\-->
+    <footer class="footer">
+        <div class="container footer-top">
+            <ul class="list-unstyled">
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">Обо мне</a></li>
+                <li><a href="#">Блог</a></li>
+            </ul>
+            <ul class="list-unstyled ms-auto me-auto me-md-0 mt-3 mt-md-0">
+                <li><a href="#">Связаться с владельцем</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <span class="footer-copyright">© Все права защищены</span>
+                <span class="footer-policy">
+                    <a href="#">Политика конфиденциальности</a>
+                </span>
+                <span class="footer-social d-none d-md-block">
+                    <a href="#">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 11.3701C16.1234 12.2023 15.9812 13.0523 15.5937 13.7991C15.2062 14.5459 14.5931 15.1515 13.8416 15.5297C13.0901 15.908 12.2384 16.0397 11.4077 15.906C10.5771 15.7723 9.80971 15.3801 9.21479 14.7852C8.61987 14.1903 8.22768 13.4229 8.09402 12.5923C7.96035 11.7616 8.09202 10.91 8.47028 10.1584C8.84854 9.40691 9.45414 8.7938 10.2009 8.4063C10.9477 8.0188 11.7977 7.87665 12.63 8.00006C13.4789 8.12594 14.2648 8.52152 14.8716 9.12836C15.4785 9.73521 15.8741 10.5211 16 11.3701Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M17.5 6.5H17.5095" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.59268 10.4533C7.81178 7.68218 11.9588 5.85527 14.0338 4.9726C19.9583 2.4524 21.1894 2.01461 21.9917 2.00015C22.1682 1.99697 22.5628 2.0417 22.8184 2.25382C23.0342 2.43292 23.0936 2.67487 23.122 2.84468C23.1504 3.01449 23.1858 3.40133 23.1577 3.70359C22.8367 7.15356 21.4475 15.5257 20.7407 19.3897C20.4417 21.0247 19.8529 21.573 19.2828 21.6266C18.0439 21.7432 17.1032 20.7893 15.9033 19.9848C14.0257 18.7261 12.965 17.9425 11.1424 16.7142C9.03614 15.2946 10.4015 14.5144 11.6019 13.2393C11.916 12.9056 17.3745 7.82791 17.4802 7.36728C17.4934 7.30967 17.5056 7.09493 17.3809 6.98154C17.2562 6.86815 17.0721 6.90692 16.9392 6.93776C16.7509 6.98147 13.7514 9.00909 7.94068 13.0206C7.08928 13.6185 6.3181 13.9099 5.62716 13.8946C4.86545 13.8778 3.40022 13.4541 2.31098 13.092C0.974979 12.6479 -0.0868487 12.413 0.00561267 11.6587C0.0537722 11.2658 0.582794 10.864 1.59268 10.4533Z" fill="white"/>
+                        </svg>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End \\-->
+
+    <!-- Modals-->
+    <div class="custom-modal auth-modal" id="authModal">
+        <button class="modal-close">&#10005;</button>
+        <div class="auth-modal-body" id="authForm">
+            <div class="nav auth-modal-head" id="list-tab" role="tablist">
+                <a href="#singInContent" data-bs-toggle="list" class="active">Вход</a>
+                <a href="#signUpContent" data-bs-toggle="list">Регистрация</a>
+            </div>
+            <div class="tab-list" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="singInContent" role="tabpanel" aria-labelledby="singInContent-list">
+                    <div class="auth-modal-content">
+                        <div class="mb-3">
+                            <input type="text" name="username" placeholder="Ваш логин">
+                        </div>
+                        <div class="mb-2">
+                            <div class="input-password">
+                                <input type="password" name="password" placeholder="Ваш пароль">
+                                <button class="show-password" aria-label="Показать пароль"></button>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <a href="#">Забыли пароль?</a>
+                        </div>
+                    </div>
+                    <div class="auth-modal-footer">
+                        <div class="mb-3">
+                            <label for="policy">
+                                <input type="checkbox" id="policy" name="agree" required>
+                                <span>Согласен с <a href="#">политикой конфиденциальности</a></span>
+                            </label>
+                        </div>
+                        <div class="mb-3">
+                            <button onclick="Swal.fire({text: 'Текст с подтверждением', customClass: {confirmButton:'btn btn-primary'}, buttonsStyling: false,})" class="btn btn-primary w-100 d-block">Войти</button>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span>Войти с помощью</span>
+                            <ul class="list-unstyled mb-0 d-flex">
+                                <li>
+                                    <a href="#">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.40589 3.40589C2 4.81177 2 7.0745 2 11.6V12.4C2 16.9255 2 19.1882 3.40589 20.5941C4.81177 22 7.0745 22 11.6 22H12.4C16.9255 22 19.1882 22 20.5941 20.5941C22 19.1882 22 16.9255 22 12.4V11.6C22 7.0745 22 4.81177 20.5941 3.40589C19.1882 2 16.9255 2 12.4 2H11.6C7.0745 2 4.81177 2 3.40589 3.40589ZM5.37505 8.08337C5.48338 13.2834 8.08337 16.4084 12.6417 16.4084H12.9001V13.4334C14.5751 13.6 15.8417 14.825 16.35 16.4084H18.7167C18.0667 14.0417 16.3583 12.7334 15.2916 12.2334C16.3583 11.6167 17.8583 10.1167 18.2166 8.08337H16.0666C15.5999 9.73337 14.2168 11.2334 12.9001 11.375V8.08337H10.75V13.85C9.41667 13.5167 7.73338 11.9 7.65837 8.08337H5.37505Z" fill="#C4C4C4"/>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="ms-2">
+                                    <a href="#">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.1149 7.72989C15.0615 6.69593 13.6559 6.13266 12.2015 6.15581C9.54006 6.15581 7.27973 8.00379 6.4738 10.4922C6.04648 11.7962 6.04648 13.2083 6.4738 14.5123H6.47754C7.28721 16.9969 9.54379 18.8449 12.2052 18.8449C13.579 18.8449 14.7585 18.4832 15.6726 17.8444V17.8418C16.7484 17.1088 17.4831 15.9553 17.7117 14.6512H12.2015V10.608H21.8238C21.9438 11.3102 22 12.0278 22 12.7415C22 15.935 20.8911 18.635 18.9617 20.4637L18.9637 20.4653C17.2731 22.0702 14.9528 23 12.2015 23C8.34428 23 4.81697 20.7623 3.08517 17.2168C1.63827 14.25 1.63828 10.7546 3.08518 7.78778C4.81698 4.23839 8.34428 2.00071 12.2015 2.00071C14.7354 1.96984 17.1832 2.94978 19.0274 4.7322L16.1149 7.72989Z" fill="#C4C4C4"/>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="signUpContent" role="tabpanel" aria-labelledby="signUpContent-list">
+                    <div class="auth-modal-content">
+                        <div class="mb-3">
+                            <input type="text" name="username" placeholder="Ваш логин">
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-password">
+                                <input type="password" name="password" placeholder="Ваш пароль">
+                                <button class="show-password" aria-label="Показать пароль"></button>
+                            </div>
+                        </div>
+                        <div class="mb-5">
+                            <div class="input-password">
+                                <input type="password" name="password" placeholder="Повторите пароль">
+                                <button class="show-password" aria-label="Показать пароль"></button>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="policy">
+                                <input type="checkbox" id="policy" name="agree" required>
+                                <span>Согласен с <a href="#">политикой конфиденциальности</a></span>
+                            </label>
+                        </div>
+                        <button class="btn btn-primary w-100 d-block">Зарегистрироваться</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="custom-modal map-modal" id="mapModal">
+        <button class="modal-close">&#10005;</button>
+        <div class="map-modal-content">
+            <div class="row">
+                <div class="col-md-4 col-lg-3">
+                    <div class="product-filter py-3 py-md-4 ps-4 pe-4 pe-md-0">
+                        <div class="filter-touch">
+                            <span>Фильтр</span>
+                        </div>
+                        <div class="filter-heading">
+                            <span class="filter-title" aria-expanded="true" data-bs-target="#filter-box">Фильтр</span>
+                            <button class="btn btn-link filter-reset">Очистить</button>
+                        </div>
+                        <div class="filter-box">
+                            <div class="accordion accordion-flush" id="mapFilterFlushModal">
+                                <div class="filter-item">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#map-flush-city" aria-expanded="false" aria-controls="flush-city">
+                                        Город
+                                    </button>
+                                    <div id="map-flush-city" class="collapse" data-bs-parent="#mapFilterFlushModal">
+                                        <div class="accordion-body">
+                                            <ul>
+                                                <li>
+                                                    <label for="city01" class="filter-name">Город</label>
+                                                    <input type="checkbox" name="city" id="city01">
+                                                </li>
+                                                <li>
+                                                    <label for="city02" class="filter-name">Город</label>
+                                                    <input type="checkbox" name="city" id="city02">
+                                                </li>
+                                                <li>
+                                                    <label for="city03" class="filter-name">Город</label>
+                                                    <input type="checkbox" name="city" id="city03">
+                                                </li>
+                                                <li>
+                                                    <label for="city04" class="filter-name">Город</label>
+                                                    <input type="checkbox" name="city" id="city04">
+                                                </li>
+                                                <li>
+                                                    <label for="city05" class="filter-name">Город</label>
+                                                    <input type="checkbox" name="city" id="city05">
+                                                </li>
+                                                <li>
+                                                    <label for="city05" class="filter-name">Город</label>
+                                                    <input type="checkbox" name="city" id="city05">
+                                                </li>
+                                                <li>
+                                                    <label for="city05" class="filter-name">Город</label>
+                                                    <input type="checkbox" name="city" id="city05">
+                                                </li>
+                                                <li>
+                                                    <label for="city05" class="filter-name">Город</label>
+                                                    <input type="checkbox" name="city" id="city05">
+                                                </li>
+                                                <li>
+                                                    <label for="city05" class="filter-name">Город</label>
+                                                    <input type="checkbox" name="city" id="city05">
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="filter-item">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#map-flush-type" aria-expanded="false" aria-controls="flush-type">
+                                        Новое/винтаж
+                                    </button>
+                                    <div id="map-flush-type" class="collapse" data-bs-parent="#mapFilterFlushModal">
+                                        <div class="accordion-body">
+                                            <ul>
+                                                <li>
+                                                    <label for="type01" class="filter-name">Новое</label>
+                                                    <input type="checkbox" name="type" id="type01">
+                                                </li>
+                                                <li>
+                                                    <label for="type02" class="filter-name">Винтаж</label>
+                                                    <input type="checkbox" name="type" id="type02">
+                                                </li>
+                                                <li>
+                                                    <label for="type03" class="filter-name">Не важно</label>
+                                                    <input type="checkbox" name="type" id="type03">
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary w-100 mt-4 d-block">Показать</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-lg-9">
+                    <div style="position:relative;overflow:hidden;"><a href="https://yandex.kz/maps/213/moscow/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Москва</a><a href="https://yandex.kz/maps/213/moscow/house/ulitsa_vavilova_19/Z04Ycw9gSEAPQFtvfXtxcX1rZg==/inside/?ll=37.578748%2C55.701073&tab=inside&utm_medium=mapframe&utm_source=maps&z=17.5" style="color:#eee;font-size:12px;position:absolute;top:14px;">Улица Вавилова, 19 — Яндекс Карты</a><iframe src="https://yandex.kz/map-widget/v1/-/CCUBJVxj-A" width="100%" height="640" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Javascripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.4/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/jquery.touchSwipe.min.js"></script>
+    <script>
+        (function($) {
+            $(document).ready(() => {
+                $('.related-list').slick({
+                    speed: 300,
+                    slidesToShow: 6,
+                    slidesToScroll: 1,
+                    rows: 0,
+                    nextArrow: '<button class="slick-next slick-arrow" aria-label="Слайдер вперед" type="button"></button>',
+                    prevArrow: '<button class="slick-prev slick-arrow" aria-label="Слайдер назад" type="button"></button>',
+                    responsive: [
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 3,
+                            }
+                        },
+                        {
+                            breakpoint: 600,
+                            settings: {
+                                slidesToShow: 2,
+                            }
+                        },
+                        {
+                            breakpoint: 400,
+                            settings: {
+                                slidesToShow: 2,
+                            }
+                        }
+                    ]
+                })
+
+                $('.hero-slider').slick({
+                    infinite: true,
+                    speed: 300,
+                    rows: 0,
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    variableWidth: true,
+                    nextArrow: '<button class="slick-next slick-arrow" aria-label="Слайдер вперед" type="button"></button>',
+                    prevArrow: '<button class="slick-prev slick-arrow" aria-label="Слайдер назад" type="button"></button>',
+                    responsive: [
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 2,
+                            }
+                        },
+                        {
+                            breakpoint: 600,
+                            settings: {
+                                slidesToShow: 1,
+                            }
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                slidesToShow: 1,
+                            }
+                        }
+                    ]
+                })
+            
+                $(".filter-touch").swipe( {
+                    //Generic swipe handler for all directions
+                    swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+                        if (direction == 'up') {
+                            $(this).parents('.product-filter').css({
+                                top: 'auto',
+                                bottom: 0
+                            })
+                        }
+                        else if (direction == 'down') {
+                            $(this).parents('.product-filter').css({
+                                top: 'calc(100% - 70px)',
+                                bottom: 0
+                            })
+                        }
+                    },
+                    //Default is 75px, set to 0 for demo so any distance triggers swipe
+                    threshold: 0
+                });
+            })
+        })(jQuery)
+
+        document.querySelectorAll('.input-password').forEach((input) => {
+            input.querySelector('.show-password').addEventListener('click', (e) => {
+                if (input.querySelector('input').type == 'password') input.querySelector('input').setAttribute('type', 'text')
+                else input.querySelector('input').setAttribute('type', 'password')
+            })
+        })
+
+        document.querySelectorAll('[data-toggle="modal"]').forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                
+                let id, tagName = btn.tagName
+
+                if (tagName == 'A') id = btn.getAttribute('href').replace('#', '')
+                if (tagName == 'BUTTON') id = btn.getAttribute('id').replace('#', '')
+
+                if (id != undefined) {
+                    document.body.classList.add('modal-open')
+                    console.log(document.getElementById(id))
+                    document.getElementById(id).style.display = 'block'
+                }
+            })
+        })
+
+        document.querySelectorAll('.custom-modal .modal-close').forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault()
+                e.stopPropagation()
+
+                document.body.classList.remove('modal-open')
+                document.querySelectorAll('.custom-modal').forEach((modal) => {
+                    modal.style.display = ''
+                })
+            })
+        })
+    </script>
+</body>
+</html>
