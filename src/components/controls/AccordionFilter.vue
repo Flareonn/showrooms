@@ -1,61 +1,57 @@
-
 <script setup lang="ts">
-import Accordion from '@/components/controls/Accordion.vue'
-import { filters as hardFilters } from '@/constants/hardcode'
+import Accordion from "@/components/controls/Accordion.vue";
+import { useStoreFilters } from "@/store/filters";
 
-import {ref} from "vue";
+import { ref } from "vue";
+import { useRoute } from "vue-router";
 
 interface IProps {
-  id: string,
-  open?: boolean
+  id: string;
+  open?: boolean;
 }
 
-withDefaults(defineProps<IProps>(), {
-  open: false
-})
+const { open } = withDefaults(defineProps<IProps>(), {
+  open: false,
+});
 
 const emit = defineEmits<{
-  (e: 'change', filters: Record<string, string>): void
+  (e: "change", filters: Record<string, string[]>): void;
+  (e: "clear"): void;
 }>();
 
-const filterElements = ref<InstanceType<typeof Accordion>[]>([]);
-const filters = ref<Filter[]>([
-  {
-    placeholder: 'Город',
-    field: 'domains',
-    items: [],
-  },
-])
-filters.value = filters.value.concat(hardFilters)
+const storeFilters = useStoreFilters();
+const route = useRoute();
 
-const onSelectFilters = () => {
-  const checkedFilters: Record<string, string> = {};
-  filterElements.value.forEach((filter) => {
-    if(filter.model.length) {
-      checkedFilters[filter.id] = filter.model.join(',');
-    }
-  })
-  emit('change', checkedFilters);
-}
+const filters = storeFilters.filters;
+let model = ref(
+  Object.fromEntries(
+    filters.map(({ field }) => [
+      field,
+      route.query[field]?.toString().split(",") || [],
+    ])
+  )
+);
+
 const onClearFilters = () => {
-  filterElements.value.forEach(filter => filter.clearModel())
-  emit('change', {})
-}
+  model.value = storeFilters.getModel;
+  emit("clear");
+};
 </script>
 
 <template>
   <accordion
     :id="id"
     class="product-filter"
-    placeholder="Фильтр"
     :classes="{
       header: 'filter-heading',
       body: 'filter-box',
       placeholder: 'filter-title',
     }"
-    without-arrow
-    :initial-open="open"
+    :is-open="open"
   >
+    <template #placeholder>
+      <span>Фильтр</span><i class="icon-filter"></i>
+    </template>
     <template #after-placeholder>
       <button class="btn btn-link filter-reset" @click="onClearFilters">
         Очистить
@@ -65,13 +61,30 @@ const onClearFilters = () => {
       <accordion
         v-for="(filter, idx) in filters"
         :placeholder="filter.placeholder"
-        :items="filter.items"
-        :id="filter.field"
+        :id="`filter-${id}-${idx}`"
         :key="idx"
-        ref="filterElements"
         class="filter-item"
-        @change="onSelectFilters"
-      />
+      >
+        <template #body>
+          <ul>
+            <li
+              v-for="option in filter.items"
+              :key="`${filter.id}${option.value}`"
+            >
+              <label :for="option.value + filter.field">{{
+                option.name
+              }}</label>
+              <input
+                :id="option.value + filter.field"
+                v-model="model[filter.field]"
+                :value="option.value"
+                type="checkbox"
+                @change="emit('change', model)"
+              />
+            </li>
+          </ul>
+        </template>
+      </accordion>
       <button class="btn btn-primary w-100 mt-4 d-block">Показать</button>
     </template>
   </accordion>
