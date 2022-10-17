@@ -1,41 +1,29 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed } from "vue";
 
 interface IProps {
   id: string;
   placeholder?: string;
   classes?: {
-    header: string,
-    placeholder: string,
-    body: string
+    header: string;
+    placeholder: string;
+    body: string;
   };
-  withoutArrow?: boolean;
-  items?: string[];
-  initialOpen?: boolean;
+  isOpen?: boolean;
 }
 
 const props = withDefaults(defineProps<IProps>(), {
-  placeholder: 'placeholder',
+  placeholder: "placeholder",
   classes: () => ({
     body: "",
     header: "",
-    placeholder: ""
+    placeholder: "",
   }),
-  withoutArrow: false,
-  items: () => [],
-  initialOpen: false,
+  isOpen: false,
 });
 
-const isOpen = ref(false);
-const uniqueId = computed(() => `accordion-${props.id}`)
-
-const model = ref([]);
-const clearModel = () => model.value = []
-defineExpose({
-  clearModel,
-  model,
-  id: props.id,
-})
+const isOpen = ref(props.isOpen);
+const uniqueId = computed(() => `accordion-${props.id}`);
 </script>
 
 <template>
@@ -53,37 +41,21 @@ defineExpose({
         :class="classes.placeholder"
         @click="isOpen = !isOpen"
       >
-        <span>{{ placeholder }}</span>
-        <i v-if="!withoutArrow" class="icon-arrow-accordion"></i>
-        <i
-          v-else-if="classes.placeholder.includes('filter-title')"
-          class="icon-filter"
-        ></i>
+        <slot name="placeholder">
+          <span>{{ placeholder }}</span>
+          <i class="icon-arrow-accordion"></i>
+        </slot>
       </div>
       <slot name="after-placeholder"></slot>
     </div>
     <div
       :id="uniqueId"
       class="collapse"
-      :class="[classes.body, { show: initialOpen }]"
+      :class="[classes.body, { show: isOpen }]"
     >
       <div class="accordion-body">
         <slot name="before-body"></slot>
-        <slot name="body" :unique-id="uniqueId">
-          <ul>
-            <li v-for="(item, idx) in items" :key="idx">
-              <label :for="uniqueId + idx">{{ item }}</label>
-              <input
-                :id="uniqueId + idx"
-                v-model="model"
-                :name="uniqueId"
-                type="checkbox"
-                :value="item"
-                @change="$emit('change', model)"
-              />
-            </li>
-          </ul>
-        </slot>
+        <slot name="body" :unique-id="uniqueId"></slot>
         <slot name="after-body"></slot>
       </div>
     </div>
