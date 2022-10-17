@@ -16,6 +16,7 @@ const props = withDefaults(defineProps<IProps>(), {
 
 const emit = defineEmits<{
   (e: "change", filters: Record<string, string[]>): void;
+  (e: "submit", filters: Record<string, string[]>): void;
   (e: "clear"): void;
 }>();
 
@@ -85,7 +86,12 @@ const onClearFilters = () => {
           </ul>
         </template>
       </accordion>
-      <button class="btn btn-primary w-100 mt-4 d-block">Показать</button>
+      <button
+        class="btn btn-primary w-100 mt-4 d-block"
+        @click.prevent="emit('submit', model)"
+      >
+        Показать
+      </button>
     </template>
   </accordion>
 </template>

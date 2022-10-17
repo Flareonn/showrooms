@@ -112,7 +112,7 @@ const slider = reactive<Slider>({
           <div class="col-md-4 col-lg-3">
             <accordion-filter
               id="accordion-filter-1"
-              @change="(filters) => router.push(mergeQuery(filters))"
+              @submit="(filters) => router.push(mergeQuery(filters))"
               @clear="router.push({ query: {} })"
             />
             <category-list

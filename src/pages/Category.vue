@@ -95,6 +95,7 @@ watchEffect(async () => {
           />
           <accordion-filter
             id="accordion-filter-1"
+            @submit="(filters) => router.push(mergeQuery(filters))"
             :is-open="!categories.length"
           />
           <category-list
