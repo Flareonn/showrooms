@@ -7,11 +7,11 @@ import { useRoute } from "vue-router";
 
 interface IProps {
   id: string;
-  open?: boolean;
+  isOpen?: boolean;
 }
 
-const { open } = withDefaults(defineProps<IProps>(), {
-  open: false,
+const props = withDefaults(defineProps<IProps>(), {
+  isOpen: false,
 });
 
 const emit = defineEmits<{
@@ -47,7 +47,7 @@ const onClearFilters = () => {
       body: 'filter-box',
       placeholder: 'filter-title',
     }"
-    :is-open="open"
+    :is-open="props.isOpen"
   >
     <template #placeholder>
       <span>Фильтр</span><i class="icon-filter"></i>

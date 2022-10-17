@@ -94,7 +94,7 @@ watchEffect(async () => {
           />
           <accordion-filter
             id="accordion-filter-1"
-            :open="!categories.length"
+            :is-open="!categories.length"
           />
           <category-list
             :categories="categories"

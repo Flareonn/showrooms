@@ -1,28 +1,35 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { computed } from "vue";
 
 interface IProps {
   id: string;
+  isOpen?: boolean;
   placeholder?: string;
   classes?: {
     header: string;
     placeholder: string;
     body: string;
   };
-  isOpen?: boolean;
 }
 
 const props = withDefaults(defineProps<IProps>(), {
+  isOpen: false,
   placeholder: "placeholder",
   classes: () => ({
     body: "",
     header: "",
     placeholder: "",
   }),
-  isOpen: false,
 });
 
-const isOpen = ref(props.isOpen);
+const emit = defineEmits<{
+  (e: "update:isOpen", isOpen: boolean): void;
+}>();
+
+const isOpen = computed({
+  get: () => props.isOpen,
+  set: (value) => emit("update:isOpen", value),
+});
 const uniqueId = computed(() => `accordion-${props.id}`);
 </script>
 
