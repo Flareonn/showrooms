@@ -4,7 +4,7 @@ import { ref, reactive } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStoreCategories } from "@/store/categories";
 import { slides } from "@/constants/hardcode";
-import { appendQuery } from "@/mixins/router";
+import { mergeQuery } from "@/mixins/router";
 
 import { SwiperOptions, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -105,14 +105,14 @@ const slider = reactive<Slider>({
           <input-search
             placeholder="Поиск"
             :initial-input="searchControl"
-            @change="(search) => appendQuery({ search })"
+            @change="(search) => router.push(mergeQuery({ search }))"
           />
         </div>
         <div class="row">
           <div class="col-md-4 col-lg-3">
             <accordion-filter
               id="accordion-filter-1"
-              @change="(filters) => appendQuery(filters)"
+              @change="(filters) => router.push(mergeQuery(filters))"
               @clear="router.push({ query: {} })"
             />
             <category-list

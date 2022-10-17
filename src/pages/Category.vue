@@ -9,9 +9,10 @@ import AccordionFilter from "@/components/controls/AccordionFilter.vue";
 import InputSearch from "@/components/controls/InputSearch.vue";
 import DropdownSort from "@/components/controls/DropdownSort.vue";
 import ProductsList from "@/components/product/ProductsList.vue";
-import { appendQuery } from "@/mixins/router";
+import { mergeQuery } from "@/mixins/router";
 
 const route = useRoute();
+const router = useRouter();
 const storeCategories = useStoreCategories();
 const axios = inject("axios") as AxiosStatic;
 
@@ -90,7 +91,7 @@ watchEffect(async () => {
             class="d-flex d-md-none mb-3"
             placeholder="Поиск"
             :initial-input="searchControl"
-            @change="(search) => appendQuery({ search })"
+            @change="(search) => router.push(mergeQuery({ search }))"
           />
           <accordion-filter
             id="accordion-filter-1"
@@ -105,14 +106,14 @@ watchEffect(async () => {
         <div class="col-md-8 col-lg-9">
           <div class="row">
             <!-- Content Action Start //-->
-            <dropdown-sort />
+            <dropdown-sort class="mb-5 mb-md-0 col-6 col-md-4 col-lg-6" />
             <div
               class="d-none d-md-block mb-3 mb-md-0 col-12 col-md-7 col-lg-4 offset-md-1 offset-lg-2"
             >
               <input-search
                 placeholder="Поиск"
                 :initial-input="searchControl"
-                @change="(search) => appendQuery({ search })"
+                @change="(search) => router.push(mergeQuery({ search }))"
               />
             </div>
             <div
