@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { showroom } from "@/plugins/axios";
-import { omitEmptyValues } from "@/mixins";
+import { omitEmptyValues, toStringValues } from "@/mixins";
+import { stringifyQuery } from "vue-router";
 
 interface ProductsState {
   products: Record<string, ResponseProducts>;
@@ -14,9 +15,9 @@ export const useStoreProducts = defineStore({
     product: {},
   }),
   actions: {
-    async fetchProducts(params?: Record<string, string>) {
+    async fetchProducts(params: Record<string, string>) {
       const hash =
-        "?" + new URLSearchParams(omitEmptyValues(params)).toString();
+        "?" + stringifyQuery(toStringValues(omitEmptyValues(params)));
       if (!(hash in this.products)) {
         this.products[hash] = (await showroom.get(hash)).data;
       }
