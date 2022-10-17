@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import ProductCard from "@/components/product/ProductCard.vue";
 import { useStoreProducts } from "@/store/products";
-import { ref, watch } from "vue";
-import { useRoute } from "vue-router";
+import { ref, watch, computed } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { routeNames } from "@/plugins/router";
+
+const { fetchProducts } = useStoreProducts();
+const route = useRoute();
 
 let products = ref<ResponseProducts>({
   links: {
@@ -13,11 +17,23 @@ let products = ref<ResponseProducts>({
   count_pages: 0,
   results: [],
 });
-const { fetchProducts } = useStoreProducts();
-const route = useRoute();
+const categoryId = computed(() => {
+  const id = route.params.id.at(-1);
+  if (id) {
+    return +id;
+  }
+  useRouter().back();
+  return 0;
+});
+
 watch(
   () => route.query,
-  async (val: any) => (products.value = await fetchProducts(val)),
+  async (val: any) => {
+    if (route.name === routeNames.category) {
+      val.categories__id = categoryId.value;
+    }
+    products.value = await fetchProducts(val);
+  },
   { immediate: true }
 );
 </script>
