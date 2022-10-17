@@ -15,4 +15,9 @@ export const useStoreFilters = defineStore({
       this.filters = (await axios.get("/get-filter/")).data;
     },
   },
+  getters: {
+    getModel(): Record<string, []> {
+      return Object.fromEntries(this.filters.map(({ field }) => [field, []]));
+    },
+  },
 });
