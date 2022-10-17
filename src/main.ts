@@ -9,6 +9,7 @@ import globalComponents from "@/plugins/globals";
 // @ts-ignore
 import YmapPlugin from "vue-yandex-maps";
 import App from "./App.vue";
+import { useStoreFilters } from "./store/filters";
 
 const app = createApp(App);
 
@@ -30,5 +31,6 @@ Object.entries(globalComponents).forEach(([name, component]) => {
 });
 
 await useStoreCategories().requestCategories();
+await useStoreFilters().requestFilters();
 
 app.mount("#app");
