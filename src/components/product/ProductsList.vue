@@ -8,6 +8,10 @@ import { routeNames } from "@/plugins/router";
 const { fetchProducts } = useStoreProducts();
 const route = useRoute();
 
+interface IProps {
+  initialQuery?: Record<string, string | number>;
+}
+const props = defineProps<IProps>();
 let products = ref<ResponseProducts>({
   links: {
     next: null,
@@ -17,22 +21,13 @@ let products = ref<ResponseProducts>({
   count_pages: 0,
   results: [],
 });
-const categoryId = computed(() => {
-  const id = route.params.id.at(-1);
-  if (id) {
-    return +id;
-  }
-  useRouter().back();
-  return 0;
-});
 
 watch(
   () => route.query,
   async (val: any) => {
-    if (route.name === routeNames.category) {
-      val.categories__id = categoryId.value;
-    }
-    products.value = await fetchProducts(val);
+    products.value = await fetchProducts(
+      Object.assign({}, val, props.initialQuery)
+    );
   },
   { immediate: true }
 );

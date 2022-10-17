@@ -117,7 +117,7 @@ watchEffect(async () => {
             <!-- Content Action End //-->
           </div>
           <!-- Product List Start //-->
-          <products-list />
+          <products-list :initial-query="{ categories__id: categoryId }" />
           <!-- Product List End //-->
 
           <!-- Pagination Start //-->
