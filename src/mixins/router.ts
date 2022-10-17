@@ -1,14 +1,13 @@
 import { omitEmptyValues, toStringValues } from "@/mixins";
 import router from "@/plugins/router";
+import { LocationQueryRaw } from "vue-router";
 
-export const appendQuery = (
-  params: Record<string, string | number | string[]>
-) => {
-  router.push({
+export const mergeQuery = (params: LocationQueryRaw) => {
+  return {
     query: toStringValues(
       omitEmptyValues(
         Object.assign({}, router.currentRoute.value.query, params)
       )
     ),
-  });
+  };
 };
