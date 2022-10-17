@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import "swiper/css";
 import { ref, reactive } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { useStoreCategories } from "@/store/categories";
 import { slides } from "@/constants/hardcode";
 import { appendQuery } from "@/mixins/router";
@@ -16,6 +16,7 @@ import DropdownSort from "@/components/controls/DropdownSort.vue";
 import ProductsList from "@/components/product/ProductsList.vue";
 
 const route = useRoute();
+const router = useRouter();
 const { categories } = useStoreCategories();
 
 type Slider = {
@@ -109,7 +110,11 @@ const slider = reactive<Slider>({
         </div>
         <div class="row">
           <div class="col-md-4 col-lg-3">
-            <accordion-filter id="accordion-filter-1" />
+            <accordion-filter
+              id="accordion-filter-1"
+              @change="(filters) => appendQuery(filters)"
+              @clear="router.push({ query: {} })"
+            />
             <category-list
               :categories="categories"
               type="link"
