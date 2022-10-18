@@ -1,44 +1,43 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import { useRoute } from 'vue-router';
-import { useStoreCategories } from "@/store/categories"
-
+import { computed } from "vue";
+import { useRoute } from "vue-router";
+import { useStoreCategories } from "@/store/categories";
 
 type BreadCrumb = {
-  path: string,
-  title: string
-}
+  path: string;
+  title: string;
+};
 interface IProps {
-  customPath?: BreadCrumb[]
+  customPath?: BreadCrumb[];
 }
-const { customPath } = withDefaults(defineProps<IProps>(), {
-  customPath: () => []
-})
+const props = withDefaults(defineProps<IProps>(), {
+  customPath: () => [],
+});
 
 const store = useStoreCategories();
 const crumbs = computed(() => {
-  if(customPath.length) {
-    return customPath
+  if (props.customPath.length) {
+    return props.customPath;
   }
-  const { fullPath } = useRoute()
-  const params = fullPath.startsWith('/')
-    ? fullPath.substring(1).split('/')
-    : fullPath.split('/')
-  const crumbs: BreadCrumb[] = []
+  const { fullPath } = useRoute();
+  const params = fullPath.startsWith("/")
+    ? fullPath.substring(1).split("/")
+    : fullPath.split("/");
+  const crumbs: BreadCrumb[] = [];
   params.reduce((prev, curr) => {
-    const path = `${prev}/${curr}` 
+    const path = `${prev}/${curr}`;
 
     const category = store.map[Number(curr)];
-    if(category) {
+    if (category) {
       crumbs.push({
         path,
-        title: category.name
+        title: category.name,
       });
     }
-    return path
-  })
-  return [{path: "", title: "Главная"}].concat(crumbs)
-})
+    return path;
+  });
+  return [{ path: "", title: "Главная" }].concat(crumbs);
+});
 </script>
 
 <template>
