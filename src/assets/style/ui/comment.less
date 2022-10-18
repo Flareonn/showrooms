@@ -13,12 +13,12 @@
       font-weight: 400;
       font-size: 16px;
       line-height: 23px;
-      color: #7b7b7b;
+      color: @g-gray300;
       background-color: transparent;
       border-width: 0;
 
       &:hover {
-        color: #525252;
+        color: @g-gray500;
       }
     }
   }
@@ -34,8 +34,8 @@
         flex-direction: column;
 
         .comment-item {
-          border-top: 1px solid #e9e9e9;
-          border-bottom: 1px solid #e9e9e9;
+          border-top: 1px solid @g-white100;
+          border-bottom: 1px solid @g-white100;
           padding: 20px 24px;
           margin-bottom: 24px;
           display: flex;
@@ -49,7 +49,6 @@
             min-width: 60px;
             width: 60px;
             height: 60px;
-            background-color: #c4c4c4;
             margin-right: 20px;
 
             @media (min-width: 320px) and (max-width: 540px) {
@@ -79,7 +78,7 @@
               font-weight: 700;
               font-size: 16px;
               line-height: 22px;
-              color: #525252;
+              color: @g-gray500;
               margin-right: 30px;
 
               @media (min-width: 320px) and (max-width: 540px) {
@@ -95,7 +94,7 @@
               font-weight: 400;
               font-size: 14px;
               line-height: 18px;
-              color: #a4a4a4;
+              color: @g-gray200;
 
               @media (min-width: 320px) and (max-width: 540px) {
                 font-size: 12px;
@@ -125,14 +124,19 @@
             font-weight: 400;
             font-size: 18px;
             line-height: 26px;
-            color: #525252;
+            color: @g-gray500;
             margin-bottom: 16px;
             p {
               white-space: pre-line;
             }
             &__image {
               width: 100px;
+              height: 100px;
+              object-fit: cover;
               cursor: pointer;
+              &:not(:last-child) {
+                margin-right: 15px;
+              }
             }
           }
 
@@ -147,13 +151,13 @@
               font-weight: 400;
               font-size: 14px;
               line-height: 18px;
-              color: #7b7b7b;
+              color: @g-gray300;
               padding: 0;
               background-color: transparent;
               border-width: 0;
 
               &:hover {
-                color: #525252;
+                color: @g-gray500;
               }
             }
 
@@ -170,13 +174,13 @@
                 font-weight: 400;
                 font-size: 14px;
                 line-height: 18px;
-                color: #7b7b7b;
+                color: @g-gray300;
                 i {
                   margin: 0px 8px;
                 }
 
                 &:hover {
-                  color: #525252;
+                  color: @g-gray500;
                 }
               }
             }
@@ -202,8 +206,8 @@
 
     .comment-box {
       display: flex;
-      background-color: #ffffff;
-      border: 1px solid #c4c4c4;
+      background-color: @g-white;
+      border: 1px solid @g-gray100;
       box-sizing: border-box;
       padding: 12px 24px;
       position: relative;
@@ -217,7 +221,7 @@
         min-width: 60px;
         width: 60px;
         height: 60px;
-        background-color: #c4c4c4;
+        background-color: @g-gray100;
         margin-right: 20px;
 
         @media (min-width: 320px) and (max-width: 540px) {
@@ -237,7 +241,7 @@
           font-weight: 700;
           font-size: 16px;
           line-height: 22px;
-          color: #525252;
+          color: @g-gray500;
           margin-bottom: 8px;
 
           @media (min-width: 320px) and (max-width: 540px) {
@@ -247,8 +251,8 @@
         }
 
         textarea {
-          background: #ffffff;
-          border: 1px solid #e9e9e9;
+          background: @g-white;
+          border: 1px solid @g-white100;
           box-sizing: border-box;
           width: 100%;
           padding: 8px 12px;
@@ -268,7 +272,7 @@
             font-weight: 400;
             font-size: 18px;
             line-height: 26px;
-            color: #e9e9e9;
+            color: @g-white100;
 
             @media (min-width: 320px) and (max-width: 540px) {
               font-size: 14px;
@@ -302,9 +306,9 @@
       font-weight: 700;
       font-size: 20px;
       line-height: 26px;
-      color: #ffffff;
+      color: @g-white;
       padding: 17px 67px;
-      background-color: #bda79c;
+      background-color: @g-brown100;
       border-width: 0;
       box-shadow: none;
       margin: 46px auto 0;
@@ -312,7 +316,7 @@
       &:hover,
       &:focus,
       &:active {
-        background-color: #a08c82;
+        background-color: @g-brown;
         box-shadow: none;
         outline: none;
       }
@@ -349,7 +353,7 @@
       margin-left: 15px;
 
       .comment-row {
-        border-left: 1px solid #e5e5e5;
+        border-left: 1px solid @g-white300;
         padding-left: 10px;
         margin-bottom: 20px;
       }

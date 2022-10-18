@@ -48,7 +48,7 @@
         font-weight: 400;
         font-size: 18px;
         line-height: 27px;
-        color: #ffffff;
+        color: @g-white;
 
         &:last-child {
           margin-bottom: 0;
@@ -68,8 +68,6 @@
       width: 854px;
       display: flex;
       align-items: center;
-      padding: 4px 0px 4px 4px;
-      background-color: #fff;
 
       @media (min-width: 768px) and (max-width: 1024px) {
         width: 484px;
@@ -80,7 +78,10 @@
         width: 264px;
       }
 
-      .swiper-wrapper {
+      .slick-list {
+        background-color: @g-white;
+        padding: 4px;
+        overflow: hidden;
         height: 248px;
       }
 
@@ -94,7 +95,7 @@
         border-radius: 0;
         box-shadow: none;
         i {
-          color: #fff;
+          color: @g-white;
         }
 
         &.slick-next {
@@ -143,7 +144,7 @@
           font-weight: 700;
           font-size: 18px;
           line-height: 24px;
-          color: #000000;
+          color: @g-black;
           padding: 14px 24px;
           text-align: center;
           width: 100%;
@@ -191,7 +192,7 @@
           font-weight: 400;
           font-size: 12px;
           line-height: 16px;
-          color: #7b7b7b;
+          color: @g-gray300;
         }
       }
     }

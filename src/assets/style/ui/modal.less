@@ -4,7 +4,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1041;
-  background-color: #ffffff;
+  background-color: @g-white;
   min-width: 792px;
   box-sizing: border-box;
   padding-left: 350px;
@@ -14,7 +14,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
-  color: #c4c4c4;
+  color: @g-gray100;
 
   @media (min-width: 768px) and (max-width: 1024px) {
     min-width: 600px;
@@ -24,7 +24,7 @@
     padding-left: 0;
 
     .modal-close {
-      color: #ffffff;
+      color: @g-white;
     }
   }
 
@@ -37,7 +37,7 @@
   }
 
   .auth-modal-body {
-    background-color: #ffffff;
+    background-color: @g-white;
     padding: 32px;
 
     @media (min-width: 320px) and (max-width: 1024px) {
@@ -52,7 +52,7 @@
       font-weight: 400;
       font-size: 14px;
       line-height: 19px;
-      color: #c4c4c4;
+      color: @g-gray100;
       display: flex;
       align-items: center;
 
@@ -62,7 +62,7 @@
         font-weight: 400;
         font-size: 14px;
         line-height: 19px;
-        color: #c4c4c4;
+        color: @g-gray100;
         text-decoration: underline;
 
         @media (min-width: 320px) and (max-width: 540px) {
@@ -108,7 +108,7 @@
         font-size: 28px;
         line-height: 37px;
         text-decoration: none;
-        color: #525252;
+        color: @g-gray500;
         order: 1;
         margin-right: 30px;
       }
@@ -120,7 +120,7 @@
         font-size: 16px;
         line-height: 22px;
         text-decoration-line: underline;
-        color: #a4a4a4;
+        color: @g-gray200;
         order: 2;
       }
     }
@@ -132,7 +132,7 @@
         font-weight: 400;
         font-size: 14px;
         line-height: 19px;
-        color: #909090;
+        color: @g-gray100-hover;
 
         @media (min-width: 320px) and (max-width: 540px) {
           font-size: 12px;
@@ -142,8 +142,8 @@
 
       input:not([type="checkbox"]) {
         width: 100%;
-        background-color: #ffffff;
-        border: 1px solid #c4c4c4;
+        background-color: @g-white;
+        border: 1px solid @g-gray100;
         box-sizing: border-box;
         padding: 11px 24px 10px;
 
@@ -153,7 +153,7 @@
           font-weight: 400;
           font-size: 18px;
           line-height: 24px;
-          color: #c4c4c4;
+          color: @g-gray100;
         }
       }
 
@@ -227,7 +227,7 @@
   .auth-modal-footer {
     margin-top: 79px;
     i {
-      color: #c4c4c4;
+      color: @g-gray100;
     }
   }
 }
@@ -238,7 +238,7 @@
   &::before {
     content: "";
     z-index: 1040;
-    background-color: #00000060;
+    background-color: fade(@g-black, 60%);
     position: fixed;
     width: 100%;
     top: 0;
@@ -266,7 +266,7 @@
   align-items: center;
   justify-content: center;
   z-index: 14;
-  color: #909090;
+  color: @g-gray100-hover;
   font-weight: lighter;
   cursor: pointer;
 
@@ -276,21 +276,28 @@
 }
 
 .map-modal {
+  @height-modal: 640px;
   position: fixed;
   top: 50%;
   left: 40px;
   right: 40px;
   transform: translateY(-50%);
   z-index: 1041;
-  background-color: #ffffff;
+  background-color: @g-white;
   box-sizing: border-box;
-  height: 640px;
+  height: @height-modal;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
-  color: #c4c4c4;
+  color: @g-gray100;
+  &-filter {
+    margin-top: 20px;
+    max-height: calc(@height-modal - 40px);
+    overflow-y: auto;
+    .scrollbar();
+  }
 
   @media (min-width: 320px) and (max-width: 540px) {
     top: 0;
@@ -316,7 +323,7 @@
       left: 0;
       top: calc(100% - 70px);
       z-index: 10;
-      background-color: #ffffff;
+      background-color: @g-white;
       width: 100%;
       border-radius: 15px 15px 0px 0px;
 

@@ -3,3 +3,20 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.scrollbar() {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: @g-white200;
+    border-radius: 100px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: @g-brown100;
+    border-radius: 100px;
+  }
+}

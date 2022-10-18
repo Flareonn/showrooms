@@ -10,20 +10,20 @@ input[type='checkbox'] {
   &::before {
     content: '';
     z-index: 1;
-    background-color: #ffffff;
+    background-color: @g-white;
     width: 16px;
     height: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #a4a4a4;
+    border: 1px solid @g-gray200;
     box-sizing: border-box;
     position: absolute;
   }
 
   &:checked::before {
-    background-color: #bda79c;
-    border: 1px solid #bda79c;
+    background-color: @g-brown100;
+    border: 1px solid @g-brown100;
     box-sizing: border-box;
   }
 
@@ -35,7 +35,7 @@ input[type='checkbox'] {
     left: 5px;
     width: 5px;
     height: 8px;
-    border: solid #fff;
+    border: solid @g-white;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
     -moz-transform: rotate(45deg);

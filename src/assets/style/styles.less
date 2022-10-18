@@ -1,8 +1,8 @@
-@import "icons";
-@import "layout";
-@import "pages";
-@import "components";
-@import "ui";
+@import 'icons';
+@import 'layout';
+@import 'pages';
+@import 'components';
+@import 'ui';
 // Sticky footer
 html,
 body {
@@ -57,17 +57,17 @@ button:focus-within {
 
 a {
   transition: color 0.25s ease-in-out;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
-  color: #7b7b7b;
+  color: @g-gray300;
   text-decoration: none;
 }
 
 a:hover {
-  color: #525252;
+  color: @g-gray500;
 }
 
 // Images
@@ -90,13 +90,13 @@ iframe {
 
 // Heading & Typography
 h1 {
-  font-family: "Playfair Display";
+  font-family: 'Playfair Display';
   font-style: normal;
   font-weight: 700;
   font-size: 56px;
   line-height: 62px;
   text-transform: uppercase;
-  color: #ffffff;
+  color: @g-white;
 
   @media (min-width: 768px) and (max-width: 1024px) {
     font-size: 40px;
@@ -110,12 +110,12 @@ h1 {
 }
 
 h2 {
-  font-family: "Playfair Display";
+  font-family: 'Playfair Display';
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
   line-height: 38px;
-  color: #000000;
+  color: @g-black;
 
   @media (min-width: 320px) and (max-width: 1024px) {
     font-size: 24px;
@@ -124,12 +124,12 @@ h2 {
 }
 
 h3 {
-  font-family: "Playfair Display";
+  font-family: 'Playfair Display';
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
   line-height: 29px;
-  color: #000000;
+  color: @g-black;
 
   @media (min-width: 320px) and (max-width: 767px) {
     font-size: 20px;
@@ -138,12 +138,12 @@ h3 {
 }
 
 p {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 26px;
-  color: #000000;
+  color: @g-black;
 
   @media (min-width: 320px) and (max-width: 540px) {
     font-size: 16px;

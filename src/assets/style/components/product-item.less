@@ -25,9 +25,14 @@
         right: 12px;
       }
 
-      &:hover i::after {
+      &:hover i::after,
+      input[type="checkbox"]:checked + i::after {
         height: 20px;
         background-image: url("@/static/icons/like/hover.svg");
+      }
+
+      input[type="checkbox"] {
+        display: none;
       }
     }
   }
@@ -39,7 +44,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: 24px;
-    color: #000000;
+    color: @g-black;
 
     @media (min-width: 320px) and (max-width: 540px) {
       font-size: 12px;
@@ -55,18 +60,18 @@
     font-style: normal;
     font-weight: 400;
     line-height: 16px;
-    color: #c4c4c4;
+    color: @g-gray100;
 
     i {
       margin-right: 4px;
-      color: #ffb800;
+      color: @g-gold;
     }
 
     @media (min-width: 320px) and (max-width: 540px) {
       position: absolute;
       top: 10px;
       left: 10px;
-      background-color: #ffffff90;
+      background-color: @g-yellow;
       border-radius: 15px;
       padding: 4px 8px 4px 3px;
     }
@@ -80,7 +85,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 24px;
-    color: #c4c4c4;
+    color: @g-gray100;
 
     @media (min-width: 320px) and (max-width: 540px) {
       font-size: 12px;
@@ -105,7 +110,7 @@
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    color: #c4c4c4;
+    color: @g-gray100;
     line-height: 1;
 
     i.icon-comment {
