@@ -1,8 +1,8 @@
 import { omitEmptyValues, toStringValues } from "@/mixins";
 import router from "@/plugins/router";
-import { LocationQueryRaw } from "vue-router";
+import type { LocationQuery, RouteLocationRaw } from "vue-router";
 
-export const mergeQuery = (params: LocationQueryRaw) => {
+export const mergeQuery = (params: LocationQuery): RouteLocationRaw => {
   return {
     query: toStringValues(
       omitEmptyValues(
