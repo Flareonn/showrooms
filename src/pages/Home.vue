@@ -8,7 +8,6 @@ import { mergeQuery } from "@/mixins/router";
 import { Navigation } from "swiper";
 
 import type { BasePopup } from "@/components/globals";
-import type { Swiper } from "@/globals";
 
 import InputSearch from "@/components/controls/InputSearch.vue";
 import AccordionFilter from "@/components/controls/AccordionFilter.vue";
