@@ -13,21 +13,21 @@ declare global {
     slides: Slide[];
   };
 
-  type Category = {
+  interface Category {
     id: number;
     name: string;
     title: string;
     category_children: Category[];
-  };
+  }
 
-  type CategoryDetails = Category & {
+  interface CategoryDetails extends Category {
     parent: number | null;
     description: string;
     grid_img: string;
     detail_img: string;
     header_img: string;
     recommend_img: string;
-  };
+  }
 
   type FlatCategories = Record<
     number,
