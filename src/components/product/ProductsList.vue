@@ -11,7 +11,11 @@ interface IProps {
   initialQuery?: Record<string, string | number>;
 }
 const props = defineProps<IProps>();
-let products = ref<ResponseProducts>({
+
+const { fetchProducts } = useStoreProducts();
+const route = useRoute();
+
+let products = ref<IResponse<Showroom>>({
   links: {
     next: null,
     previous: null,

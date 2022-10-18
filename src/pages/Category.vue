@@ -28,7 +28,7 @@ const currentCategory = ref<CategoryDetails>({
   description: "",
   category_children: [],
 });
-const products = ref<ResponseProducts>({
+const products = ref<IResponse<Showroom>>({
   links: {
     next: null,
     previous: null,

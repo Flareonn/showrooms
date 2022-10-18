@@ -4,7 +4,7 @@ import { omitEmptyValues, toStringValues } from "@/mixins";
 import { stringifyQuery } from "vue-router";
 
 interface ProductsState {
-  products: Record<string, ResponseProducts>;
+  products: Record<string, IResponse<Showroom>>;
   product: Record<number, ShowroomDetails>;
 }
 

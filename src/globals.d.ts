@@ -90,4 +90,4 @@ type Pagination = {
   };
 };
 
-type ResponseProducts = Pagination & { results: Showroom[] };
+type IResponse<T> = Pagination & { results: T[] };
