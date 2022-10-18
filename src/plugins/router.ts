@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import { Home, Category, ErrorPage, Showroom } from "@/pages";
+import { useStoreProducts } from "@/store/products";
 
 export const routes: Readonly<RouteRecordRaw[]> = [
   {
@@ -12,6 +13,15 @@ export const routes: Readonly<RouteRecordRaw[]> = [
     name: "Showroom",
     component: Showroom,
     props: (route) => ({ id: route.params.id }),
+    beforeEnter: async (to, from, next) => {
+      try {
+        await useStoreProducts().fetchProduct(+to.params.id);
+      } catch (e) {
+        next({ name: "Error" });
+      } finally {
+        next();
+      }
+    },
   },
   {
     path: "/category/:id(\\d+)+",
