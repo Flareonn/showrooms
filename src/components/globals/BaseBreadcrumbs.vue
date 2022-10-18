@@ -25,7 +25,6 @@ const crumbs = computed(() => {
     ? route.path.substring(1).split("/")
     : route.path.split("/");
   const crumbs: BreadCrumb[] = [];
-  console.log(crumbs, params);
   params.reduce((prev, curr) => {
     const path = `${prev}/${curr}`;
 
