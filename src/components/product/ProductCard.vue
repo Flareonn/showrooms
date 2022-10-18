@@ -16,17 +16,22 @@ withDefaults(defineProps<IProps>(), {
   comments_number: 0,
   saved_number: 0,
   title: "",
-  description: ""
-})
+  description: "",
+});
 </script>
 
 <template>
   <div class="product-item">
     <div class="product-image">
       <img :src="grid_img" :alt="title" />
-      <button class="product-fav" aria-label="Добавить в избранное">
+      <label
+        :for="`product-like-${id}`"
+        class="product-fav"
+        aria-label="Добавить в избранное"
+      >
+        <input :id="`product-like-${id}`" type="checkbox" />
         <i class="icon-like"></i>
-      </button>
+      </label>
     </div>
     <div class="d-flex align-items-start justify-content-between">
       <div class="product-title">{{ name }}</div>
@@ -37,13 +42,7 @@ withDefaults(defineProps<IProps>(), {
     </div>
     <div class="product-except">{{ description }}</div>
     <div
-      class="
-        product-info
-        d-flex
-        align-items-center
-        justify-content-between
-        mt-3
-      "
+      class="product-info d-flex align-items-center justify-content-between mt-3"
     >
       <div class="product-rate">
         <base-rating :id="id" :rating="average_star" editable />
