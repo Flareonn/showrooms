@@ -26,8 +26,8 @@ const slider = reactive<Swiper>({
     slideClass: "slider-item",
     modules: [Navigation],
     navigation: {
-      nextEl: ".slick-next",
-      prevEl: ".slick-prev",
+      nextEl: ".hero-slider .slick-next",
+      prevEl: ".hero-slider .slick-prev",
     },
     autoHeight: true,
     loop: true,
@@ -46,6 +46,29 @@ const slider = reactive<Swiper>({
   },
   slides,
 });
+const relatedSliderSettings = reactive<Pick<Swiper, "settings">>({
+  settings: {
+    slideClass: "slider-item",
+    modules: [Navigation],
+    navigation: {
+      nextEl: ".related-content .slick-next",
+      prevEl: ".related-content .slick-prev",
+    },
+    autoHeight: true,
+    breakpoints: {
+      1024: {
+        slidesPerView: 6,
+      },
+      600: {
+        slidesPerView: 3,
+      },
+      320: {
+        slidesPerView: 2,
+      },
+    },
+    spaceBetween: 4,
+  },
+});
 </script>
 
 <template>
@@ -61,7 +84,23 @@ const slider = reactive<Swiper>({
           </p>
         </div>
       </div>
-      <base-slider class="hero-slider" v-bind="slider" />
+      <base-slider class="hero-slider" v-bind="slider">
+        <template #afterWrapper>
+          <button
+            class="slick-next slick-arrow"
+            aria-label="Слайдер вперед"
+            type="button"
+          >
+            <i class="icon-arrow-slider"></i>
+          </button>
+          <button
+            class="slick-prev slick-arrow"
+            aria-label="Слайдер назад"
+            type="button"
+          >
+            <i class="icon-arrow-slider"></i></button
+        ></template>
+      </base-slider>
     </div>
     <!-- Hero End \\-->
 
@@ -105,7 +144,40 @@ const slider = reactive<Swiper>({
           </div>
         </div>
       </div>
-      <!-- <related-content /> -->
+      <base-slider
+        class="related-content"
+        :slides="slider.slides"
+        :settings="relatedSliderSettings.settings"
+      >
+        <template #before>
+          <h3 class="mb4">Related Products</h3>
+        </template>
+        <template #slide="{ slide }">
+          <div class="related-item">
+            <div class="related-image">
+              <img :src="slide.grid_img" :alt="slide.title" />
+            </div>
+            <div class="related-title">{{ slide.name }}</div>
+            <a :href="slide.link" target="_blank" class="stretched-link"></a>
+          </div>
+        </template>
+        <template #afterWrapper>
+          <button
+            class="slick-next slick-arrow"
+            aria-label="Слайдер вперед"
+            type="button"
+          >
+            <i class="icon-arrow-slider_min"></i>
+          </button>
+          <button
+            class="slick-prev slick-arrow"
+            aria-label="Слайдер назад"
+            type="button"
+          >
+            <i class="icon-arrow-slider_min"></i>
+          </button>
+        </template>
+      </base-slider>
     </main>
     <!-- Page Wrapper End \\-->
     <!-- Modals-->
