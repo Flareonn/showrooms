@@ -1,14 +1,11 @@
 <script setup lang="ts">
 import ProductCard from "@/components/product/ProductCard.vue";
 import { useStoreProducts } from "@/store/products";
-import { ref, watch } from "vue";
-import { useRoute } from "vue-router";
-
-const { fetchProducts } = useStoreProducts();
-const route = useRoute();
+import { ref, watchEffect } from "vue";
+import { LocationQuery, useRoute } from "vue-router";
 
 interface IProps {
-  initialQuery?: Record<string, string | number>;
+  query?: LocationQuery;
 }
 const props = defineProps<IProps>();
 

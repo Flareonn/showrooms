@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { showroom } from "@/plugins/axios";
 import { omitEmptyValues, toStringValues } from "@/mixins";
-import { stringifyQuery } from "vue-router";
+import { LocationQuery, stringifyQuery } from "vue-router";
 
 interface ProductsState {
   products: Record<string, IResponse<Showroom>>;
@@ -15,7 +15,7 @@ export const useStoreProducts = defineStore({
     product: {},
   }),
   actions: {
-    async fetchProducts(params: Record<string, string>) {
+    async fetchProducts(params: LocationQuery) {
       const hash =
         "?" + stringifyQuery(toStringValues(omitEmptyValues(params)));
       if (!(hash in this.products)) {
