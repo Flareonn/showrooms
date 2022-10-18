@@ -12,7 +12,7 @@ export const routes: Readonly<RouteRecordRaw[]> = [
     path: "/showroom/:id",
     name: "Showroom",
     component: Showroom,
-    props: (route) => ({ id: route.params.id }),
+    props: (route) => ({ id: +route.params.id }),
     beforeEnter: async (to, from, next) => {
       try {
         await useStoreProducts().fetchProduct(+to.params.id);
