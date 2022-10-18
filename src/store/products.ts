@@ -29,5 +29,14 @@ export const useStoreProducts = defineStore({
       }
       return this.product[id];
     },
+    async fetchBestItems(id: number) {
+      const product = await this.fetchProduct(id);
+      if (!("bestitems" in product)) {
+        this.product[id].bestitems = (
+          await showroom.get(`${id}/bestitems/`)
+        ).data;
+      }
+      return this.product[id].bestitems;
+    },
   },
 });
