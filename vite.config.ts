@@ -26,7 +26,7 @@ export default async ({ mode }) => {
     css: {
       preprocessorOptions: {
         less: {
-          additionalData: `@import "./vars/mixins.less";`,
+          additionalData: `@import "@/assets/style/vars";`,
         },
       },
     },
