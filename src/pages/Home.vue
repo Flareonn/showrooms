@@ -8,6 +8,8 @@ import { mergeQuery } from "@/mixins/router";
 import { Navigation } from "swiper";
 
 import type { BasePopup } from "@/components/globals";
+import type { Swiper } from "@/globals";
+
 import InputSearch from "@/components/controls/InputSearch.vue";
 import AccordionFilter from "@/components/controls/AccordionFilter.vue";
 import DropdownSort from "@/components/controls/DropdownSort.vue";
@@ -17,14 +19,9 @@ const route = useRoute();
 const router = useRouter();
 const { categories } = useStoreCategories();
 
-type Slider = {
-  settings: SwiperOptions;
-  slides: Slide[];
-};
-
 const searchControl = ref(route.query.search?.toString() || "");
 const popup = ref<typeof BasePopup | null>(null);
-const slider = reactive<Slider>({
+const slider = reactive<Swiper>({
   settings: {
     slideClass: "slider-item",
     modules: [Navigation],

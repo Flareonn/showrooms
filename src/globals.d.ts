@@ -1,9 +1,16 @@
+import type { SwiperOptions } from "swiper";
+
 interface Slide {
   grid_img: string;
   title: string;
   name: string;
   link?: string;
 }
+
+type Swiper = {
+  settings: SwiperOptions;
+  slides: Slide[];
+};
 
 type Category = {
   id: number;
