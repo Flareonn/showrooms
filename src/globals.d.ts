@@ -88,7 +88,12 @@ declare global {
     is_draft: boolean; // Флаг
     categories: number[]; //  Список идентификаторов категорий
     time_published: Date.UTC; //  Родительская категория шоурума
-    bestitems?: Showroom[];
+    bestitems?: IResponse<ShowroomItem>;
+  }
+
+  interface ShowroomItem
+    extends Pick<Showroom, "description" | "grid_img" | "name" | "title"> {
+    link: string;
   }
 
   type Pagination = {
