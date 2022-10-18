@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import "swiper/css";
 import { ref, reactive } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStoreCategories } from "@/store/categories";
 import { slides } from "@/constants/hardcode";
 import { mergeQuery } from "@/mixins/router";
 
-import { SwiperOptions, Navigation } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/vue";
+import { Navigation } from "swiper";
 
 import type { BasePopup } from "@/components/globals";
 import InputSearch from "@/components/controls/InputSearch.vue";
@@ -66,34 +64,7 @@ const slider = reactive<Slider>({
           </p>
         </div>
       </div>
-      <div class="hero-slider">
-        <!-- @ts-ignore -->
-        <swiper v-bind="slider.settings">
-          <swiper-slide
-            v-for="(slide, idx) in slider.slides"
-            :key="idx"
-            class="slider-item"
-          >
-            <img :src="slide.grid_img" alt="" />
-            <div class="slider-title">{{ slide.title }}</div>
-            <a href="#" class="stretched-link"></a>
-          </swiper-slide>
-        </swiper>
-        <button
-          class="slick-next slick-arrow"
-          aria-label="Слайдер вперед"
-          type="button"
-        >
-          <i class="icon-arrow-slider"></i>
-        </button>
-        <button
-          class="slick-prev slick-arrow"
-          aria-label="Слайдер назад"
-          type="button"
-        >
-          <i class="icon-arrow-slider"></i>
-        </button>
-      </div>
+      <base-slider class="hero-slider" v-bind="slider" />
     </div>
     <!-- Hero End \\-->
 
