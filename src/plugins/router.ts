@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import { Home, Category, ErrorPage } from "@/pages";
+import { Home, Category, ErrorPage, Showroom } from "@/pages";
 
 export const routes: Readonly<RouteRecordRaw[]> = [
   {
     path: "/",
     name: "Home",
     component: Home,
+  },
+  {
+    path: "/showroom/:id",
+    name: "Showroom",
+    component: Showroom,
+    props: (route) => ({ id: route.params.id }),
   },
   {
     path: "/category/:id(\\d+)+",
