@@ -11,32 +11,26 @@ const slider = defineProps<IProps>();
 </script>
 
 <template>
-  <div :class="['base-slider']">
+  <slot name="before"></slot>
+  <div :class="['base-slider', $attrs.class]">
     <!-- @ts-ignore -->
     <swiper v-bind="slider.settings">
       <swiper-slide
+        class="slider-item"
         v-for="(slide, idx) in slider.slides"
         :key="idx"
-        class="slider-item"
       >
-        <img :src="slide.grid_img" alt="" />
-        <div class="slider-title">{{ slide.title }}</div>
-        <a href="#" class="stretched-link"></a>
+        <slot name="slide" :slide="slide">
+          <img :src="slide.grid_img" alt="" />
+          <div class="slider-title">{{ slide.title }}</div>
+          <a
+            :href="slide.link || '#'"
+            target="_blank"
+            class="stretched-link"
+          ></a>
+        </slot>
       </swiper-slide>
     </swiper>
-    <button
-      class="slick-next slick-arrow"
-      aria-label="Слайдер вперед"
-      type="button"
-    >
-      <i class="icon-arrow-slider"></i>
-    </button>
-    <button
-      class="slick-prev slick-arrow"
-      aria-label="Слайдер назад"
-      type="button"
-    >
-      <i class="icon-arrow-slider"></i>
-    </button>
+    <slot name="afterWrapper"></slot>
   </div>
 </template>
