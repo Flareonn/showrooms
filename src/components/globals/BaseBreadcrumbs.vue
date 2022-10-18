@@ -15,15 +15,17 @@ const props = withDefaults(defineProps<IProps>(), {
 });
 
 const store = useStoreCategories();
+const route = useRoute();
+
 const crumbs = computed(() => {
   if (props.customPath.length) {
     return props.customPath;
   }
-  const { fullPath } = useRoute();
-  const params = fullPath.startsWith("/")
-    ? fullPath.substring(1).split("/")
-    : fullPath.split("/");
+  const params = route.path.startsWith("/")
+    ? route.path.substring(1).split("/")
+    : route.path.split("/");
   const crumbs: BreadCrumb[] = [];
+  console.log(crumbs, params);
   params.reduce((prev, curr) => {
     const path = `${prev}/${curr}`;
 
