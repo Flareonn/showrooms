@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import ProductCard from "@/components/product/ProductCard.vue";
 import { useStoreProducts } from "@/store/products";
-import { ref, watch, computed } from "vue";
-import { useRoute, useRouter } from "vue-router";
-import { routeNames } from "@/plugins/router";
+import { ref, watch } from "vue";
+import { useRoute } from "vue-router";
 
 const { fetchProducts } = useStoreProducts();
 const route = useRoute();
