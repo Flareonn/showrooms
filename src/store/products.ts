@@ -25,7 +25,7 @@ export const useStoreProducts = defineStore({
     },
     async fetchProduct(id: number) {
       if (!(id in this.product)) {
-        this.product[id] = (await showroom.get(`${id}`)).data;
+        this.product[id] = (await showroom.get(`${id}/`)).data;
       }
       return this.product[id];
     },
