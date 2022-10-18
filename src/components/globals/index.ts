@@ -16,4 +16,12 @@ export default {
   BaseSlider,
 };
 
-export type { BasePopup };
+export type {
+  BaseBreadcrumbs,
+  BaseDropdown,
+  BaseRating,
+  BasePagination,
+  BasePopup,
+  CategoryList,
+  BaseSlider,
+};
