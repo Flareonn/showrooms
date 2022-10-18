@@ -22,14 +22,11 @@ let products = ref<IResponse<Showroom>>({
   results: [],
 });
 
-watch(
-  () => route.query,
-  async (val: any) => {
-    products.value = await fetchProducts(
-      Object.assign({}, val, props.initialQuery)
-    );
-  },
-  { immediate: true }
+watchEffect(
+  async () =>
+    (products.value = await fetchProducts(
+      Object.assign({}, route.query, props.query)
+    ))
 );
 </script>
 

@@ -11,6 +11,11 @@ import DropdownSort from "@/components/controls/DropdownSort.vue";
 import ProductsList from "@/components/product/ProductsList.vue";
 import { mergeQuery } from "@/mixins/router";
 
+interface IProp {
+  id: string;
+}
+const props = defineProps<IProp>();
+
 const route = useRoute();
 const router = useRouter();
 const storeCategories = useStoreCategories();
@@ -39,21 +44,11 @@ const products = ref<IResponse<Showroom>>({
 });
 const searchControl = ref(route.query.search?.toString() || "");
 
-const categoryId = computed(() => {
-  const id = route.params.id.at(-1);
-  if (id) {
-    return +id;
-  }
-  useRouter().back();
-  return 0;
-});
 const categories = computed(
-  () => storeCategories.map[categoryId.value].category_children
+  () => storeCategories.map[+props.id].category_children
 );
 watchEffect(async () => {
-  currentCategory.value = (
-    await axios.get(`/categories/${categoryId.value}/`)
-  ).data;
+  currentCategory.value = (await axios.get(`/categories/${props.id}/`)).data;
 });
 </script>
 
@@ -125,7 +120,7 @@ watchEffect(async () => {
             <!-- Content Action End //-->
           </div>
           <!-- Product List Start //-->
-          <products-list :initial-query="{ categories__id: categoryId }" />
+          <products-list :query="{ categories__id: props.id }" />
           <!-- Product List End //-->
 
           <!-- Pagination Start //-->

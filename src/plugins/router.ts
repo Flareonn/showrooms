@@ -11,6 +11,14 @@ export const routes: Readonly<RouteRecordRaw[]> = [
     path: "/category/:id(\\d+)+",
     name: "Category",
     component: Category,
+    props: (route) => {
+      const { id } = route.params;
+      if ((id as string[]) && id.length >= 1) {
+        return { id: id[id.length - 1] };
+      } else {
+        throw new Error("Id is undefined!");
+      }
+    },
   },
   {
     path: "/:pathMatch(.*)*",
