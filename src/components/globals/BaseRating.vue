@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed } from "vue";
 
 interface IProps {
   id: number;
@@ -10,26 +10,29 @@ interface IProps {
 const { maxRating, rating } = withDefaults(defineProps<IProps>(), {
   editable: false,
   rating: 0,
-  maxRating: 5
-})
+  maxRating: 5,
+});
 const emit = defineEmits<{
-  (e: 'change', rating: number): void
+  (e: "change", rating: number): void;
 }>();
 
-function normalizeRating(value: string | number, maxRating: number) {
-  return Math.abs(+value - (maxRating + 1))
-}
 const isCurrentRating = computed(() => {
   return (value: number) => {
-    return normalizeRating(value, maxRating) === Math.round(ratingNumber.value)
-  }
-})
-const ratingNumber = computed(() => +rating)
+    return normalizeRating(value, maxRating) === Math.round(ratingNumber.value);
+  };
+});
+const ratingNumber = computed(() => +rating);
 const starType = computed(() => {
-  return (number: number) => number <= ratingNumber.value ? 'full' : 'empty';
-})
-const handlerRatingClick = ({target}: Event) => {
-  emit('change', normalizeRating((target as HTMLInputElement).value, maxRating))
+  return (number: number) => (number <= ratingNumber.value ? "full" : "empty");
+});
+const handlerRatingClick = ({ target }: Event) => {
+  emit(
+    "change",
+    normalizeRating((target as HTMLInputElement).value, maxRating)
+  );
+};
+function normalizeRating(value: string | number, maxRating: number) {
+  return Math.abs(+value - (maxRating + 1));
 }
 </script>
 
