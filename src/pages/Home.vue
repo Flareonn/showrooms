@@ -13,6 +13,7 @@ import InputSearch from "@/components/controls/InputSearch.vue";
 import AccordionFilter from "@/components/controls/AccordionFilter.vue";
 import DropdownSort from "@/components/controls/DropdownSort.vue";
 import ProductsList from "@/components/product/ProductsList.vue";
+import RelatedSlider from "@/components/sliders/Related.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -44,29 +45,6 @@ const slider = reactive<Swiper>({
     },
   },
   slides,
-});
-const relatedSliderSettings = reactive<Pick<Swiper, "settings">>({
-  settings: {
-    slideClass: "slider-item",
-    modules: [Navigation],
-    navigation: {
-      nextEl: ".related-content .slick-next",
-      prevEl: ".related-content .slick-prev",
-    },
-    autoHeight: true,
-    breakpoints: {
-      1024: {
-        slidesPerView: 6,
-      },
-      600: {
-        slidesPerView: 3,
-      },
-      320: {
-        slidesPerView: 2,
-      },
-    },
-    spaceBetween: 4,
-  },
 });
 </script>
 
@@ -143,40 +121,7 @@ const relatedSliderSettings = reactive<Pick<Swiper, "settings">>({
           </div>
         </div>
       </div>
-      <base-slider
-        class="related-content"
-        :slides="slider.slides"
-        :settings="relatedSliderSettings.settings"
-      >
-        <template #before>
-          <h3 class="mb4">Related Products</h3>
-        </template>
-        <template #slide="{ slide }">
-          <div class="related-item">
-            <div class="related-image">
-              <img :src="slide.grid_img" :alt="slide.title" />
-            </div>
-            <div class="related-title">{{ slide.name }}</div>
-            <a :href="slide.link" target="_blank" class="stretched-link"></a>
-          </div>
-        </template>
-        <template #afterWrapper>
-          <button
-            class="slick-next slick-arrow"
-            aria-label="Слайдер вперед"
-            type="button"
-          >
-            <i class="icon-arrow-slider_min"></i>
-          </button>
-          <button
-            class="slick-prev slick-arrow"
-            aria-label="Слайдер назад"
-            type="button"
-          >
-            <i class="icon-arrow-slider_min"></i>
-          </button>
-        </template>
-      </base-slider>
+      <RelatedSlider />
     </main>
     <!-- Page Wrapper End \\-->
     <!-- Modals-->
