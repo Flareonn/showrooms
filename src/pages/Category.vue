@@ -11,10 +11,10 @@ import DropdownSort from "@/components/controls/DropdownSort.vue";
 import ProductsList from "@/components/product/ProductsList.vue";
 import { mergeQuery } from "@/mixins/router";
 
-interface IProp {
+interface IProps {
   id: string;
 }
-const props = defineProps<IProp>();
+const props = defineProps<IProps>();
 
 const route = useRoute();
 const router = useRouter();
