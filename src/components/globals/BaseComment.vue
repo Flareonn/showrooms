@@ -1,3 +1,45 @@
+<script setup lang="ts">
+import { ref, reactive, computed } from "vue";
+import dayjs from "dayjs";
+import type BasePopup from "./BasePopup.vue";
+
+interface IProps {
+  user_name: string;
+  text: string;
+  comment_images: BaseImage[];
+  children: UserComment[];
+  time_published: string;
+}
+const props = defineProps<IProps>();
+
+type UserReaction = "like" | "dislike";
+
+const viewedImage = ref("");
+const popup = ref<typeof BasePopup | null>(null);
+const userReaction = ref<UserReaction | null>(null);
+const stats = reactive<Record<UserReaction, number>>({
+  like: 0,
+  dislike: 0,
+});
+
+const date = computed(() =>
+  dayjs(props.time_published).locale("ru").format("h:mm D MMMM YYYY")
+);
+const onImageClick = (image: string) => {
+  viewedImage.value = image;
+  popup.value?.open();
+};
+const onUserReaction = (reaction: UserReaction) => {
+  if (userReaction.value !== reaction) {
+    if (userReaction.value) {
+      stats[userReaction.value]--;
+    }
+    stats[reaction]++;
+    userReaction.value = reaction;
+  }
+};
+</script>
+
 <template>
   <li class="comment-row">
     <div class="comment-item">
@@ -31,7 +73,7 @@
             class="comment-body__image"
             @click="() => onImageClick(image)"
           />
-          <base-popup v-if="current" class="comment-modal">
+          <base-popup class="comment-modal" ref="popup">
             <img :src="viewedImage" alt="" />
           </base-popup>
         </div>
@@ -71,129 +113,3 @@
     </ul>
   </li>
 </template>
-
-<script>
-import '@/constants/typedef'
-import BaseAvatar from './BaseAvatar.vue'
-import { TypesPopup } from '@/constants/store.types'
-/** @typedef {'like'|'dislike'} Reaction */
-/**
- * @typedef Stats
- * @property {Number} [like=0]
- * @property {Number} [dislike=0]
- */
-export default {
-  name: 'BaseComment',
-  components: { BaseAvatar },
-  /**
-   * @typedef Props
-   * @property {Stats} initialStats
-   * @property {String} text Содержимое комментария
-   * @property {String} time_published Дата в формате UTC
-   * @property {UserComment[]} children Ответы на комментарий
-   * @property {String} user_name Никнейм пользователя
-   * @property {Object[]} comment_images Изображения, прикреплённые к комментарию
-   * @property {?String} avatar Аватар пользователя
-   */
-  /** @type {Props} */
-  props: {
-    initialStats: {
-      type: Object,
-      required: false,
-      default() {
-        return {
-          like: 0,
-          dislike: 0,
-        }
-      },
-    },
-    text: {
-      type: String,
-      required: true,
-    },
-    // eslint-disable-next-line vue/prop-name-casing
-    time_published: {
-      type: String,
-      required: true,
-    },
-    // eslint-disable-next-line vue/prop-name-casing
-    children: {
-      type: Array,
-      required: false,
-      default: () => [],
-    },
-    // eslint-disable-next-line vue/prop-name-casing
-    user_name: {
-      type: String,
-      required: true,
-    },
-    // eslint-disable-next-line vue/prop-name-casing
-    comment_images: {
-      type: Array,
-      required: false,
-      default: () => [],
-    },
-    avatar: {
-      type: String,
-      required: false,
-      default: '',
-    },
-  },
-  /**
-   * @typedef Data
-   * @property {Stats} stats
-   * @property {?Reaction} userReaction Реакция пользователя
-   * @property {?String} viewedImage Выбранное изображение для просмотра
-   * @property {String} popup Ключ к попап-окну для просмотра изображения
-   */
-  /**
-   * @type {Data}
-   * @this {Props}
-   */
-  data() {
-    return {
-      stats: this.initialStats,
-      userReaction: null,
-      viewedImage: null,
-      popup: this.user_name + this.time_published,
-    }
-  },
-  computed: {
-    /** @return {String} Форматтированная дата комментария */
-    date() {
-      return this.$dayjs(this.time_published).format('h:mm D MMMM YYYY')
-    },
-    /** @return {Boolean} Открыт ли предпросмотр изображения коментария */
-    current() {
-      return (
-        this.$store.getters[TypesPopup.getters.CURRENT_POPUP] === this.popup &&
-        this.viewedImage
-      )
-    },
-  },
-  methods: {
-    /**
-     * Обработчик пользовательских реакций.
-     * @param {"like"|"dislike"} reaction
-     * @this Data
-     */
-    onUserReaction(reaction) {
-      if (this.userReaction !== reaction) {
-        if (this.userReaction) {
-          this.stats[this.userReaction]--
-        }
-        this.stats[reaction]++
-        this.userReaction = reaction
-      }
-    },
-    /**
-     * Обработчик открытия предпросмотра изображения
-     * @param {String} image
-     */
-    onImageClick(image) {
-      this.viewedImage = image
-      this.$store.commit(TypesPopup.mutations.OPEN_POPUP, this.popup)
-    },
-  },
-}
-</script>
