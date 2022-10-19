@@ -96,6 +96,18 @@ declare global {
     link: string;
   }
 
+  interface UserComment {
+    user_name: string;
+    avatar: string | null;
+    text: string;
+    time_published: string;
+    parent: number | null;
+    showroom: number;
+    selection: number | null;
+    comment_images: BaseImage[];
+    children: UserComment[];
+  }
+
   type Pagination = {
     count: number;
     count_pages: number;
