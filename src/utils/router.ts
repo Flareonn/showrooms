@@ -1,4 +1,4 @@
-import { omitEmptyValues, toStringValues } from "@/mixins";
+import { omitEmptyValues, toStringValues } from "@/utils";
 import router from "@/plugins/router";
 import type { LocationQuery, RouteLocationRaw } from "vue-router";
 

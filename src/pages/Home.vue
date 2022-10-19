@@ -3,7 +3,7 @@ import { ref, reactive } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStoreCategories } from "@/store/categories";
 import { slides } from "@/constants/hardcode";
-import { mergeQuery } from "@/mixins/router";
+import { mergeQuery } from "@/utils/router";
 
 import { Navigation } from "swiper";
 

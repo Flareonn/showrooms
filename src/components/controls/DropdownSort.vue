@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { sorts } from "@/constants/hardcode";
 import { useRoute } from "vue-router";
-import { mergeQuery } from "@/mixins/router";
+import { mergeQuery } from "@/utils/router";
 const route = useRoute();
 </script>
 

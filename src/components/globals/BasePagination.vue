@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useRoute } from "vue-router";
-import { mergeQuery } from "@/mixins/router";
+import { mergeQuery } from "@/utils/router";
 interface IProps {
   totalPages: number;
 }

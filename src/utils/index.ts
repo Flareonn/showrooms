@@ -11,3 +11,14 @@ export const toStringValues = (
     Object.entries(object).map(([_, v]) => [_, v.toString()])
   );
 };
+
+export const cacheFunction = async <R extends string | number | symbol, T>(
+  property: R,
+  record: Record<R, T>,
+  cb: () => Promise<T>
+) => {
+  if (!(property in record)) {
+    record[property] = await cb();
+  }
+  return record[property];
+};

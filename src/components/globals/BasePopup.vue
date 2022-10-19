@@ -1,26 +1,25 @@
 <script setup lang="ts">
-import { ref, watch, useAttrs } from 'vue';
-import watchAndClose from "@/mixins/popup";
+import { ref, watch, useAttrs } from "vue";
+import watchAndClose from "@/utils/popup";
 const attrs = useAttrs();
 
-const isOpen = ref(false)
+const isOpen = ref(false);
 const popup = ref<HTMLElement | null>(null);
 
-const close = () => isOpen.value = false
-const open = () => isOpen.value = true
+const close = () => (isOpen.value = false);
+const open = () => (isOpen.value = true);
 defineExpose({ close, open });
 
 watch(
   popup,
   (value) => {
-    document.body.classList[value ? 'add' : 'remove']('modal-open')
+    document.body.classList[value ? "add" : "remove"]("modal-open");
     if (value) {
-      watchAndClose(isOpen, (popup.value as HTMLElement), close)
+      watchAndClose(isOpen, popup.value as HTMLElement, close);
     }
   },
   { immediate: true }
-)
-
+);
 </script>
 <template>
   <Teleport to="body" v-if="isOpen">

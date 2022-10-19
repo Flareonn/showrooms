@@ -9,7 +9,7 @@ import AccordionFilter from "@/components/controls/AccordionFilter.vue";
 import InputSearch from "@/components/controls/InputSearch.vue";
 import DropdownSort from "@/components/controls/DropdownSort.vue";
 import ProductsList from "@/components/product/ProductsList.vue";
-import { mergeQuery } from "@/mixins/router";
+import { mergeQuery } from "@/utils/router";
 
 interface IProps {
   id: string;
