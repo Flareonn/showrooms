@@ -33,7 +33,7 @@ const currentCategory = ref<CategoryDetails>({
   description: "",
   category_children: [],
 });
-const products = ref<IResponse<Showroom>>({
+const products = ref<Paginate<Showroom>>({
   links: {
     next: null,
     previous: null,

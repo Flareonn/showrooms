@@ -12,7 +12,7 @@ const props = defineProps<IProps>();
 const { fetchProducts } = useStoreProducts();
 const route = useRoute();
 
-let products = ref<IResponse<Showroom>>({
+let products = ref<Paginate<Showroom>>({
   links: {
     next: null,
     previous: null,

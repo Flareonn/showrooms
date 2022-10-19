@@ -88,7 +88,7 @@ declare global {
     is_draft: boolean; // Флаг
     categories: number[]; //  Список идентификаторов категорий
     time_published: Date.UTC; //  Родительская категория шоурума
-    bestitems?: IResponse<ShowroomItem>;
+    bestitems?: Paginate<ShowroomItem>;
   }
 
   interface ShowroomItem
@@ -117,7 +117,7 @@ declare global {
     };
   };
 
-  type IResponse<T> = Pagination & { results: T[] };
+  type Paginate<T> = Pagination & { results: T[] };
 
   type BaseImage = {
     image: string;

@@ -9,7 +9,7 @@ interface IProps {
 const props = defineProps<IProps>();
 const { fetchBestItems } = useStoreProducts();
 
-const products = reactive<IResponse<ShowroomItem>>(
+const products = reactive<Paginate<ShowroomItem>>(
   await fetchBestItems(props.id)
 );
 </script>

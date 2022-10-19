@@ -10,7 +10,7 @@ const formInput = ref<HTMLTextAreaElement | null>(null);
 const axios = inject("axios") as AxiosStatic;
 const id = inject("productId");
 
-const comments: IResponse<UserComment> = (
+const comments: Paginate<UserComment> = (
   await axios.get(`/comments/showroom/${id}/`)
 ).data;
 </script>

@@ -4,9 +4,9 @@ import { cacheFunction, omitEmptyValues, toStringValues } from "@/utils";
 import { LocationQuery, stringifyQuery } from "vue-router";
 
 interface ProductsState {
-  products: Record<string, IResponse<Showroom>>;
+  products: Record<string, Paginate<Showroom>>;
   product: Record<number, ShowroomDetails>;
-  bestitems: Record<number, IResponse<ShowroomItem>>;
+  bestitems: Record<number, Paginate<ShowroomItem>>;
 }
 
 export const useStoreProducts = defineStore({
