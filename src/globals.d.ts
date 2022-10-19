@@ -79,7 +79,7 @@ declare global {
       social_name: string; // Иконка соц.сети
     }[]; // Список социальных сетей шоурума
     showroom_children: ShowroomDetails[] | [];
-    showroom_detail_images: Image[];
+    showroom_detail_images: BaseImage[];
     header_img: string;
     detail_img: string;
     link: string; //  Официальная страница
@@ -106,9 +106,9 @@ declare global {
   };
 
   type IResponse<T> = Pagination & { results: T[] };
-}
 
-type Image = {
-  image: string;
-  image_thumbnail: string;
-};
+  type BaseImage = {
+    image: string;
+    image_thumbnail: string;
+  };
+}
