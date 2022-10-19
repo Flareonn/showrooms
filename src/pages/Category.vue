@@ -101,7 +101,6 @@ watchEffect(async () => {
         </div>
         <div class="col-md-8 col-lg-9">
           <div class="row">
-            <!-- Content Action Start //-->
             <dropdown-sort class="mb-5 mb-md-0 col-6 col-md-4 col-lg-6" />
             <div
               class="d-none d-md-block mb-3 mb-md-0 col-12 col-md-7 col-lg-4 offset-md-1 offset-lg-2"
@@ -117,15 +116,11 @@ watchEffect(async () => {
             >
               <a href="#mapModal" data-toggle="modal">Показать на карте</a>
             </div>
-            <!-- Content Action End //-->
           </div>
-          <!-- Product List Start //-->
-          <products-list :query="{ categories__id: props.id }" />
-          <!-- Product List End //-->
 
-          <!-- Pagination Start //-->
+          <products-list :query="{ categories__id: props.id }" />
+
           <base-pagination :total-pages="products.count_pages" />
-          <!-- Pagination End //-->
         </div>
       </div>
     </div>

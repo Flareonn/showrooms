@@ -50,7 +50,6 @@ const slider = reactive<Swiper>({
 
 <template>
   <div>
-    <!-- Hero Start \\-->
     <div class="hero">
       <div class="container position-relative">
         <div class="hero-content">
@@ -79,9 +78,7 @@ const slider = reactive<Swiper>({
         ></template>
       </base-slider>
     </div>
-    <!-- Hero End \\-->
 
-    <!-- Content Start \\-->
     <main class="container">
       <div class="content">
         <div class="heading-wrapper">
@@ -106,7 +103,6 @@ const slider = reactive<Swiper>({
             />
           </div>
           <div class="col-md-8 col-lg-9">
-            <!-- Content Action Start //-->
             <div
               class="content-action d-flex align-items-center justify-content-between"
             >
@@ -115,7 +111,6 @@ const slider = reactive<Swiper>({
                 >Показать на карте</a
               >
             </div>
-            <!-- Content Action End //-->
 
             <products-list />
           </div>
@@ -123,8 +118,7 @@ const slider = reactive<Swiper>({
       </div>
       <RelatedSlider />
     </main>
-    <!-- Page Wrapper End \\-->
-    <!-- Modals-->
+
     <base-popup ref="popup" class="map-modal">
       <div class="map-modal-content">
         <div class="row">

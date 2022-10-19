@@ -20,11 +20,8 @@ provide("productId", props.id);
 
 <template>
   <main class="page-wrapper" v-if="product">
-    <!-- Breadcrumbs Start \\-->
     <base-breadcrumbs />
-    <!-- Breadcrumbs End \\-->
 
-    <!-- Showroom Content Start \\-->
     <div class="showroom-wrapper">
       <div class="container">
         <div class="grid">
@@ -92,6 +89,7 @@ provide("productId", props.id);
         </div>
       </div>
     </div>
+
     <div class="container">
       <div class="content">
         <h3 class="mb-5">Product List</h3>
@@ -107,7 +105,7 @@ provide("productId", props.id);
         </div>
       </div>
     </div>
-    <!-- Showroom Contacts Start \\-->
+
     <div class="showroom-contacts-wrapper">
       <h3 class="container">Showroom contacts</h3>
       <div class="showroom-contacts">
@@ -161,7 +159,6 @@ provide("productId", props.id);
         </div>
       </div>
     </div>
-    <!-- Showroom Contacts End \\-->
 
     <div
       class="container showroom-related"
@@ -169,7 +166,7 @@ provide("productId", props.id);
     >
       <RelatedSlider />
     </div>
-    <!-- Content End \\-->
+
     <Suspense>
       <product-comments />
     </Suspense>

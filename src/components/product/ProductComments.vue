@@ -27,7 +27,7 @@ const comments: IResponse<UserComment> = (
           Оставить комментарий
         </button>
       </div>
-      <!-- Comments Start //-->
+
       <div class="comment-list">
         <ul>
           <base-comment
@@ -37,11 +37,9 @@ const comments: IResponse<UserComment> = (
           />
         </ul>
       </div>
-      <!-- Pagination Start //-->
-      <base-pagination :total-pages="comments.count_pages" />
-      <!-- Pagination End //-->
 
-      <!-- Comment Form Start //-->
+      <base-pagination :total-pages="comments.count_pages" />
+
       <div class="comment-form">
         <div class="comment-box">
           <div class="author-avatar">
@@ -70,7 +68,6 @@ const comments: IResponse<UserComment> = (
         </div>
         <button type="submit" form="send-comment">Отправить комментарий</button>
       </div>
-      <!-- Comment Form End //-->
     </div>
   </div>
 </template>
