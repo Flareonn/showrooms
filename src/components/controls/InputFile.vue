@@ -1,3 +1,32 @@
+<script setup lang="ts" :inherit-attrs="false">
+import { ref } from "vue";
+
+interface IProps {
+  id: string;
+  placeholder: string;
+}
+withDefaults(defineProps<IProps>(), {
+  placeholder: "Загрузить",
+});
+const emit = defineEmits<{
+  (e: "change", url: string): void;
+}>();
+
+const file = ref<HTMLInputElement | null>(null);
+
+const onUpload = (e: Event) => {
+  const files = (e.target as HTMLInputElement).files;
+  if (files) {
+    emit("change", URL.createObjectURL(files[0]));
+  }
+};
+const trigger = () => {
+  (file.value as HTMLInputElement).click();
+};
+
+defineExpose({ trigger });
+</script>
+
 <template>
   <div class="upload">
     <label :for="id">{{ placeholder }}</label>
@@ -11,31 +40,3 @@
     />
   </div>
 </template>
-
-<script>
-export default {
-  name: 'InputFile',
-  inheritAttrs: false,
-  props: {
-    id: {
-      type: [Number, String],
-      required: true,
-    },
-    placeholder: {
-      type: String,
-      required: false,
-      default: 'Загрузить',
-    },
-  },
-  methods: {
-    /** @param {Event} e */
-    onUpload(e) {
-      const [file] = e.target.files
-      this.$emit('change', URL.createObjectURL(file))
-    },
-    trigger() {
-      this.$refs.file.click()
-    },
-  },
-}
-</script>
