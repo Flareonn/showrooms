@@ -6,6 +6,7 @@ import { LocationQuery, stringifyQuery } from "vue-router";
 interface ProductsState {
   products: Record<string, IResponse<Showroom>>;
   product: Record<number, ShowroomDetails>;
+  bestitems: Record<number, IResponse<ShowroomItem>>;
 }
 
 export const useStoreProducts = defineStore({
@@ -13,6 +14,7 @@ export const useStoreProducts = defineStore({
   state: (): ProductsState => ({
     products: {},
     product: {},
+    bestitems: {},
   }),
   actions: {
     async fetchProducts(params: LocationQuery) {
@@ -32,12 +34,11 @@ export const useStoreProducts = defineStore({
       );
     },
     async fetchBestItems(id: number) {
-      if (!("bestitems" in this.product[id])) {
-        this.product[id].bestitems = (
-          await showroom.get(`${id}/bestitems/`)
-        ).data;
-      }
-      return this.product[id].bestitems as IResponse<ShowroomItem>;
+      return cacheFunction(
+        id,
+        this.bestitems,
+        async () => (await showroom.get(`${id}/bestitems/`)).data
+      );
     },
   },
 });
