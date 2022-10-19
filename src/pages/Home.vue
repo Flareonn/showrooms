@@ -107,9 +107,9 @@ const slider = reactive<Swiper>({
               class="content-action d-flex align-items-center justify-content-between"
             >
               <dropdown-sort />
-              <a href="#mapModal" @click.prevent="popup?.open"
-                >Показать на карте</a
-              >
+              <a href="#mapModal" @click.prevent="popup?.open">
+                Показать на карте
+              </a>
             </div>
 
             <products-list />
