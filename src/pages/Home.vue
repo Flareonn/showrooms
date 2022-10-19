@@ -126,7 +126,7 @@ const slider = reactive<Swiper>({
             <accordion-filter
               id="accordion-filter-2"
               class="py-3 py-md-4 ps-4 pe-4 pe-md-0"
-              open
+              is-open
             />
           </div>
           <div class="col-md-8 col-lg-9">
