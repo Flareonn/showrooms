@@ -18,6 +18,7 @@ declare module "*.vue" {
 
 declare module "@vue/runtime-core" {
   export interface GlobalComponents {
+    BaseAvatar: typeof Types.default.BaseAvatar;
     BaseBreadcrumbs: typeof BaseBreadcrumbs;
     BaseDropdown: typeof BaseDropdown;
     BaseRating: typeof BaseRating;
