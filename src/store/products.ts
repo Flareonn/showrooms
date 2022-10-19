@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { showroom } from "@/plugins/axios";
-import { omitEmptyValues, toStringValues } from "@/mixins";
+import { cacheFunction, omitEmptyValues, toStringValues } from "@/utils";
 import { LocationQuery, stringifyQuery } from "vue-router";
 
 interface ProductsState {
@@ -18,16 +18,18 @@ export const useStoreProducts = defineStore({
     async fetchProducts(params: LocationQuery) {
       const hash =
         "?" + stringifyQuery(toStringValues(omitEmptyValues(params)));
-      if (!(hash in this.products)) {
-        this.products[hash] = (await showroom.get(hash)).data;
-      }
-      return this.products[hash];
+      return cacheFunction(
+        hash,
+        this.products,
+        async () => (await showroom.get(hash)).data
+      );
     },
     async fetchProduct(id: number) {
-      if (!(id in this.product)) {
-        this.product[id] = (await showroom.get(`${id}/`)).data;
-      }
-      return this.product[id];
+      return cacheFunction(
+        id,
+        this.product,
+        async () => (await showroom.get(`${id}/`)).data
+      );
     },
     async fetchBestItems(id: number) {
       if (!("bestitems" in this.product[id])) {
