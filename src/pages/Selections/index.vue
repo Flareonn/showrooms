@@ -4,12 +4,13 @@ import { tags } from "@/constants/hardcode";
 import FetchList from "@/components/globals/FetchList.vue";
 import { useStoreSelections } from "@/store/selections";
 import ProductCardMini from "@/components/product/ProductCardMini.vue";
-const storeSelections = useStoreSelections();
+import RelatedSlider from "@/components/sliders/Related.vue";
+const { fetchSelections } = useStoreSelections();
 </script>
 <template>
   <div>
     <base-breadcrumbs />
-    <!-- Category Content Start \\-->
+
     <div class="category-wrapper bg-none">
       <div class="container-fluid p-xl-0 d-flex flex-column flex-md-row">
         <div class="grid big">
@@ -39,17 +40,14 @@ const storeSelections = useStoreSelections();
         </div>
       </div>
     </div>
-    <!-- Category Content  End \\-->
 
-    <!-- Content Start \\-->
     <div class="container">
       <div class="content">
         <base-tags :items="tags" />
         <div class="row">
           <div class="col-12">
-            <!-- Showroom Product List Start //-->
             <Suspense>
-              <fetch-list :fetch="() => storeSelections.fetchSelections({})">
+              <fetch-list :fetch="() => fetchSelections({})">
                 <template #default="{ item }">
                   <product-card-mini
                     v-bind="item"
@@ -61,7 +59,7 @@ const storeSelections = useStoreSelections();
           </div>
         </div>
       </div>
-      <!-- <related-content /> -->
+      <related-slider />
     </div>
   </div>
 </template>
