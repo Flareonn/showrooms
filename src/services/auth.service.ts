@@ -2,7 +2,7 @@ import axios from "axios";
 const API_URL = "/auth/";
 
 class AuthService {
-  login(user: Omit<UserDTO, "email">) {
+  login(user: LoginDTO) {
     return axios.post(API_URL + "token/login/", user).then((response) => {
       if (response.data.auth_token) {
         localStorage.setItem("user", JSON.stringify(response.data));
@@ -13,7 +13,7 @@ class AuthService {
   logout() {
     localStorage.removeItem("user");
   }
-  register(user: UserDTO) {
+  register(user: RegisterDTO) {
     return axios.post(API_URL + "/users/", user);
   }
 }

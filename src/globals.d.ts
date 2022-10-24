@@ -129,17 +129,20 @@ declare global {
     image: string;
     image_thumbnail: string;
   };
-  interface UserDTO {
+
+  interface RegisterDTO {
     username: string;
     password: string;
     email: string;
   }
-  interface User {
+  interface LoginDTO extends Omit<RegisterDTO, "email"> {}
+
+  type User = {
     id: string;
     username: string;
     email: string;
     news_confirm: boolean;
     comments_confirm: boolean;
     avatar: string | null;
-  }
+  } | null;
 }

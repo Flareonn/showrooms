@@ -4,7 +4,7 @@ import UserService from "@/services/user.service";
 
 interface AuthState {
   loggedIn: boolean;
-  user: User | null;
+  user: User;
 }
 
 export const useStoreAuth = defineStore({
@@ -24,7 +24,7 @@ export const useStoreAuth = defineStore({
     return state;
   },
   actions: {
-    login(user: Omit<UserDTO, "email">) {
+    login(user: LoginDTO) {
       return AuthService.login(user)
         .then(this.loginSuccess)
         .catch(this.loginFailure);
