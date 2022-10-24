@@ -13,9 +13,13 @@ axios.defaults.baseURL = "/api";
 const showroom = axios.create({
   baseURL: axios.defaults.baseURL + "/showrooms/",
 });
+const selections = axios.create({
+  baseURL: axios.defaults.baseURL + "/selections/",
+});
 
 debugWrapper(axios);
 debugWrapper(showroom);
+debugWrapper(selections);
 
 export default axios;
-export { showroom };
+export { showroom, selections };
