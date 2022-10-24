@@ -13,7 +13,7 @@ import InputSearch from "@/components/controls/InputSearch.vue";
 import AccordionFilter from "@/components/controls/AccordionFilter.vue";
 import DropdownSort from "@/components/controls/DropdownSort.vue";
 import ProductsList from "@/components/product/ProductsList.vue";
-import RelatedSlider from "@/components/sliders/Related.vue";
+import RelatedSlider from "@/components/sliders/RelatedSlider.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -116,7 +116,7 @@ const slider = reactive<Swiper>({
           </div>
         </div>
       </div>
-      <RelatedSlider />
+      <related-slider />
     </main>
 
     <base-popup ref="popup" class="map-modal">

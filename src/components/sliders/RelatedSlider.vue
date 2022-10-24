@@ -6,7 +6,7 @@ import { slides as hardcodeSlides } from "@/constants/hardcode";
 interface IProps {
   slides?: Slide[];
 }
-const props = withDefaults(defineProps<IProps>(), {
+withDefaults(defineProps<IProps>(), {
   slides: () => hardcodeSlides,
 });
 const settings = reactive<SwiperOptions>({
@@ -30,21 +30,17 @@ const settings = reactive<SwiperOptions>({
   },
   spaceBetween: 4,
 });
-const slider = {
-  slides: props.slides,
-  settings,
-};
 </script>
 
 <template>
-  <base-slider class="related-content" v-bind="slider">
+  <base-slider class="related-content" :settings="settings" :slides="slides">
     <template #before>
       <h3 class="mb4">Related Products</h3>
     </template>
-    <template #slide="{ slide }">
+    <template #slide="{ slide, image }">
       <div class="related-item">
         <div class="related-image">
-          <img :src="slide.grid_img" :alt="slide.title" />
+          <img :src="image(slide)" :alt="slide.title" />
         </div>
         <div class="related-title">{{ slide.name }}</div>
         <a :href="slide.link" target="_blank" class="stretched-link"></a>
