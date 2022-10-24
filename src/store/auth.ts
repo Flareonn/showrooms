@@ -9,35 +9,26 @@ interface AuthState {
 
 export const useStoreAuth = defineStore({
   id: "auth",
-  state: (): AuthState => {
-    const state: AuthState = {
-      user: null,
-      loggedIn: false,
-    };
-    const token = localStorage.getItem("user");
-    if (token) {
-      UserService.getUser().then((user) => {
-        state.user = user;
-        state.loggedIn = true;
-      });
-    }
-    return state;
-  },
+  state: (): AuthState => ({
+    user: null,
+    loggedIn: false,
+  }),
   actions: {
-    login(user: LoginDTO) {
-      return AuthService.login(user)
-        .then(this.loginSuccess)
-        .catch(this.loginFailure);
+    loginWith(user: LoginDTO) {
+      return AuthService.login(user).then(this.login).catch(this.logout);
     },
-    loginSuccess() {
-      UserService.getUser().then((user) => {
+    async login() {
+      const token = localStorage.getItem("user");
+      if (token) {
+        const user = await UserService.getUser();
         this.user = user;
         this.loggedIn = true;
-      });
+      }
     },
-    loginFailure() {
+    logout() {
       this.loggedIn = false;
       this.user = null;
+      AuthService.logout();
     },
   },
 });
