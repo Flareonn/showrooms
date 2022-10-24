@@ -107,6 +107,13 @@ declare global {
     children: UserComment[];
   }
 
+  interface SelectionItem {
+    id: number;
+    name: string;
+    title: string;
+    grid_img: string;
+  }
+
   type Pagination = {
     count: number;
     count_pages: number;
