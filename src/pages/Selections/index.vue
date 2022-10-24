@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { tags } from "@/constants/hardcode";
 
-import FetchList from "@/components/globals/FetchList.vue";
 import { useStoreSelections } from "@/store/selections";
 import ProductCardMini from "@/components/product/ProductCardMini.vue";
 import RelatedSlider from "@/components/sliders/Related.vue";

@@ -7,6 +7,7 @@ import BasePagination from "./BasePagination.vue";
 import BasePopup from "./BasePopup.vue";
 import BaseSlider from "./BaseSlider.vue";
 import CategoryList from "./CategoryList.vue";
+import FetchList from "./FetchList.vue";
 
 export default {
   BaseAvatar,
@@ -16,8 +17,9 @@ export default {
   BaseRating,
   BasePagination,
   BasePopup,
-  CategoryList,
   BaseSlider,
+  CategoryList,
+  FetchList,
 };
 
 export type {
@@ -30,4 +32,5 @@ export type {
   BasePopup,
   CategoryList,
   BaseSlider,
+  FetchList,
 };

@@ -2,7 +2,6 @@
 import { ref, provide } from "vue";
 import { useStoreProducts } from "@/store/products";
 import ProductCategories from "@/components/product/Categories.vue";
-import FetchList from "@/components/globals/FetchList.vue";
 import ProductComments from "@/components/product/ProductComments.vue";
 import RelatedSlider from "@/components/sliders/Related.vue";
 import ProductCardMini from "@/components/product/ProductCardMini.vue";

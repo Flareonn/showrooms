@@ -19,5 +19,6 @@ declare module "@vue/runtime-core" {
     BasePopup: typeof Types.default.BasePopup;
     CategoryList: typeof Types.default.CategoryList;
     BaseSlider: typeof Types.default.BaseSlider;
+    FetchList: typeof Types.default.FetchList;
   }
 }
