@@ -129,4 +129,17 @@ declare global {
     image: string;
     image_thumbnail: string;
   };
+  interface UserDTO {
+    username: string;
+    password: string;
+    email: string;
+  }
+  interface User {
+    id: string;
+    username: string;
+    email: string;
+    news_confirm: boolean;
+    comments_confirm: boolean;
+    avatar: string | null;
+  }
 }
