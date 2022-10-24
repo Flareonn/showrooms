@@ -2,9 +2,10 @@
 import { ref, provide } from "vue";
 import { useStoreProducts } from "@/store/products";
 import ProductCategories from "@/components/product/Categories.vue";
-import ProductBestItems from "@/components/product/ProductBestItems.vue";
+import ProductList from "@/components/product/ProductList.vue";
 import ProductComments from "@/components/product/ProductComments.vue";
 import RelatedSlider from "@/components/sliders/Related.vue";
+import ProductCardMini from "@/components/product/ProductCardMini.vue";
 interface IProps {
   id: number;
 }
@@ -15,6 +16,7 @@ const props = defineProps<IProps>();
 const product = ref(storeProducts.product[props.id]);
 const productSlider = ref(product.value.showroom_detail_images[0].image);
 
+const fetchBestItems = () => storeProducts.fetchBestItems(props.id);
 provide("productId", props.id);
 </script>
 
@@ -97,7 +99,11 @@ provide("productId", props.id);
           <div class="col-12">
             <Suspense>
               <template #default>
-                <ProductBestItems :id="product.id" />
+                <product-list :fetch="fetchBestItems">
+                  <template #default="{ item }">
+                    <product-card-mini v-bind="item" />
+                  </template>
+                </product-list>
               </template>
               <template #fallback> "LOADING" </template>
             </Suspense>
