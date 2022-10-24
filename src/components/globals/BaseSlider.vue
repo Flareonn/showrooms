@@ -2,26 +2,32 @@
 import "swiper/css";
 import type { SwiperOptions } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
+import { computed } from "vue";
 
 interface IProps {
   settings: SwiperOptions;
   slides: Slide[];
 }
-const slider = defineProps<IProps>();
+defineProps<IProps>();
+
+const image = computed(() => {
+  return (slide: Slide) => {
+    return slide.grid_img || slide.header_img || slide.recommend_img;
+  };
+});
 </script>
 
 <template>
   <slot name="before"></slot>
   <div :class="['base-slider', $attrs.class]">
-    <!-- @ts-ignore -->
-    <swiper v-bind="slider.settings">
+    <swiper :settings="settings">
       <swiper-slide
         class="slider-item"
-        v-for="(slide, idx) in slider.slides"
+        v-for="(slide, idx) in slides"
         :key="idx"
       >
-        <slot name="slide" :slide="slide">
-          <img :src="slide.grid_img" alt="" />
+        <slot name="slide" :slide="slide" :image="image">
+          <img :src="image(slide)" alt="" />
           <div class="slider-title">{{ slide.title }}</div>
           <a
             :href="slide.link || '#'"
