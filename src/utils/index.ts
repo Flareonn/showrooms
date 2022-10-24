@@ -4,14 +4,6 @@ export const omitEmptyValues = (object: object) => {
   );
 };
 
-export const toStringValues = (
-  object: Record<string | number | symbol, string | number | []>
-) => {
-  return Object.fromEntries(
-    Object.entries(object).map(([_, v]) => [_, v.toString()])
-  );
-};
-
 export const cacheFunction = async <R extends string | number | symbol, T>(
   property: R,
   record: Record<R, T>,

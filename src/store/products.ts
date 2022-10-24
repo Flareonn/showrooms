@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { showroom } from "@/plugins/axios";
-import { cacheFunction, omitEmptyValues, toStringValues } from "@/utils";
+import { cacheFunction } from "@/utils";
 import { LocationQuery, stringifyQuery } from "vue-router";
 
 interface ProductsState {
@@ -18,8 +18,7 @@ export const useStoreProducts = defineStore({
   }),
   actions: {
     fetchProducts(params: LocationQuery) {
-      const hash =
-        "?" + stringifyQuery(toStringValues(omitEmptyValues(params)));
+      const hash = "?" + stringifyQuery(params);
       return cacheFunction(
         hash,
         this.products,
