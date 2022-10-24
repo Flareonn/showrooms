@@ -17,27 +17,29 @@ export const useStoreProducts = defineStore({
     bestitems: {},
   }),
   actions: {
-    async fetchProducts(params: LocationQuery) {
+    fetchProducts(params: LocationQuery) {
       const hash =
         "?" + stringifyQuery(toStringValues(omitEmptyValues(params)));
       return cacheFunction(
         hash,
         this.products,
-        async () => (await showroom.get(hash)).data
+        async (): Promise<Paginate<Showroom>> => (await showroom.get(hash)).data
       );
     },
-    async fetchProduct(id: number) {
+    fetchProduct(id: number) {
       return cacheFunction(
         id,
         this.product,
-        async () => (await showroom.get(`${id}/`)).data
+        async (): Promise<ShowroomDetails> =>
+          (await showroom.get(`${id}/`)).data
       );
     },
-    async fetchBestItems(id: number) {
+    fetchBestItems(id: number) {
       return cacheFunction(
         id,
         this.bestitems,
-        async () => (await showroom.get(`${id}/bestitems/`)).data
+        async (): Promise<Paginate<ShowroomItem>> =>
+          (await showroom.get(`${id}/bestitems/`)).data
       );
     },
   },
