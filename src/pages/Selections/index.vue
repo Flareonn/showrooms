@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { tags } from "@/constants/hardcode";
 
-import ProductList from "@/components/product/ProductList.vue";
+import FetchList from "@/components/globals/FetchList.vue";
 import { useStoreSelections } from "@/store/selections";
 import ProductCardMini from "@/components/product/ProductCardMini.vue";
 const storeSelections = useStoreSelections();
@@ -49,14 +49,14 @@ const storeSelections = useStoreSelections();
           <div class="col-12">
             <!-- Showroom Product List Start //-->
             <Suspense>
-              <product-list :fetch="() => storeSelections.fetchSelections({})">
+              <fetch-list :fetch="() => storeSelections.fetchSelections({})">
                 <template #default="{ item }">
                   <product-card-mini
                     v-bind="item"
                     :link="`/selections/${item.id}`"
                   />
                 </template>
-              </product-list>
+              </fetch-list>
             </Suspense>
           </div>
         </div>

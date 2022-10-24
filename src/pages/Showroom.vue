@@ -2,7 +2,7 @@
 import { ref, provide } from "vue";
 import { useStoreProducts } from "@/store/products";
 import ProductCategories from "@/components/product/Categories.vue";
-import ProductList from "@/components/product/ProductList.vue";
+import FetchList from "@/components/globals/FetchList.vue";
 import ProductComments from "@/components/product/ProductComments.vue";
 import RelatedSlider from "@/components/sliders/Related.vue";
 import ProductCardMini from "@/components/product/ProductCardMini.vue";
@@ -99,11 +99,11 @@ provide("productId", props.id);
           <div class="col-12">
             <Suspense>
               <template #default>
-                <product-list :fetch="fetchBestItems">
+                <fetch-list :fetch="fetchBestItems">
                   <template #default="{ item }">
                     <product-card-mini v-bind="item" />
                   </template>
-                </product-list>
+                </fetch-list>
               </template>
               <template #fallback> "LOADING" </template>
             </Suspense>
