@@ -1,4 +1,4 @@
-<script setup lang="ts" async>
+<script setup lang="ts">
 import "swiper/css";
 import type { SwiperOptions } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
