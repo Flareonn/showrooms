@@ -1,17 +1,11 @@
 <script setup lang="ts">
-import ProductCardMini from "@/components/product/ProductCardMini.vue";
-import { useStoreProducts } from "@/store/products";
 import { reactive } from "vue";
 
 interface IProps {
-  id: number;
+  fetch: () => Promise<Paginate<any>>;
 }
 const props = defineProps<IProps>();
-const { fetchBestItems } = useStoreProducts();
-
-const products = reactive<Paginate<ShowroomItem>>(
-  await fetchBestItems(props.id)
-);
+const products = reactive(await props.fetch());
 </script>
 
 <template>
@@ -21,7 +15,7 @@ const products = reactive<Paginate<ShowroomItem>>(
       :key="idx"
       class="col-6 col-md-4 col-lg-3"
     >
-      <product-card-mini v-bind="item" />
+      <slot :item="item"></slot>
     </div>
   </div>
   <base-pagination :total-pages="products.count_pages" />
