@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import { Home, Category, ErrorPage, Showroom } from "@/pages";
+import { Home, Category, ErrorPage, Showroom, Selections } from "@/pages";
 import { useStoreProducts } from "@/store/products";
 
 export const routes: Readonly<RouteRecordRaw[]> = [
@@ -35,6 +35,11 @@ export const routes: Readonly<RouteRecordRaw[]> = [
         throw new Error("Id is undefined!");
       }
     },
+  },
+  {
+    path: "/selections/",
+    name: "Selections",
+    component: Selections,
   },
   {
     path: "/:pathMatch(.*)*",
