@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useStoreAuth } from "@/store/auth";
 import { useStoreCategories } from "@/store/categories";
 import { reactive, ref, computed } from "vue";
 import type { BasePopup } from "@/components/globals";
@@ -9,6 +10,7 @@ interface IProps {
 }
 const { layout } = defineProps<IProps>();
 const { categories } = useStoreCategories();
+const storeAuth = useStoreAuth();
 
 const authPopup = reactive({
   currentTab: "Вход",
@@ -21,6 +23,18 @@ const authPopup = reactive({
     },
   },
 });
+const initialControls = (): { login: LoginDTO; register: RegisterDTO } => ({
+  login: {
+    username: "",
+    password: "",
+  },
+  register: {
+    email: "",
+    password: "",
+    username: "",
+  },
+});
+let controls = ref(initialControls());
 const isVisibleMobileMenu = ref(false);
 const popup = ref<typeof BasePopup | null>(null);
 
@@ -28,6 +42,13 @@ const currentTab = computed(
   () => (tabName: "login" | "register") =>
     authPopup.currentTab === authPopup.tabs[tabName].name
 );
+
+const login = async () => {
+  try {
+    await storeAuth.loginWith(controls.value.login);
+    controls.value = initialControls();
+  } catch (e) {}
+};
 </script>
 
 <template>
@@ -103,20 +124,22 @@ const currentTab = computed(
       <div class="d-block d-md-none current-page">Главная</div>
 
       <div class="col-auto">
-        <template v-if="layout === 'user'">
+        <template v-if="storeAuth.user">
           <a
             data-toggle="modal"
             class="btn btn-link p-0 d-block d-sm-none"
             href="#userProfileModal"
           >
-            <span class="d-none d-lg-inline-flex me-3">Логин пользователя</span>
-            <i class="icon-user"></i>
+            <span class="d-none d-lg-inline-flex me-3">{{
+              storeAuth.user.username
+            }}</span>
+            <base-avatar :src="storeAuth.user.avatar" />
           </a>
           <base-dropdown class="d-none d-sm-block">
             <template #placeholder>
-              <span class="d-none d-lg-inline-flex me-3"
-                >Логин пользователя</span
-              >
+              <span class="d-none d-lg-inline-flex me-3">{{
+                storeAuth.user.username
+              }}</span>
               <i class="icon-user"></i>
             </template>
             <template #menu>
@@ -124,21 +147,21 @@ const currentTab = computed(
                 <router-link to="/">Мой профиль</router-link>
               </li>
               <li class="dropdown-item">
-                <router-link to="/">Выйти</router-link>
+                <a href="#" @click="storeAuth.logout">Выйти</a>
               </li>
             </template>
           </base-dropdown>
         </template>
         <template v-else>
           <button class="btn btn-link p-0">
-            <i class="icon-user" @click="(popup as typeof BasePopup).open"></i>
+            <i class="icon-user" @click="popup?.open"></i>
           </button>
         </template>
       </div>
     </div>
   </header>
 
-  <base-popup class="auth-modal" ref="popup">
+  <base-popup class="auth-modal" ref="popup" v-if="!storeAuth.loggedIn">
     <div id="authForm" class="auth-modal-body">
       <div id="list-tab" class="nav auth-modal-head" role="tablist">
         <a
@@ -156,7 +179,7 @@ const currentTab = computed(
           :class="{ 'active show': currentTab('login') }"
           class="tab-pane fade"
           role="tabpanel"
-          @submit.prevent
+          @submit.prevent="login"
         >
           <div class="auth-modal-content">
             <div class="mb-3">
@@ -165,12 +188,14 @@ const currentTab = computed(
                 name="username"
                 placeholder="Ваш логин"
                 autocomplete="username"
+                v-model="controls.login.username"
               />
             </div>
             <div class="mb-2">
               <input-password
                 placeholder="Ваш пароль"
                 autocomplete="current-password"
+                v-model="controls.login.password"
               />
             </div>
             <div class="d-flex justify-content-end">
@@ -179,18 +204,7 @@ const currentTab = computed(
           </div>
           <div class="auth-modal-footer">
             <div class="mb-3">
-              <label for="policy1">
-                <input id="policy1" type="checkbox" name="agree" required />
-                <span
-                  >Согласен с <a href="#">политикой конфиденциальности</a></span
-                >
-              </label>
-            </div>
-            <div class="mb-3">
-              <button
-                onclick="Swal.fire({text: 'Текст с подтверждением', customClass: {confirmButton:'btn btn-primary'}, buttonsStyling: false,})"
-                class="btn btn-primary w-100 d-block"
-              >
+              <button class="btn btn-primary w-100 d-block" type="submit">
                 Войти
               </button>
             </div>
