@@ -2,7 +2,7 @@
 interface IProps {
   grid_img: string;
   title: string;
-  description: string;
+  description?: string;
   name: string;
   link: string;
 }
