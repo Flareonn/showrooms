@@ -1,5 +1,7 @@
 interface Slide {
-  grid_img: string;
+  grid_img?: string;
+  header_img?: string;
+  recommend_img?: string;
   title: string;
   name: string;
   link?: string;
