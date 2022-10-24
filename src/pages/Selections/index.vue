@@ -1,10 +1,22 @@
 <script setup lang="ts">
-import { tags } from "@/constants/hardcode";
-
+import { ref, inject, onMounted } from "vue";
 import { useStoreSelections } from "@/store/selections";
+
 import ProductCardMini from "@/components/product/ProductCardMini.vue";
-import RelatedSlider from "@/components/sliders/Related.vue";
+import RelatedSlider from "@/components/sliders/RelatedSlider.vue";
+import BaseTags from "@/components/BaseTags.vue";
+import type { AxiosStatic } from "axios";
+
 const { fetchSelections } = useStoreSelections();
+
+const axios = inject("axios") as AxiosStatic;
+
+const tags = ref([]);
+const slides = ref<Slide[]>([]);
+onMounted(async () => {
+  tags.value = (await axios.get("/selections/criteria/")).data.results;
+  slides.value = (await axios.get("/showrooms/recommendations/")).data.results;
+});
 </script>
 <template>
   <div>
@@ -42,7 +54,7 @@ const { fetchSelections } = useStoreSelections();
 
     <div class="container">
       <div class="content">
-        <base-tags :items="tags" />
+        <base-tags :items="tags" link="selections" />
         <div class="row">
           <div class="col-12">
             <Suspense>
@@ -58,7 +70,7 @@ const { fetchSelections } = useStoreSelections();
           </div>
         </div>
       </div>
-      <related-slider />
+      <related-slider :slides="slides" />
     </div>
   </div>
 </template>
