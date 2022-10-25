@@ -1,5 +1,4 @@
 import "./assets/style/styles.less";
-import "dayjs/locale/ru";
 import { useStoreCategories } from "@/store/categories";
 import { createApp } from "vue";
 import VueAxios from "vue-axios";

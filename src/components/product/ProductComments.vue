@@ -3,6 +3,7 @@ import type { AxiosStatic } from "axios";
 import { ref, inject } from "vue";
 
 import InputFile from "@/components/controls/InputFile.vue";
+import BaseComment from "@/components/BaseComment.vue";
 
 const text = "";
 const formInput = ref<HTMLTextAreaElement | null>(null);

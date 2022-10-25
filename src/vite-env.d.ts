@@ -13,7 +13,6 @@ declare module "@vue/runtime-core" {
     BaseAvatar: typeof Types.default.BaseAvatar;
     BaseBreadcrumbs: typeof Types.default.BaseBreadcrumbs;
     BaseDropdown: typeof Types.default.BaseDropdown;
-    BaseComment: typeof Types.default.BaseComment;
     BaseRating: typeof Types.default.BaseRating;
     BasePagination: typeof Types.default.BasePagination;
     BasePopup: typeof Types.default.BasePopup;

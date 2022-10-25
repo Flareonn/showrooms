@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref, reactive, computed } from "vue";
 import dayjs from "dayjs";
-import type BasePopup from "./BasePopup.vue";
+import "dayjs/locale/ru";
+import type BasePopup from "./globals/BasePopup.vue";
 
 interface IProps {
   user_name: string;
