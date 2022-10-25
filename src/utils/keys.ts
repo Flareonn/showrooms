@@ -2,6 +2,7 @@ import type { AxiosInstance } from "axios";
 import { inject, InjectionKey } from "vue";
 
 export const AxiosKey: InjectionKey<AxiosInstance> = Symbol("axios");
+export const ToastKey = "$toast";
 
 export function injectStrict<T>(key: InjectionKey<T>) {
   const resolved = inject(key);
