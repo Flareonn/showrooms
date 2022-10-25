@@ -14,7 +14,9 @@ class AuthService {
     localStorage.removeItem("user");
   }
   register(user: RegisterDTO) {
-    return axios.post(API_URL + "/users/", user);
+    return axios.post(API_URL + "users/", user).then((response) => {
+      return response.data;
+    });
   }
 }
 

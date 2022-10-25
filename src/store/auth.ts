@@ -30,5 +30,8 @@ export const useStoreAuth = defineStore({
       this.user = null;
       AuthService.logout();
     },
+    register(user: RegisterDTO) {
+      return AuthService.register(user);
+    },
   },
 });

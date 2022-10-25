@@ -23,15 +23,19 @@ const authPopup = reactive({
     },
   },
 });
-const initialControls = (): { login: LoginDTO; register: RegisterDTO } => ({
+const initialControls = (): {
+  login: LoginDTO;
+  register: RegisterDTO & { passwordRepeat: string };
+} => ({
   login: {
     username: "",
     password: "",
   },
   register: {
-    email: "",
-    password: "",
-    username: "",
+    email: "appavel2011@yandex.ru",
+    password: "jzxhzhjh25252",
+    passwordRepeat: "jzjhjzhj2525",
+    username: "flareon",
   },
 });
 let controls = ref(initialControls());
@@ -43,11 +47,18 @@ const currentTab = computed(
     authPopup.currentTab === authPopup.tabs[tabName].name
 );
 
+const successfullOperate = () => {
+  controls.value = initialControls();
+  popup.value?.close();
+};
+
 const login = async () => {
-  try {
-    await storeAuth.loginWith(controls.value.login);
-    controls.value = initialControls();
-  } catch (e) {}
+  await storeAuth.loginWith(controls.value.login);
+  successfullOperate();
+};
+const register = async () => {
+  await storeAuth.register(controls.value.register);
+  successfullOperate();
 };
 </script>
 
@@ -229,22 +240,41 @@ const login = async () => {
           :class="{ 'active show': currentTab('register') }"
           class="tab-pane fade"
           role="tabpanel"
-          @submit.prevent
+          @submit.prevent="register"
         >
           <div class="auth-modal-content">
             <div class="mb-3">
-              <input type="text" name="username" placeholder="Ваш логин" />
+              <input
+                type="email"
+                name="email"
+                placeholder="Ваша почта"
+                v-model="controls.register.email"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <input
+                type="text"
+                name="username"
+                placeholder="Ваш логин"
+                v-model="controls.register.username"
+                required
+              />
             </div>
             <div class="mb-3">
               <input-password
                 placeholder="Ваш пароль"
                 autocomplete="new-password"
+                v-model="controls.register.password"
+                required
               />
             </div>
             <div class="mb-5">
               <input-password
                 placeholder="Повторите пароль"
                 autocomplete="new-password"
+                v-model="controls.register.passwordRepeat"
+                required
               />
             </div>
             <div class="mb-3">
