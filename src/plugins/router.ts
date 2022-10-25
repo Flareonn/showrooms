@@ -1,5 +1,9 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import { Home, Category, ErrorPage, Showroom, Selections } from "@/pages";
+const Home = () => import("@/pages/Home.vue");
+const Category = () => import("@/pages/Category.vue");
+const Showroom = () => import("@/pages/Showroom.vue");
+const Selections = () => import("@/pages/Selections/index.vue");
+const ErrorPage = () => import("@/pages/Error.vue");
 import { useStoreProducts } from "@/store/products";
 
 export const routes: Readonly<RouteRecordRaw[]> = [
