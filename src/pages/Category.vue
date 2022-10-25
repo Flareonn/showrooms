@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { ref, watchEffect, computed, inject } from "vue";
+import { ref, watchEffect, computed } from "vue";
 
 import { useStoreCategories } from "@/store/categories";
 import { useRoute, useRouter } from "vue-router";
-import { AxiosStatic } from "axios";
 
 import AccordionFilter from "@/components/controls/AccordionFilter.vue";
 import InputSearch from "@/components/controls/InputSearch.vue";
 import DropdownSort from "@/components/controls/DropdownSort.vue";
 import ProductsList from "@/components/product/ProductsList.vue";
 import { mergeQuery } from "@/utils/router";
+import { AxiosKey, injectStrict } from "@/utils/keys";
 
 interface IProps {
   id: string;
@@ -19,7 +19,7 @@ const props = defineProps<IProps>();
 const route = useRoute();
 const router = useRouter();
 const storeCategories = useStoreCategories();
-const axios = inject("axios") as AxiosStatic;
+const axios = injectStrict(AxiosKey);
 
 const currentCategory = ref<CategoryDetails>({
   detail_img: "",

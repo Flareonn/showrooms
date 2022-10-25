@@ -11,6 +11,7 @@ import YmapPlugin from "vue-yandex-maps";
 import App from "./App.vue";
 import { useStoreFilters } from "./store/filters";
 import { useStoreAuth } from "./store/auth";
+import { AxiosKey } from "./utils/keys";
 
 const app = createApp(App);
 
@@ -25,7 +26,7 @@ app
     enterprise: false,
     version: "2.1",
   })
-  .provide("axios", Axios);
+  .provide(AxiosKey, Axios);
 
 Object.entries(globalComponents).forEach(([name, component]) => {
   app.component(name, component);

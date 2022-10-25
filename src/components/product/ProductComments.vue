@@ -1,18 +1,22 @@
 <script setup lang="ts">
-import type { AxiosStatic } from "axios";
 import { ref, inject } from "vue";
+import { injectStrict } from "@/utils/keys";
 
 import InputFile from "@/components/controls/InputFile.vue";
 import BaseComment from "@/components/BaseComment.vue";
+import { AxiosKey } from "@/utils/keys";
 
+interface IProps {
+  id: number;
+}
+const props = defineProps<IProps>();
 const text = "";
 const formInput = ref<HTMLTextAreaElement | null>(null);
 
-const axios = inject("axios") as AxiosStatic;
-const id = inject("productId");
+const axios = injectStrict(AxiosKey);
 
 const comments: Paginate<UserComment> = (
-  await axios.get(`/comments/showroom/${id}/`)
+  await axios.get(`/comments/showroom/${props.id}/`)
 ).data;
 </script>
 

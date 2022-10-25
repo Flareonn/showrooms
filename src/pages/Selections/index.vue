@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { ref, inject, onMounted } from "vue";
+import { ref, onMounted } from "vue";
 import { useStoreSelections } from "@/store/selections";
 
 import ProductCardMini from "@/components/product/ProductCardMini.vue";
 import RelatedSlider from "@/components/sliders/RelatedSlider.vue";
 import BaseTags from "@/components/BaseTags.vue";
-import type { AxiosStatic } from "axios";
+import { AxiosKey, injectStrict } from "@/utils/keys";
 
 const { fetchSelections } = useStoreSelections();
 
-const axios = inject("axios") as AxiosStatic;
+const axios = injectStrict(AxiosKey);
 
 const tags = ref([]);
 const slides = ref<Slide[]>([]);

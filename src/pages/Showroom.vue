@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, provide } from "vue";
+import { ref } from "vue";
 import { useStoreProducts } from "@/store/products";
 import ProductCategories from "@/components/product/Categories.vue";
 import ProductComments from "@/components/product/ProductComments.vue";
@@ -16,7 +16,6 @@ const product = ref(storeProducts.product[props.id]);
 const productSlider = ref(product.value.showroom_detail_images[0].image);
 
 const fetchBestItems = () => storeProducts.fetchBestItems(props.id);
-provide("productId", props.id);
 </script>
 
 <template>
@@ -173,7 +172,7 @@ provide("productId", props.id);
     </div>
 
     <Suspense>
-      <product-comments />
+      <product-comments :id="id" />
     </Suspense>
   </main>
 </template>
