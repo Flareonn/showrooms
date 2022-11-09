@@ -1,21 +1,16 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-const Home = () => import("@/pages/Home.vue");
-const Category = () => import("@/pages/Category.vue");
-const Showroom = () => import("@/pages/Showroom.vue");
-const Selections = () => import("@/pages/Selections/index.vue");
-const ErrorPage = () => import("@/pages/Error.vue");
 import { useStoreProducts } from "@/store/products";
 
 export const routes: Readonly<RouteRecordRaw[]> = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    component: () => import("@/pages/Home.vue"),
   },
   {
     path: "/showroom/:id",
     name: "Showroom",
-    component: Showroom,
+    component: () => import("@/pages/Showroom.vue"),
     props: (route) => ({ id: +route.params.id }),
     beforeEnter: async (to, from, next) => {
       try {
@@ -30,7 +25,7 @@ export const routes: Readonly<RouteRecordRaw[]> = [
   {
     path: "/category/:id(\\d+)+",
     name: "Category",
-    component: Category,
+    component: () => import("@/pages/Category.vue"),
     props: (route) => {
       const { id } = route.params;
       if ((id as string[]) && id.length >= 1) {
@@ -43,12 +38,17 @@ export const routes: Readonly<RouteRecordRaw[]> = [
   {
     path: "/selections/",
     name: "Selections",
-    component: Selections,
+    component: () => import("@/pages/Selections/index.vue"),
   },
   {
     path: "/:pathMatch(.*)*",
     name: "Error",
-    component: ErrorPage,
+    component: () => import("@/pages/Error.vue"),
+  },
+  {
+    path: "/dev",
+    name: "Dev",
+    component: () => import("@/pages/dev.vue"),
   },
 ];
 
