@@ -20,7 +20,7 @@ const inputType = computed(() =>
       :type="inputType"
       name="password"
       v-bind="$attrs"
-      :value="$attrs.modelValue"
+      :value="modelValue"
       @input="emit('input', ($event.target as HTMLInputElement).value)"
       @change="emit('change', ($event.target as HTMLInputElement).value)"
     />

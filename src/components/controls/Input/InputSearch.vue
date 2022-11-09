@@ -1,7 +1,7 @@
 <script setup lang="ts" :inherit-attrs="false">
 import { ref, onMounted, onUnmounted } from "vue";
 defineProps<{
-  modelValue: string;
+  modelValue?: string;
 }>();
 const emit = defineEmits<{
   (e: "input", text: string): void;
