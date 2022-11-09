@@ -4,7 +4,7 @@ import { ref } from "vue";
 interface IProps {
   id: string;
   placeholder?: string;
-  modelValue: string;
+  modelValue?: FileList | null;
 }
 withDefaults(defineProps<IProps>(), {
   placeholder: "Загрузить",
