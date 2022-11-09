@@ -3,6 +3,7 @@ import BaseBreadcrumbs from "./BaseBreadcrumbs.vue";
 import BaseDropdown from "./BaseDropdown.vue";
 import BaseRating from "./BaseRating.vue";
 import BasePagination from "./BasePagination.vue";
+import BaseInput from "./BaseInput.vue";
 import BasePopup from "./BasePopup.vue";
 import BaseSlider from "./BaseSlider.vue";
 import CategoryList from "./CategoryList.vue";
@@ -14,6 +15,7 @@ export default {
   BaseDropdown,
   BaseRating,
   BasePagination,
+  BaseInput,
   BasePopup,
   BaseSlider,
   CategoryList,
@@ -26,6 +28,7 @@ export type {
   BaseDropdown,
   BaseRating,
   BasePagination,
+  BaseInput,
   BasePopup,
   CategoryList,
   BaseSlider,

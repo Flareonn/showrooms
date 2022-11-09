@@ -9,7 +9,7 @@ import { Navigation } from "swiper";
 
 import type { BasePopup } from "@/components/globals";
 
-import InputSearch from "@/components/controls/InputSearch.vue";
+import InputSearch from "@/components/controls/Input/InputSearch.vue";
 import AccordionFilter from "@/components/controls/AccordionFilter.vue";
 import DropdownSort from "@/components/controls/DropdownSort.vue";
 import ProductsList from "@/components/product/ProductsList.vue";

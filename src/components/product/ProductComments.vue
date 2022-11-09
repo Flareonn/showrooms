@@ -2,7 +2,7 @@
 import { ref, inject } from "vue";
 import { injectStrict } from "@/utils/keys";
 
-import InputFile from "@/components/controls/InputFile.vue";
+import InputFile from "@/components/controls/Input/InputFile.vue";
 import BaseComment from "@/components/BaseComment.vue";
 import { AxiosKey } from "@/utils/keys";
 

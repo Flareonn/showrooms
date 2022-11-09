@@ -3,7 +3,7 @@ import { useStoreAuth } from "@/store/auth";
 import { useStoreCategories } from "@/store/categories";
 import { reactive, ref, computed } from "vue";
 import type { BasePopup } from "@/components/globals";
-import InputPassword from "@/components/controls/InputPassword.vue";
+import InputPassword from "@/components/controls/Input/InputPassword.vue";
 
 interface IProps {
   layout: string;
