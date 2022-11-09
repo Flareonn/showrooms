@@ -1,29 +1,15 @@
 <script setup lang="ts" :inherit-attrs="false">
-import { ref, watch, onMounted, onUnmounted } from "vue";
-interface IProps {
-  initialInput: string;
-}
-const props = withDefaults(defineProps<IProps>(), {
-  initialInput: "",
-});
+import { ref, onMounted, onUnmounted } from "vue";
+defineProps<{
+  modelValue: string;
+}>();
 const emit = defineEmits<{
-  (e: "change", input: string): void;
-  (e: "input", input: string): void;
+  (e: "input", text: string): void;
+  (e: "change", text: string): void;
 }>();
 
-const onTipSelect = (tip: string) => {
-  input.value = tip;
-  emit("change", tip);
-};
-const onInput = (e: Event) =>
-  (input.value = (e.target as HTMLInputElement).value);
-const onChange = () => emit("change", input.value);
-
-let input = ref(props.initialInput);
-let isOpen = ref(false);
-// @todo
-const searchBox = ref(null);
-const search = ref(null);
+const isOpen = ref(false);
+const searchBox = ref<HTMLDivElement | null>(null);
 const tips = ref([
   "Название подборки",
   "Название подборки1",
@@ -32,10 +18,6 @@ const tips = ref([
   "Название подборки4",
 ]);
 
-watch(input, (val) => {
-  emit("input", val);
-  isOpen.value = false;
-});
 onMounted(() => {
   window.onclick = (e) => {
     if (
@@ -53,21 +35,20 @@ onUnmounted(() => (window.onclick = null));
   <div ref="searchBox" class="search-box">
     <i class="icon-search"></i>
     <input
-      v-bind="$attrs"
       ref="search"
       type="search"
-      :value="input"
+      v-bind="$attrs"
+      :value="$attrs.modelValue"
       @focus="isOpen = true"
-      @input="onInput"
-      @keydown.enter="onChange"
-      @blur="onChange"
+      @input="emit('input', ($event.target as HTMLInputElement).value)"
+      @change="emit('change', ($event.target as HTMLInputElement).value)"
     />
     <ul v-show="isOpen" class="search-autocomplite">
       <li>Популярное</li>
       <li
         v-for="(tip, idx) in tips"
         :key="idx"
-        @click.prevent.capture="() => onTipSelect(tip)"
+        @click.prevent.capture="emit('input', tip)"
       >
         <span>{{ tip }}</span>
       </li>

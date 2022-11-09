@@ -1,8 +1,11 @@
 <script setup lang="ts" :inherit-attrs="false">
 import { ref, computed } from "vue";
-
+defineProps<{
+  modelValue: string;
+}>();
 const emit = defineEmits<{
-  (e: "update:modelValue", text: string): void;
+  (e: "input", text: string): void;
+  (e: "change", text: string): void;
 }>();
 
 const isVisiblePassword = ref(false);
@@ -18,9 +21,8 @@ const inputType = computed(() =>
       name="password"
       v-bind="$attrs"
       :value="$attrs.modelValue"
-      @input="
-        emit('update:modelValue', ($event.target as HTMLInputElement).value)
-      "
+      @input="emit('input', ($event.target as HTMLInputElement).value)"
+      @change="emit('change', ($event.target as HTMLInputElement).value)"
     />
     <button
       class="show-password"

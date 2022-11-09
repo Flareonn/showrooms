@@ -14,6 +14,7 @@ declare module "@vue/runtime-core" {
     BaseBreadcrumbs: typeof Types.default.BaseBreadcrumbs;
     BaseDropdown: typeof Types.default.BaseDropdown;
     BaseRating: typeof Types.default.BaseRating;
+    BaseInput: typeof Types.default.BaseInput;
     BasePagination: typeof Types.default.BasePagination;
     BasePopup: typeof Types.default.BasePopup;
     CategoryList: typeof Types.default.CategoryList;
