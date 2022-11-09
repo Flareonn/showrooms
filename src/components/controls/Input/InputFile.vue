@@ -6,9 +6,7 @@ interface IProps {
   placeholder?: string;
   modelValue?: FileList | null;
 }
-withDefaults(defineProps<IProps>(), {
-  placeholder: "Загрузить",
-});
+defineProps<IProps>();
 const emit = defineEmits<{
   (e: "change", url: FileList | null): void;
 }>();
