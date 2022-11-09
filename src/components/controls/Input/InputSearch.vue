@@ -38,7 +38,7 @@ onUnmounted(() => (window.onclick = null));
       ref="search"
       type="search"
       v-bind="$attrs"
-      :value="$attrs.modelValue"
+      :value="modelValue"
       @focus="isOpen = true"
       @input="emit('input', ($event.target as HTMLInputElement).value)"
       @change="emit('change', ($event.target as HTMLInputElement).value)"
