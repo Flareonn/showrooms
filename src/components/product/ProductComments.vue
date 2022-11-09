@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import { ref, inject } from "vue";
-import { injectStrict } from "@/utils/keys";
+import { ref } from "vue";
+import { AxiosKey, injectStrict } from "@/utils/keys";
 
-import InputFile from "@/components/controls/Input/InputFile.vue";
 import BaseComment from "@/components/BaseComment.vue";
-import { AxiosKey } from "@/utils/keys";
 
 interface IProps {
   id: number;
@@ -63,9 +61,9 @@ const comments: Paginate<UserComment> = (
                 rows="3"
                 placeholder="Написать текст..."
               ></textarea>
-              <input-file
+              <base-input
+                component="file"
                 id="images"
-                placeholder=""
                 accept="image/jpeg,image/png,image/gif"
               />
             </form>

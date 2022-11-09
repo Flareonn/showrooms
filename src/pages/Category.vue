@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { ref, watchEffect, computed } from "vue";
+import { ref, watch, watchEffect, computed } from "vue";
 
 import { useStoreCategories } from "@/store/categories";
 import { useRoute, useRouter } from "vue-router";
 
 import AccordionFilter from "@/components/controls/AccordionFilter.vue";
-import InputSearch from "@/components/controls/Input/InputSearch.vue";
 import DropdownSort from "@/components/controls/DropdownSort.vue";
 import ProductsList from "@/components/product/ProductsList.vue";
 import { mergeQuery } from "@/utils/router";
@@ -50,6 +49,7 @@ const categories = computed(
 watchEffect(async () => {
   currentCategory.value = (await axios.get(`/categories/${props.id}/`)).data;
 });
+watch(searchControl, (search) => router.push(mergeQuery({ search })));
 </script>
 
 <template>
@@ -82,11 +82,11 @@ watchEffect(async () => {
     <div class="content">
       <div class="row">
         <div class="col-md-4 col-lg-3 d-flex flex-column">
-          <input-search
+          <base-input
+            component="search"
             class="d-flex d-md-none mb-3"
             placeholder="Поиск"
-            :initial-input="searchControl"
-            @change="(search) => router.push(mergeQuery({ search }))"
+            v-model.lazy="searchControl"
           />
           <accordion-filter
             id="accordion-filter-1"
@@ -105,10 +105,10 @@ watchEffect(async () => {
             <div
               class="d-none d-md-block mb-3 mb-md-0 col-12 col-md-7 col-lg-4 offset-md-1 offset-lg-2"
             >
-              <input-search
+              <base-input
+                component="search"
                 placeholder="Поиск"
-                :initial-input="searchControl"
-                @change="(search) => router.push(mergeQuery({ search }))"
+                v-model.lazy="searchControl"
               />
             </div>
             <div

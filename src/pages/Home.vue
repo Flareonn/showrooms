@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive } from "vue";
+import { ref, reactive, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStoreCategories } from "@/store/categories";
 import { slides } from "@/constants/hardcode";
@@ -9,7 +9,6 @@ import { Navigation } from "swiper";
 
 import type { BasePopup } from "@/components/globals";
 
-import InputSearch from "@/components/controls/Input/InputSearch.vue";
 import AccordionFilter from "@/components/controls/AccordionFilter.vue";
 import DropdownSort from "@/components/controls/DropdownSort.vue";
 import ProductsList from "@/components/product/ProductsList.vue";
@@ -46,6 +45,7 @@ const slider = reactive<Swiper>({
   },
   slides,
 });
+watch(searchControl, (search) => router.push(mergeQuery({ search })));
 </script>
 
 <template>
@@ -83,10 +83,10 @@ const slider = reactive<Swiper>({
       <div class="content">
         <div class="heading-wrapper">
           <h3>Explore our Products</h3>
-          <input-search
+          <base-input
+            component="search"
             placeholder="Поиск"
-            :initial-input="searchControl"
-            @change="(search) => router.push(mergeQuery({ search }))"
+            v-model.lazy="searchControl"
           />
         </div>
         <div class="row">

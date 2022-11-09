@@ -3,7 +3,6 @@ import { useStoreAuth } from "@/store/auth";
 import { useStoreCategories } from "@/store/categories";
 import { reactive, ref, computed } from "vue";
 import type { BasePopup } from "@/components/globals";
-import InputPassword from "@/components/controls/Input/InputPassword.vue";
 
 interface IProps {
   layout: string;
@@ -203,7 +202,8 @@ const register = async () => {
               />
             </div>
             <div class="mb-2">
-              <input-password
+              <base-input
+                component="password"
                 placeholder="Ваш пароль"
                 autocomplete="current-password"
                 v-model="controls.login.password"
@@ -262,7 +262,8 @@ const register = async () => {
               />
             </div>
             <div class="mb-3">
-              <input-password
+              <base-input
+                component="password"
                 placeholder="Ваш пароль"
                 autocomplete="new-password"
                 v-model="controls.register.password"
@@ -270,7 +271,8 @@ const register = async () => {
               />
             </div>
             <div class="mb-5">
-              <input-password
+              <base-input
+                component="password"
                 placeholder="Повторите пароль"
                 autocomplete="new-password"
                 v-model="controls.register.passwordRepeat"
