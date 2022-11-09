@@ -2,12 +2,10 @@
 import { defineAsyncComponent } from "vue";
 interface IProps {
   component: "search" | "password" | "file";
-  modelValue?: string;
   modelModifiers?: Record<string, boolean>;
 }
 
 const props = withDefaults(defineProps<IProps>(), {
-  modelValue: "",
   modelModifiers: () => ({}),
 });
 
@@ -36,7 +34,6 @@ const onChange = (text: string) => emit("update:modelValue", text);
   <component
     v-bind="$attrs"
     :is="components[component]"
-    v-model="modelValue"
     @input="onInput"
     @change="onChange"
   ></component>
